@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * IdRef
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:07:32.014+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:09:35.568+03:00")
 public class IdRef {
   @JsonProperty("@id")
   private String id = null;
