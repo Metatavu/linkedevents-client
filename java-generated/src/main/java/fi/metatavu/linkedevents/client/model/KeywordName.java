@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * KeywordName
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:02:28.547+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:05:38.168+03:00")
 public class KeywordName {
   @JsonProperty("fi")
   private String fi = null;
