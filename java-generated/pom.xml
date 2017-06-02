@@ -4,7 +4,7 @@
   <artifactId>linkedevents-client</artifactId>
   <packaging>jar</packaging>
   <name>linkedevents-client</name>
-  <version>0.0.1</version>
+  <version>0.0.2-SNAPSHOT</version>
   <description>Java client library for Linked events (https://github.com/City-of-Helsinki/linkedevents)</description>
   <url>https://github.com/Metatavu/linked-events-client</url>
 
