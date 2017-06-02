@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Contact phone number for the place, multilingual
  */
 @ApiModel(description = "Contact phone number for the place, multilingual")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:05:38.168+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:07:32.014+03:00")
 public class PlaceTelephone {
   @JsonProperty("fi")
   private String fi = null;
