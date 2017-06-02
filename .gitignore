@@ -1,0 +1,4 @@
+node_modules
+java-generated
+swagger-codegen-cli.jar
+nbproject
