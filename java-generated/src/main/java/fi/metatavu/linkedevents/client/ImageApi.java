@@ -14,6 +14,7 @@ package fi.metatavu.linkedevents.client;
 
 import fi.metatavu.linkedevents.client.model.*;
 
+import java.io.File;
 import fi.metatavu.linkedevents.client.model.Image;
 import fi.metatavu.linkedevents.client.model.InlineResponse2001;
 
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:09:35.568+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
 public class ImageApi {
 
   private ApiClient client;
@@ -34,13 +35,31 @@ public class ImageApi {
   }
   
   /**
+   * Create a new image
+   * There are two ways to create an image object. The image file can be posted as a multipart request, but the endpoint also accepts a simple JSON object with an external url in the url field. This allows using external images for events without saving them on the API server.
+   * @param imageFile  (optional)
+   */
+  public ApiResponse<Image> imageCreate(File imageFile) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+    if (imageFile != null)
+      formParams.put("image_file", imageFile);
+    
+    String requestPath = String.format("%s/image/", baseUrl);
+      
+    ResultType<Image> resultType = new ResultType<Image>() {};
+    return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
    * Returns a list of images
    * Image endpoint returns images that are used for events, places or organizers. 
    * @param page request particular page in paginated results (optional)
    * @param pageSize request that server delivers page_size results in response (optional)
    * @param include Embed given reference-type fields directly into the response, otherwise they are returned as URI references. (optional)
+   * @param sort return the results in ascending or descending order by the named field. sorting is only supported for some string, integer and datetime fields. (optional)
    */
-  public ApiResponse<InlineResponse2001> imageList(Integer page, Integer pageSize, List<String> include) {
+  public ApiResponse<InlineResponse2001> imageList(Integer page, Integer pageSize, List<String> include, String sort) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (page != null)
@@ -49,6 +68,8 @@ if (pageSize != null)
     queryParams.put("page_size", pageSize);
 if (include != null)
     queryParams.put("include", include);
+if (sort != null)
+    queryParams.put("sort", sort);
     
         
     String requestPath = String.format("%s/image/", baseUrl);
@@ -71,6 +92,23 @@ if (include != null)
       
     ResultType<Image> resultType = new ResultType<Image>() {};
     return client.doGETRequest(requestPath, resultType, queryParams, formParams);
+  }
+  /**
+   * Update an image
+   * Images can be updated if the user has appropriate access permissions. The original implementation behaves like PATCH, ie. if some field is left out from the PUT call, its value is retained in database. In order to ensure consistent behaviour, users should always supply every field in PUT call.
+   * @param id Identifier for the image to be updated (required)
+   * @param imageObject Image object that should replace the existing image, note that some implementations may retain unspecified fields at their original values. (optional)
+   */
+  public ApiResponse<Image> imageUpdate(String id, Image imageObject) {
+    Map<String, Object> queryParams = new HashMap<>();
+    Map<String, Object> formParams = new HashMap<>();
+        
+        
+    String requestPath = String.format("%s/image/{id}/"
+      .replaceAll("\\{" + "id" + "\\}", id), baseUrl);
+      
+    ResultType<Image> resultType = new ResultType<Image>() {};
+    return client.doPUTRequest(requestPath, resultType, queryParams, formParams);
   }
   
 }

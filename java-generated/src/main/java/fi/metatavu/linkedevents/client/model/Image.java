@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
  * Images are used as pictures for events, places and organizers.
  */
 @ApiModel(description = "Images are used as pictures for events, places and organizers.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:09:35.568+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
 public class Image {
   @JsonProperty("name")
   private ImageName name = null;
@@ -52,6 +52,9 @@ public class Image {
 
   @JsonProperty("cropping")
   private String cropping = null;
+
+  @JsonProperty("license")
+  private String license = null;
 
   public Image name(ImageName name) {
     this.name = name;
@@ -197,6 +200,24 @@ public class Image {
     this.cropping = cropping;
   }
 
+  public Image license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * License data for the image. May be \"cc_by\" (default) or \"event_only\". The latter license restricts use of the image and is specified on the API front page.
+   * @return license
+  **/
+  @ApiModelProperty(example = "null", value = "License data for the image. May be \"cc_by\" (default) or \"event_only\". The latter license restricts use of the image and is specified on the API front page.")
+  public String getLicense() {
+    return license;
+  }
+
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -214,12 +235,13 @@ public class Image {
         Objects.equals(this.createdBy, image.createdBy) &&
         Objects.equals(this.lastModifiedBy, image.lastModifiedBy) &&
         Objects.equals(this.url, image.url) &&
-        Objects.equals(this.cropping, image.cropping);
+        Objects.equals(this.cropping, image.cropping) &&
+        Objects.equals(this.license, image.license);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, publisher, createdTime, lastModifiedTime, createdBy, lastModifiedBy, url, cropping);
+    return Objects.hash(name, publisher, createdTime, lastModifiedTime, createdBy, lastModifiedBy, url, cropping, license);
   }
 
 
@@ -236,6 +258,7 @@ public class Image {
     sb.append("    lastModifiedBy: ").append(toIndentedString(lastModifiedBy)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    cropping: ").append(toIndentedString(cropping)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("}");
     return sb.toString();
   }

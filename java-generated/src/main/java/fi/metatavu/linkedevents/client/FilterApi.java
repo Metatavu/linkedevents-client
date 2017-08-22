@@ -19,7 +19,6 @@ import fi.metatavu.linkedevents.client.model.InlineResponse2003;
 import fi.metatavu.linkedevents.client.model.InlineResponse2004;
 import fi.metatavu.linkedevents.client.model.Keyword;
 import fi.metatavu.linkedevents.client.model.KeywordSet;
-import java.time.OffsetDateTime;
 import fi.metatavu.linkedevents.client.model.Place;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-06-02T10:09:35.568+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
 public class FilterApi {
 
   private ApiClient client;
@@ -40,26 +39,16 @@ public class FilterApi {
   
   /**
    * Returns a list of keywords used for describing events
-   * keyword endpoint returns keywords connected with events. What this means is that nearly all filtering is applied to events. Response then contains those keywords that are associated with the events that have passed filters. Exceptions to this are marked. 
+   * &lt;h2 id&#x3D;\&quot;using-keyword-endpoint\&quot;&gt;Using the keyword endpoint&lt;/h2&gt; &lt;p&gt;Here, categories for events are listed. Events in each category can be found at the &lt;code&gt;event&lt;/code&gt; endpoint using the query parameter &lt;code&gt;keyword&lt;/code&gt;. The common keywords used in all events originate from the &lt;a href&#x3D;\&quot;https://finto.fi/yso/en/\&quot;&gt;general Finnish ontology (yso)&lt;/a&gt;, hence the format &lt;code&gt;yso:p4354&lt;/code&gt;. Default ordering is decreasing order by the number of events found.&lt;/p&gt; &lt;h4 id&#x3D;\&quot;keyword-text\&quot;&gt;Keyword text&lt;/h4&gt; &lt;p&gt;To find keywords that contain a specific string, use the query parameter &lt;code&gt;text&lt;/code&gt;.&lt;/p&gt; &lt;p&gt;Example:&lt;/p&gt; &lt;pre&gt;&lt;code&gt;keyword/?text&#x3D;lapset &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;&lt;a href&#x3D;\&quot;?text&#x3D;lapset\&quot; title&#x3D;\&quot;json\&quot;&gt;See the result&lt;/a&gt;&lt;/p&gt; &lt;h4 id&#x3D;\&quot;keyword-source\&quot;&gt;Keyword source&lt;/h4&gt; &lt;p&gt;Will restrict keywords to a specific data source.&lt;/p&gt; &lt;p&gt;Example:&lt;/p&gt; &lt;pre&gt;&lt;code&gt;keyword/?data_source&#x3D;yso &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;&lt;a href&#x3D;\&quot;?data_source&#x3D;yso\&quot; title&#x3D;\&quot;json\&quot;&gt;See the result&lt;/a&gt;&lt;/p&gt; &lt;h4 id&#x3D;\&quot;showing-all-keyword\&quot;&gt;Showing all keywords&lt;/h4&gt; &lt;p&gt;By default, only those keywords which have listed events are displayed. You may display keywords with zero &lt;code&gt;n_events&lt;/code&gt; with the     query parameter &lt;code&gt;show_all_keywords&lt;/code&gt;.&lt;/p&gt; 
    * @param page request particular page in paginated results (optional)
    * @param pageSize request that server delivers page_size results in response (optional)
    * @param include Embed given reference-type fields directly into the response, otherwise they are returned as URI references. (optional)
    * @param showAllKeywords Show all keywords, including those that are not associated with any events. Otherwise such keywords are hidden. When show_all_keywords is specified, no other filter is applied, **except** \&quot;filter\&quot; (match for keywords beginning with string) (optional)
    * @param dataSource Search for keywords (**note**: NOT events) that come from the specified data source (see data source in keyword definition). (optional)
-   * @param filter Search for keywords (**note**: NOT events) that begin with the given string. This applies even when show_all_keywords is specified. (optional)
-   * @param text Search (case insensitive) through all multilingual text fields (name, description, short_description, info_url) of an event (every language). Multilingual fields contain the text that users are expected to care about, thus multilinguality is useful discriminator. (optional)
-   * @param lastModifiedSince Search for events that have been modified since or at this time. (optional)
-   * @param start Search for events beginning or ending after this time. Dates can be specified using ISO 8601 (\&quot;2016-01-12\&quot;) and additionally \&quot;today\&quot;. (optional)
-   * @param end Search for events beginning or ending before this time. Dates can be specified using ISO 8601 (\&quot;2016-01-12\&quot;) and additionally \&quot;today\&quot;. (optional)
-   * @param bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator. (optional)
-   * @param location Search for events in given locations as specified by id. Multiple ids are separated by comma (optional)
-   * @param keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma (optional)
-   * @param recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring. (optional)
-   * @param minDuration Search for events that are longer than given time in seconds (optional)
-   * @param maxDuration Search for events that are shorter than given time in seconds (optional)
-   * @param organization Search for events that have given organization as source (optional)
+   * @param text Search for keywords (**note**: NOT events) that contain the given string. This applies even when show_all_keywords is specified. (optional)
+   * @param sort Sort the returned keywords in the given order. Possible sorting criteria are &#39;n_events&#39;, &#39;id&#39;, &#39;name&#39;, &#39;data_source&#39;. The default ordering is &#39;-data_source&#39;, &#39;-n_events&#39;. (optional)
    */
-  public ApiResponse<InlineResponse2002> keywordList(Integer page, Integer pageSize, List<String> include, Boolean showAllKeywords, String dataSource, String filter, String text, String lastModifiedSince, OffsetDateTime start, OffsetDateTime end, List<String> bbox, List<Integer> location, String keyword, String recurring, Integer minDuration, Integer maxDuration, String organization) {
+  public ApiResponse<InlineResponse2002> keywordList(Integer page, Integer pageSize, List<String> include, Boolean showAllKeywords, String dataSource, String text, String sort) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (page != null)
@@ -72,30 +61,10 @@ if (showAllKeywords != null)
     queryParams.put("show_all_keywords", showAllKeywords);
 if (dataSource != null)
     queryParams.put("data_source", dataSource);
-if (filter != null)
-    queryParams.put("filter", filter);
 if (text != null)
     queryParams.put("text", text);
-if (lastModifiedSince != null)
-    queryParams.put("last_modified_since", lastModifiedSince);
-if (start != null)
-    queryParams.put("start", start);
-if (end != null)
-    queryParams.put("end", end);
-if (bbox != null)
-    queryParams.put("bbox", bbox);
-if (location != null)
-    queryParams.put("location", location);
-if (keyword != null)
-    queryParams.put("keyword", keyword);
-if (recurring != null)
-    queryParams.put("recurring", recurring);
-if (minDuration != null)
-    queryParams.put("min_duration", minDuration);
-if (maxDuration != null)
-    queryParams.put("max_duration", maxDuration);
-if (organization != null)
-    queryParams.put("organization", organization);
+if (sort != null)
+    queryParams.put("sort", sort);
     
         
     String requestPath = String.format("%s/keyword/", baseUrl);
@@ -160,24 +129,14 @@ if (include != null)
   }
   /**
    * Returns list of places used for describing events
-   * place endpoint returns places connected with events. What this means is that all filtering is applied to events. Response then contains those places that host the events that have passed filters. Exceptions to this are marked.
+   * &lt;h2 id&#x3D;\&quot;using-place-endpoint\&quot;&gt;Using the place endpoint&lt;/h2&gt; &lt;p&gt;Here, locations for events are listed. Events in each location can be found at the &lt;code&gt;event&lt;/code&gt; endpoint using the query parameter &lt;code&gt;location&lt;/code&gt;. Most locations     originate from the &lt;a href&#x3D;\&quot;https://servicemap.hel.fi\&quot;&gt;Helsinki service point registry (tprek)&lt;/a&gt;, hence the id format &lt;code&gt;tprek:28473&lt;/code&gt;. An easy way to locate service points is         to browse our &lt;a href&#x3D;\&quot;https://servicemap.hel.fi\&quot;&gt;Service Map&lt;/a&gt;, which uses the same location ids, e.g. &lt;code&gt;servicemap.hel.fi/unit/28473&lt;/code&gt;.&lt;/p&gt; &lt;h4 id&#x3D;\&quot;district\&quot;&gt;District&lt;/h4&gt; &lt;p&gt;To restrict the retrieved places to city district(s), use the query parameter &lt;code&gt;division&lt;/code&gt;, separating values by commas if you wish to query for several divisions.&lt;/p&gt; &lt;p&gt;City of Helsinki neighborhoods (kaupunginosa), districts (peruspiiri) and subdistricts (osa-alue) are supported.     &lt;a href&#x3D;\&quot;http://kartta.hel.fi/?setlanguage&#x3D;en&amp;e&#x3D;25498873&amp;n&#x3D;6674660&amp;r&#x3D;16&amp;w&#x3D;***&amp;l&#x3D;Karttasarja%2Ckaupunginosat%2Cosaalueet_WFS%2Cperuspiiri_WFS&amp;o&#x3D;100%2C100%2C100%2C100&amp;swtab&#x3D;kaikki\&quot;&gt;         Check the divisions on the Helsinki map service.&lt;/a&gt; &lt;/p&gt; &lt;p&gt;You may query either by specific OCD division type &lt;code&gt;peruspiiri:malmi&lt;/code&gt;, or by division name &lt;code&gt;malmi&lt;/code&gt;. The latter query checks all divisions with the name, regardless of division type.&lt;/p&gt; &lt;p&gt;Example:&lt;/p&gt; &lt;pre&gt;&lt;code&gt;place/?division&#x3D;malmi &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;&lt;a href&#x3D;\&quot;?division&#x3D;malmi\&quot; title&#x3D;\&quot;json\&quot;&gt;See the result&lt;/a&gt;&lt;/p&gt; &lt;h4 id&#x3D;\&quot;ordering\&quot;&gt;Ordering&lt;/h4&gt; &lt;p&gt;Default ordering is decreasing order by the number of events found.     You may also order results by &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;street_address&lt;/code&gt; or &lt;code&gt;postal_code&lt;/code&gt;.     For example:&lt;/p&gt; &lt;pre&gt;&lt;code&gt;place/?sort&#x3D;name &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;&lt;a href&#x3D;\&quot;?sort&#x3D;name\&quot; title&#x3D;\&quot;json\&quot;&gt;See the result&lt;/a&gt;&lt;/p&gt; &lt;h4 id&#x3D;\&quot;showing-all-places\&quot;&gt;Showing all places&lt;/h4&gt; &lt;p&gt;By default, only those locations which have listed events are displayed. You may display locations with zero &lt;code&gt;n_events&lt;/code&gt; with the     query parameter &lt;code&gt;show_all_places&lt;/code&gt;.&lt;/p&gt; 
    * @param page request particular page in paginated results (optional)
    * @param pageSize request that server delivers page_size results in response (optional)
    * @param showAllPlaces Show all places, including those that are not hosting any events. Otherwise such places are hidden. When show_all_places is specified, no other filter is applied. (optional)
-   * @param text Search (case insensitive) through all multilingual text fields (name, description, short_description, info_url) of an event (every language). Multilingual fields contain the text that users are expected to care about, thus multilinguality is useful discriminator. (optional)
-   * @param lastModifiedSince Search for events that have been modified since or at this time. (optional)
-   * @param start Search for events beginning or ending after this time. Dates can be specified using ISO 8601 (\&quot;2016-01-12\&quot;) and additionally \&quot;today\&quot;. (optional)
-   * @param end Search for events beginning or ending before this time. Dates can be specified using ISO 8601 (\&quot;2016-01-12\&quot;) and additionally \&quot;today\&quot;. (optional)
-   * @param bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator. (optional)
-   * @param dataSource Search for events that come from the specified source (optional)
-   * @param location Search for events in given locations as specified by id. Multiple ids are separated by comma (optional)
-   * @param keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma (optional)
-   * @param recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring. (optional)
-   * @param minDuration Search for events that are longer than given time in seconds (optional)
-   * @param maxDuration Search for events that are shorter than given time in seconds (optional)
-   * @param organization Search for events that have given organization as source (optional)
+   * @param division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type. (optional)
+   * @param sort Sort the returned places in the given order. Possible sorting criteria are &#39;n_events&#39;, &#39;id&#39;, &#39;name&#39;, &#39;street_address&#39; and &#39;postal_code&#39;. The default ordering is &#39;-n_events&#39;. (optional)
    */
-  public ApiResponse<InlineResponse2004> placeList(Integer page, Integer pageSize, Boolean showAllPlaces, String text, String lastModifiedSince, OffsetDateTime start, OffsetDateTime end, List<String> bbox, String dataSource, List<Integer> location, String keyword, String recurring, Integer minDuration, Integer maxDuration, String organization) {
+  public ApiResponse<InlineResponse2004> placeList(Integer page, Integer pageSize, Boolean showAllPlaces, String division, String sort) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (page != null)
@@ -186,30 +145,10 @@ if (pageSize != null)
     queryParams.put("page_size", pageSize);
 if (showAllPlaces != null)
     queryParams.put("show_all_places", showAllPlaces);
-if (text != null)
-    queryParams.put("text", text);
-if (lastModifiedSince != null)
-    queryParams.put("last_modified_since", lastModifiedSince);
-if (start != null)
-    queryParams.put("start", start);
-if (end != null)
-    queryParams.put("end", end);
-if (bbox != null)
-    queryParams.put("bbox", bbox);
-if (dataSource != null)
-    queryParams.put("data_source", dataSource);
-if (location != null)
-    queryParams.put("location", location);
-if (keyword != null)
-    queryParams.put("keyword", keyword);
-if (recurring != null)
-    queryParams.put("recurring", recurring);
-if (minDuration != null)
-    queryParams.put("min_duration", minDuration);
-if (maxDuration != null)
-    queryParams.put("max_duration", maxDuration);
-if (organization != null)
-    queryParams.put("organization", organization);
+if (division != null)
+    queryParams.put("division", division);
+if (sort != null)
+    queryParams.put("sort", sort);
     
         
     String requestPath = String.format("%s/place/", baseUrl);
