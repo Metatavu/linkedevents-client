@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * information record for this event. The prices are not in a structured format and the format depends on information source. An exception to this is the case of free event. These are indicated using is_free flag, which is searchable.
  */
 @ApiModel(description = "information record for this event. The prices are not in a structured format and the format depends on information source. An exception to this is the case of free event. These are indicated using is_free flag, which is searchable.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
 public class Offer {
   @JsonProperty("price")
   private OfferPrice price = null;

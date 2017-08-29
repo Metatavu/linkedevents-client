@@ -36,7 +36,7 @@ import java.util.List;
  * Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \&quot;super events\&quot;. Super events are normal event objects, that reference contained events in \&quot;sub_events\&quot; property. Currently there are two major use cases: events such as \&quot;Helsinki Festival\&quot;, which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.
  */
 @ApiModel(description = "Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \"super events\". Super events are normal event objects, that reference contained events in \"sub_events\" property. Currently there are two major use cases: events such as \"Helsinki Festival\", which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
 public class Event {
   @JsonProperty("id")
   private String id = null;
@@ -81,10 +81,10 @@ public class Event {
   private List<Image> images = null;
 
   @JsonProperty("created_time")
-  private java.time.temporal.TemporalAccessor createdTime = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("info_url")
   private EventInfoUrl infoUrl = null;
@@ -102,7 +102,7 @@ public class Event {
   private String type = null;
 
   @JsonProperty("date_published")
-  private java.time.temporal.TemporalAccessor datePublished = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor datePublished = null;
 
   @JsonProperty("provider")
   private Object provider = null;
@@ -111,10 +111,10 @@ public class Event {
   private Object locationExtraInfo = null;
 
   @JsonProperty("start_time")
-  private java.time.temporal.TemporalAccessor startTime = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor startTime = null;
 
   @JsonProperty("end_time")
-  private java.time.temporal.TemporalAccessor endTime = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor endTime = null;
 
   @JsonProperty("audience")
   private List<Keyword> audience = null;
@@ -428,7 +428,7 @@ public class Event {
     this.images = images;
   }
 
-  public Event createdTime(java.time.temporal.TemporalAccessor createdTime) {
+  public Event createdTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -438,15 +438,15 @@ public class Event {
    * @return createdTime
   **/
   @ApiModelProperty(value = "Creation time for the event entry.")
-  public java.time.temporal.TemporalAccessor getCreatedTime() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
+  public void setCreatedTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public Event lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
+  public Event lastModifiedTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -456,11 +456,11 @@ public class Event {
    * @return lastModifiedTime
   **/
   @ApiModelProperty(value = "Time this event was modified in the datastore behind the API (not necessarily in the originating system)")
-  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
+  public void setLastModifiedTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
@@ -554,7 +554,7 @@ public class Event {
     this.type = type;
   }
 
-  public Event datePublished(java.time.temporal.TemporalAccessor datePublished) {
+  public Event datePublished(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor datePublished) {
     this.datePublished = datePublished;
     return this;
   }
@@ -564,11 +564,11 @@ public class Event {
    * @return datePublished
   **/
   @ApiModelProperty(value = "Date this event is free to be published")
-  public java.time.temporal.TemporalAccessor getDatePublished() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getDatePublished() {
     return datePublished;
   }
 
-  public void setDatePublished(java.time.temporal.TemporalAccessor datePublished) {
+  public void setDatePublished(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor datePublished) {
     this.datePublished = datePublished;
   }
 
@@ -608,7 +608,7 @@ public class Event {
     this.locationExtraInfo = locationExtraInfo;
   }
 
-  public Event startTime(java.time.temporal.TemporalAccessor startTime) {
+  public Event startTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -618,15 +618,15 @@ public class Event {
    * @return startTime
   **/
   @ApiModelProperty(required = true, value = "Time the event will start")
-  public java.time.temporal.TemporalAccessor getStartTime() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(java.time.temporal.TemporalAccessor startTime) {
+  public void setStartTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor startTime) {
     this.startTime = startTime;
   }
 
-  public Event endTime(java.time.temporal.TemporalAccessor endTime) {
+  public Event endTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -636,11 +636,11 @@ public class Event {
    * @return endTime
   **/
   @ApiModelProperty(value = "Time the event will end")
-  public java.time.temporal.TemporalAccessor getEndTime() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(java.time.temporal.TemporalAccessor endTime) {
+  public void setEndTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor endTime) {
     this.endTime = endTime;
   }
 

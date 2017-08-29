@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Translation for the language name. Properties shown here are examples, it is suggested that every language supported has its name translated to every other language. Users of the API cannot rely on any translations being present.
  */
 @ApiModel(description = "Translation for the language name. Properties shown here are examples, it is suggested that every language supported has its name translated to every other language. Users of the API cannot rely on any translations being present.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
 public class LanguageName {
   @JsonProperty("fi")
   private String fi = null;

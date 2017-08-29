@@ -29,7 +29,7 @@ import java.util.List;
  * Keyword sets are used to group keywords together into classification groups. For example, one set of keywords might describe themes used by an event provider and another could be used to describe audience groups.
  */
 @ApiModel(description = "Keyword sets are used to group keywords together into classification groups. For example, one set of keywords might describe themes used by an event provider and another could be used to describe audience groups.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
 public class KeywordSet {
   @JsonProperty("id")
   private String id = null;
@@ -41,10 +41,10 @@ public class KeywordSet {
   private String originId = null;
 
   @JsonProperty("created_time")
-  private java.time.temporal.TemporalAccessor createdTime = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
+  private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("data_source")
   private String dataSource = null;
@@ -152,7 +152,7 @@ public class KeywordSet {
     this.originId = originId;
   }
 
-  public KeywordSet createdTime(java.time.temporal.TemporalAccessor createdTime) {
+  public KeywordSet createdTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -162,15 +162,15 @@ public class KeywordSet {
    * @return createdTime
   **/
   @ApiModelProperty(value = "Time when this keyword_set was created (ISO 8601)")
-  public java.time.temporal.TemporalAccessor getCreatedTime() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
+  public void setCreatedTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public KeywordSet lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
+  public KeywordSet lastModifiedTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -180,11 +180,11 @@ public class KeywordSet {
    * @return lastModifiedTime
   **/
   @ApiModelProperty(value = "Time when this keyword_set was last modified (ISO 8601)")
-  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
+  public @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
+  public void setLastModifiedTime(@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
