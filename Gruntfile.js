@@ -5,9 +5,11 @@ var fs = require('fs');
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   
+  const PHP_CLIENT_VERSION = '0.0.1';
+  
   grunt.initConfig({
     'clean': {
-      'cruft': [
+      'java-cruft': [
         'java-generated/docs', 
         'java-generated/gradle', 
         'java-generated/build.gradle',
@@ -25,7 +27,7 @@ module.exports = function(grunt) {
         'java-generated/src/main/java/fi/metatavu/linkedevents/auth',
         'java-generated/src/main/java/fi/metatavu/linkedevents/*.java'
       ],
-      'sources': ['java-generated/src']
+      'java-sources': ['java-generated/src']
     },
     'copy': {
       'java-extras': {
@@ -42,7 +44,7 @@ module.exports = function(grunt) {
       }
     },
     'shell': {
-      'generate-java-client': {
+      'java-generate-client': {
         command : 'mv java-generated/pom.xml java-generated/pom.xml.before && ' +
           'java -jar swagger-codegen-cli.jar generate ' +
           '-i ./linked-events.swagger.yaml ' +
@@ -57,7 +59,7 @@ module.exports = function(grunt) {
           '--additional-properties dateLibrary=java8 ' +
           '-o java-generated/'
       },
-      'install': {
+      'java-install': {
         command : 'mvn install',
         options: {
           execOptions: {
@@ -65,11 +67,27 @@ module.exports = function(grunt) {
           }
         }
       },
-      'release': {
+      'java-release': {
         command : 'git add src pom.xml && git commit -m "Generated source" && git push && mvn -B release:clean release:prepare release:perform',
         options: {
           execOptions: {
             cwd: 'java-generated'
+          }
+        }
+      },
+      'php-generate-client': {
+        command : 'java -jar swagger-codegen-cli.jar generate ' +
+          '-i ./linked-events.swagger.yaml ' +
+          '-l php ' +
+          '--template-dir php-templates ' +
+          '-o php-generated ' +
+          '--additional-properties packagePath=linkedevents-client-php,composerVendorName=metatavu,composerProjectName=linkedevents-php-client,variableNamingConvention=camelCase,invokerPackage=Metatavu\\\\LinkedEvents,apiPackage=Client,modelPackage=Model,artifactVersion=' + PHP_CLIENT_VERSION
+      },
+      'php-client-publish': {
+        command : 'sh git_push.sh',
+        options: {
+          execOptions: {
+            cwd: 'php-generated/linkedevents-client-php'
           }
         }
       }
@@ -77,6 +95,10 @@ module.exports = function(grunt) {
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
-  grunt.registerTask('default', ['download-dependencies', 'clean:sources', 'shell:generate-java-client', 'clean:cruft', 'copy:java-extras', 'shell:install', 'shell:release' ]);
+  grunt.registerTask('java', [ 'clean:java-sources', 'shell:java-generate-client', 'clean:java-cruft', 'copy:java-extras', 'shell:java-install', 'shell:java-release' ]);
+  grunt.registerTask('php', [ 'shell:php-generate-client', 'shell:php-client-publish' ]);
+  
+  
+  grunt.registerTask('default', ['download-dependencies', 'java', 'php']);
   
 };
