@@ -235,7 +235,7 @@ definitions:
             description: Link to Finnish page
             type: string
             format: url
-          se:
+          sv:
             description: Link to Swedish page
             type: string
             format: url
@@ -344,6 +344,10 @@ definitions:
     required:
     - url
     properties:
+      id:
+        type: integer
+        format: int64
+        description: image id
       name:
         type: object
         properties:
@@ -382,8 +386,17 @@ definitions:
       license:
         type: string
         description: License data for the image. May be "cc_by" (default) or "event_only". The latter license restricts use of the image and is specified on the API front page.
-
-
+        
+  image_url:
+    title: Image URL
+    description: Images URL
+    type: object
+    required:
+    - url
+    properties:
+      url:
+        type: string
+        description: The image file URL.
 
   keyword:
     title: Keyword
@@ -507,13 +520,18 @@ definitions:
           fi:
             description: Name of the language in Finnish
             type: string
-          se:
+          sv:
             description: Name of the language in Swedish
             type: string
           en:
             description: Name of the language in English
             type: string
 
+  id_ref:
+    type: object
+    properties:
+      "@id":
+        type: string
   event:
     title: Events
     type: object
@@ -529,13 +547,12 @@ definitions:
         description: consists of source prefix and source specific identifier. These should be URIs uniquely identifying the event, and preferably also well formed http-URLs pointing to more information about the event.
         type: string
       location:
-        "$ref": '#/definitions/place'
+        "$ref": '#/definitions/id_ref'
       keywords:
         description: array of keyword uri references
         type: array
         items:
-          type: string
-          format: uri
+          "$ref": '#/definitions/id_ref'
       in_language:
         description: the languages spoken or supported at the event
         type: array
@@ -578,7 +595,7 @@ definitions:
           fi:
             description: Name of the event in Finnish
             type: string
-          se:
+          sv:
             description: Name of the event in Swedish
             type: string
           en:
@@ -604,7 +621,7 @@ definitions:
             description: Link to Finnish page
             type: string
             format: url
-          se:
+          sv:
             description: Link to Swedish page
             type: string
             format: url
@@ -618,7 +635,7 @@ definitions:
         properties:
           fi:
             description: Finnish description of the event
-          se:
+          sv:
             description: Swedish description of the event
           en:
             description: English description of the event
@@ -628,10 +645,14 @@ definitions:
         properties:
           fi:
             description: short Finnish description of the event
-          se:
+          sv:
             description: short Swedish description of the event
           en:
-            description: short English description of the event
+            description: short English description of the event 
+      "@context":
+        type: string
+      "@type":
+        type: string
       date_published:
         type: string
         format: date-time
@@ -642,7 +663,7 @@ definitions:
         properties:
           fi:
             description: provider name in Finnish for the event
-          se:
+          sv:
             description: provider name in Swedish for the event
           en:
             description: provider name in English for the event
@@ -652,7 +673,7 @@ definitions:
         properties:
           fi:
             description: location extra info in Finnish for the event
-          se:
+          sv:
             description: location extra info in Swedish for the event
           en:
             description: location extra info in English for the event
@@ -706,7 +727,7 @@ definitions:
             description: Link to Finnish page
             type: string
             format: url
-          se:
+          sv:
             description: Link to Swedish page
             type: string
             format: url
@@ -862,7 +883,10 @@ paths:
       - name: image_file
         in: formData
         type: file
-
+      - name: image_object
+        in: body
+        schema:
+          $ref: '#/definitions/image_url'
   /image/{id}/:
     get:
       summary: Return information for single image
@@ -969,7 +993,28 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/keyword'
-
+    post:
+      summary: Creates new keyword
+      description: Endpoint for creating new keywords
+      operationId: keyword_create
+      tags:
+      - filter
+      responses:
+        201:
+          description: Object has been succesfully created.
+          schema:
+            $ref: '#/definitions/place'
+        400:
+          description: Input format was not correct, eg. mandatory field was missing or JSON was malformed
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - name: keyword_object
+        in: body
+        schema:
+          $ref: '#/definitions/keyword'
   /keyword/{id}/:
     get:
       summary: Return information for single keyword
@@ -987,7 +1032,53 @@ paths:
         in: path
         name: id
         required: true
-
+    put:
+      summary: Update a keyword
+      description: Keywords can be updated if the user has appropriate access permissions.
+      operationId: keyword_update
+      tags:
+      - filter
+      responses:
+        200:
+          description: Keyword has been succesfully replaced
+          schema:
+            $ref: '#/definitions/keyword'
+        400:
+          description: Input format was not correct, eg. mandatory field was missing or JSON was malformed
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - type: string
+        in: path
+        name: id
+        required: true
+        description: Identifier for the keyword to be updated
+      - name: keyword_object
+        in: body
+        description: Keyword object that should replace the existing keyword
+        schema:
+          $ref: '#/definitions/keyword'
+    delete:
+      summary: Delete a keyword
+      description: Deletes a keyword
+      operationId: keyword_delete
+      tags:
+      - filter
+      responses:
+        204:
+          description: Keyword has been succesfully deleted
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - type: string
+        in: path
+        name: id
+        required: true
+        description: Identifier for the keyword to be deleted
   /keyword_set/:
     get:
       summary: Return as list of keyword_sets for grouping keywords
@@ -1082,6 +1173,13 @@ paths:
           in: query
           type: string
           description: 'You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.'
+        - name: data_source
+          in: query
+          type: string
+          description: 'Search for places that come from specified data source'
+        - name: text
+          in: query
+          type: string          
         - $ref: '#/parameters/place_sort_param'
 
       responses:
@@ -1096,6 +1194,28 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/place'
+    post:
+      summary: Creates new place
+      description: Endpoint for creating new places
+      operationId: place_create
+      tags:
+      - filter
+      responses:
+        201:
+          description: Object has been succesfully created. A copy of the object is returned in response body and headers contain Location pointing to the created event
+          schema:
+            $ref: '#/definitions/place'
+        400:
+          description: Input format was not correct, eg. mandatory field was missing or JSON was malformed
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - name: place_object
+        in: body
+        schema:
+          $ref: '#/definitions/place'
 
   /place/{id}/:
     get:
@@ -1114,7 +1234,53 @@ paths:
         name: id
         required: true
         description: Id as defined in place model
-
+    put:
+      summary: Update a place
+      description: Place can be updated if the user has appropriate access permissions.
+      operationId: place_update
+      tags:
+      - filter
+      responses:
+        200:
+          description: Place has been succesfully replaced
+          schema:
+            $ref: '#/definitions/place'
+        400:
+          description: Input format was not correct, eg. mandatory field was missing or JSON was malformed
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - type: string
+        in: path
+        name: id
+        required: true
+        description: Identifier for the place to be updated
+      - name: place_object
+        in: body
+        description: Place object that should replace the existing place.
+        schema:
+          $ref: '#/definitions/place'
+    delete:
+      summary: Delete a place
+      description: Deletes a place
+      operationId: place_delete
+      tags:
+      - filter
+      responses:
+        204:
+          description: Place has been succesfully deleted
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - type: string
+        in: path
+        name: id
+        required: true
+        description: Identifier for the place to be deleted
   /language/:
     get:
       summary: Return a list of languages used for describing events
@@ -1277,7 +1443,8 @@ paths:
       - $ref: '#/parameters/event_max_duration_param'
       - $ref: '#/parameters/event_organization_param'
       - $ref: '#/parameters/event_sort_param'
-
+      - $ref: '#/parameters/page_param'
+      - $ref: '#/parameters/pagesize_param'
     post:
       summary: Create a new event
       operationId: event_create
@@ -1345,3 +1512,22 @@ paths:
         description: Event object that should replace the existing event, note that some implementations may retain unspecified fields at their original values.
         schema:
           $ref: '#/definitions/event'
+    delete:
+      summary: Delete an event
+      description: Deletes an event
+      operationId: event_delete
+      tags:
+      - event
+      responses:
+        204:
+          description: Event has been succesfully deleted
+        401:
+          description: User was not authenticated
+        403:
+          description: User does not have necessary permissions
+      parameters:
+      - type: string
+        in: path
+        name: id
+        required: true
+        description: Identifier for the event to be deleted
