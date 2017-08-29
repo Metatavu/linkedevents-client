@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Describes where the address is located, typically this would be name of the city
  */
 @ApiModel(description = "Describes where the address is located, typically this would be name of the city")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
 public class PlaceAddressLocality {
   @JsonProperty("fi")
   private String fi = null;

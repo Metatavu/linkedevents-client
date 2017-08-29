@@ -19,11 +19,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import fi.metatavu.linkedevents.client.model.EventInfoUrl;
 import fi.metatavu.linkedevents.client.model.EventName;
 import fi.metatavu.linkedevents.client.model.Eventlink;
+import fi.metatavu.linkedevents.client.model.IdRef;
 import fi.metatavu.linkedevents.client.model.Image;
 import fi.metatavu.linkedevents.client.model.Keyword;
 import fi.metatavu.linkedevents.client.model.Language;
 import fi.metatavu.linkedevents.client.model.Offer;
-import fi.metatavu.linkedevents.client.model.Place;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -36,16 +36,16 @@ import java.util.List;
  * Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \&quot;super events\&quot;. Super events are normal event objects, that reference contained events in \&quot;sub_events\&quot; property. Currently there are two major use cases: events such as \&quot;Helsinki Festival\&quot;, which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.
  */
 @ApiModel(description = "Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \"super events\". Super events are normal event objects, that reference contained events in \"sub_events\" property. Currently there are two major use cases: events such as \"Helsinki Festival\", which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
 public class Event {
   @JsonProperty("id")
   private String id = null;
 
   @JsonProperty("location")
-  private Place location = null;
+  private IdRef location = null;
 
   @JsonProperty("keywords")
-  private List<String> keywords = new ArrayList<String>();
+  private List<IdRef> keywords = new ArrayList<IdRef>();
 
   @JsonProperty("in_language")
   private List<Language> inLanguage = new ArrayList<Language>();
@@ -95,6 +95,12 @@ public class Event {
   @JsonProperty("short_description")
   private Object shortDescription = null;
 
+  @JsonProperty("@context")
+  private String context = null;
+
+  @JsonProperty("@type")
+  private String type = null;
+
   @JsonProperty("date_published")
   private OffsetDateTime datePublished = null;
 
@@ -143,7 +149,7 @@ public class Event {
     this.id = id;
   }
 
-  public Event location(Place location) {
+  public Event location(IdRef location) {
     this.location = location;
     return this;
   }
@@ -153,20 +159,20 @@ public class Event {
    * @return location
   **/
   @ApiModelProperty(example = "null", required = true, value = "")
-  public Place getLocation() {
+  public IdRef getLocation() {
     return location;
   }
 
-  public void setLocation(Place location) {
+  public void setLocation(IdRef location) {
     this.location = location;
   }
 
-  public Event keywords(List<String> keywords) {
+  public Event keywords(List<IdRef> keywords) {
     this.keywords = keywords;
     return this;
   }
 
-  public Event addKeywordsItem(String keywordsItem) {
+  public Event addKeywordsItem(IdRef keywordsItem) {
     this.keywords.add(keywordsItem);
     return this;
   }
@@ -176,11 +182,11 @@ public class Event {
    * @return keywords
   **/
   @ApiModelProperty(example = "null", required = true, value = "array of keyword uri references")
-  public List<String> getKeywords() {
+  public List<IdRef> getKeywords() {
     return keywords;
   }
 
-  public void setKeywords(List<String> keywords) {
+  public void setKeywords(List<IdRef> keywords) {
     this.keywords = keywords;
   }
 
@@ -497,6 +503,42 @@ public class Event {
     this.shortDescription = shortDescription;
   }
 
+  public Event context(String context) {
+    this.context = context;
+    return this;
+  }
+
+   /**
+   * Get context
+   * @return context
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getContext() {
+    return context;
+  }
+
+  public void setContext(String context) {
+    this.context = context;
+  }
+
+  public Event type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
   public Event datePublished(OffsetDateTime datePublished) {
     this.datePublished = datePublished;
     return this;
@@ -711,6 +753,8 @@ public class Event {
         Objects.equals(this.infoUrl, event.infoUrl) &&
         Objects.equals(this.description, event.description) &&
         Objects.equals(this.shortDescription, event.shortDescription) &&
+        Objects.equals(this.context, event.context) &&
+        Objects.equals(this.type, event.type) &&
         Objects.equals(this.datePublished, event.datePublished) &&
         Objects.equals(this.provider, event.provider) &&
         Objects.equals(this.locationExtraInfo, event.locationExtraInfo) &&
@@ -725,7 +769,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, location, keywords, inLanguage, superEvent, superEventType, eventStatus, publicationStatus, externalLinks, offers, subEvents, customData, name, images, createdTime, lastModifiedTime, infoUrl, description, shortDescription, datePublished, provider, locationExtraInfo, startTime, endTime, audience, dataSource, createdBy, lastModifiedBy, publisher);
+    return Objects.hash(id, location, keywords, inLanguage, superEvent, superEventType, eventStatus, publicationStatus, externalLinks, offers, subEvents, customData, name, images, createdTime, lastModifiedTime, infoUrl, description, shortDescription, context, type, datePublished, provider, locationExtraInfo, startTime, endTime, audience, dataSource, createdBy, lastModifiedBy, publisher);
   }
 
 
@@ -753,6 +797,8 @@ public class Event {
     sb.append("    infoUrl: ").append(toIndentedString(infoUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    shortDescription: ").append(toIndentedString(shortDescription)).append("\n");
+    sb.append("    context: ").append(toIndentedString(context)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    datePublished: ").append(toIndentedString(datePublished)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    locationExtraInfo: ").append(toIndentedString(locationExtraInfo)).append("\n");

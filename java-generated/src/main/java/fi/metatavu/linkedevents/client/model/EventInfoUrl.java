@@ -25,13 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
  * Link (URL) to a page with more information about event
  */
 @ApiModel(description = "Link (URL) to a page with more information about event")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
 public class EventInfoUrl {
   @JsonProperty("fi")
   private String fi = null;
 
-  @JsonProperty("se")
-  private String se = null;
+  @JsonProperty("sv")
+  private String sv = null;
 
   @JsonProperty("en")
   private String en = null;
@@ -54,22 +54,22 @@ public class EventInfoUrl {
     this.fi = fi;
   }
 
-  public EventInfoUrl se(String se) {
-    this.se = se;
+  public EventInfoUrl sv(String sv) {
+    this.sv = sv;
     return this;
   }
 
    /**
    * Link to Swedish page
-   * @return se
+   * @return sv
   **/
   @ApiModelProperty(example = "null", value = "Link to Swedish page")
-  public String getSe() {
-    return se;
+  public String getSv() {
+    return sv;
   }
 
-  public void setSe(String se) {
-    this.se = se;
+  public void setSv(String sv) {
+    this.sv = sv;
   }
 
   public EventInfoUrl en(String en) {
@@ -101,13 +101,13 @@ public class EventInfoUrl {
     }
     EventInfoUrl eventInfoUrl = (EventInfoUrl) o;
     return Objects.equals(this.fi, eventInfoUrl.fi) &&
-        Objects.equals(this.se, eventInfoUrl.se) &&
+        Objects.equals(this.sv, eventInfoUrl.sv) &&
         Objects.equals(this.en, eventInfoUrl.en);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fi, se, en);
+    return Objects.hash(fi, sv, en);
   }
 
 
@@ -117,7 +117,7 @@ public class EventInfoUrl {
     sb.append("class EventInfoUrl {\n");
     
     sb.append("    fi: ").append(toIndentedString(fi)).append("\n");
-    sb.append("    se: ").append(toIndentedString(se)).append("\n");
+    sb.append("    sv: ").append(toIndentedString(sv)).append("\n");
     sb.append("    en: ").append(toIndentedString(en)).append("\n");
     sb.append("}");
     return sb.toString();

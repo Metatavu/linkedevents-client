@@ -27,8 +27,11 @@ import java.time.OffsetDateTime;
  * Images are used as pictures for events, places and organizers.
  */
 @ApiModel(description = "Images are used as pictures for events, places and organizers.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
 public class Image {
+  @JsonProperty("id")
+  private Long id = null;
+
   @JsonProperty("name")
   private ImageName name = null;
 
@@ -55,6 +58,24 @@ public class Image {
 
   @JsonProperty("license")
   private String license = null;
+
+  public Image id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * image id
+   * @return id
+  **/
+  @ApiModelProperty(example = "null", value = "image id")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public Image name(ImageName name) {
     this.name = name;
@@ -228,7 +249,8 @@ public class Image {
       return false;
     }
     Image image = (Image) o;
-    return Objects.equals(this.name, image.name) &&
+    return Objects.equals(this.id, image.id) &&
+        Objects.equals(this.name, image.name) &&
         Objects.equals(this.publisher, image.publisher) &&
         Objects.equals(this.createdTime, image.createdTime) &&
         Objects.equals(this.lastModifiedTime, image.lastModifiedTime) &&
@@ -241,7 +263,7 @@ public class Image {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, publisher, createdTime, lastModifiedTime, createdBy, lastModifiedBy, url, cropping, license);
+    return Objects.hash(id, name, publisher, createdTime, lastModifiedTime, createdBy, lastModifiedBy, url, cropping, license);
   }
 
 
@@ -250,6 +272,7 @@ public class Image {
     StringBuilder sb = new StringBuilder();
     sb.append("class Image {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
     sb.append("    createdTime: ").append(toIndentedString(createdTime)).append("\n");

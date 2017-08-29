@@ -16,6 +16,7 @@ import fi.metatavu.linkedevents.client.model.*;
 
 import java.io.File;
 import fi.metatavu.linkedevents.client.model.Image;
+import fi.metatavu.linkedevents.client.model.ImageUrl;
 import fi.metatavu.linkedevents.client.model.InlineResponse2001;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-22T05:04:29.814+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
 public class ImageApi {
 
   private ApiClient client;
@@ -38,8 +39,9 @@ public class ImageApi {
    * Create a new image
    * There are two ways to create an image object. The image file can be posted as a multipart request, but the endpoint also accepts a simple JSON object with an external url in the url field. This allows using external images for events without saving them on the API server.
    * @param imageFile  (optional)
+   * @param imageObject  (optional)
    */
-  public ApiResponse<Image> imageCreate(File imageFile) {
+  public ApiResponse<Image> imageCreate(File imageFile, ImageUrl imageObject) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         

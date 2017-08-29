@@ -16,65 +16,35 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import fi.metatavu.linkedevents.client.model.Keyword;
-import fi.metatavu.linkedevents.client.model.MetaDefinition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 /**
- * InlineResponse2002
+ * IdRef
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
-public class InlineResponse2002 {
-  @JsonProperty("meta")
-  private MetaDefinition meta = null;
+public class IdRef {
+  @JsonProperty("@id")
+  private String id = null;
 
-  @JsonProperty("data")
-  private List<Keyword> data = new ArrayList<Keyword>();
-
-  public InlineResponse2002 meta(MetaDefinition meta) {
-    this.meta = meta;
+  public IdRef id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get meta
-   * @return meta
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(example = "null", value = "")
-  public MetaDefinition getMeta() {
-    return meta;
+  public String getId() {
+    return id;
   }
 
-  public void setMeta(MetaDefinition meta) {
-    this.meta = meta;
-  }
-
-  public InlineResponse2002 data(List<Keyword> data) {
-    this.data = data;
-    return this;
-  }
-
-  public InlineResponse2002 addDataItem(Keyword dataItem) {
-    this.data.add(dataItem);
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Keyword> getData() {
-    return data;
-  }
-
-  public void setData(List<Keyword> data) {
-    this.data = data;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -86,24 +56,22 @@ public class InlineResponse2002 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2002 inlineResponse2002 = (InlineResponse2002) o;
-    return Objects.equals(this.meta, inlineResponse2002.meta) &&
-        Objects.equals(this.data, inlineResponse2002.data);
+    IdRef idRef = (IdRef) o;
+    return Objects.equals(this.id, idRef.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(meta, data);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2002 {\n");
+    sb.append("class IdRef {\n");
     
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
