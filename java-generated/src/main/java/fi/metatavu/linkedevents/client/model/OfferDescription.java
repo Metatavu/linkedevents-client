@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Further description of the pricing
  */
 @ApiModel(description = "Further description of the pricing")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class OfferDescription {
   @JsonProperty("fi")
   private String fi = null;
@@ -45,7 +46,7 @@ public class OfferDescription {
    * Finnish price description
    * @return fi
   **/
-  @ApiModelProperty(example = "null", value = "Finnish price description")
+  @ApiModelProperty(value = "Finnish price description")
   public String getFi() {
     return fi;
   }
@@ -63,7 +64,7 @@ public class OfferDescription {
    * Swedish price description
    * @return sv
   **/
-  @ApiModelProperty(example = "null", value = "Swedish price description")
+  @ApiModelProperty(value = "Swedish price description")
   public String getSv() {
     return sv;
   }
@@ -81,7 +82,7 @@ public class OfferDescription {
    * English price description
    * @return en
   **/
-  @ApiModelProperty(example = "null", value = "English price description")
+  @ApiModelProperty(value = "English price description")
   public String getEn() {
     return en;
   }

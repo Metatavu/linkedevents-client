@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.EventInfoUrl;
 import fi.metatavu.linkedevents.client.model.EventName;
 import fi.metatavu.linkedevents.client.model.Eventlink;
@@ -26,7 +27,6 @@ import fi.metatavu.linkedevents.client.model.Language;
 import fi.metatavu.linkedevents.client.model.Offer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +36,7 @@ import java.util.List;
  * Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \&quot;super events\&quot;. Super events are normal event objects, that reference contained events in \&quot;sub_events\&quot; property. Currently there are two major use cases: events such as \&quot;Helsinki Festival\&quot;, which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.
  */
 @ApiModel(description = "Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \"super events\". Super events are normal event objects, that reference contained events in \"sub_events\" property. Currently there are two major use cases: events such as \"Helsinki Festival\", which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Event {
   @JsonProperty("id")
   private String id = null;
@@ -48,7 +48,7 @@ public class Event {
   private List<IdRef> keywords = new ArrayList<IdRef>();
 
   @JsonProperty("in_language")
-  private List<Language> inLanguage = new ArrayList<Language>();
+  private List<Language> inLanguage = null;
 
   @JsonProperty("super_event")
   private String superEvent = null;
@@ -63,13 +63,13 @@ public class Event {
   private String publicationStatus = null;
 
   @JsonProperty("external_links")
-  private List<Eventlink> externalLinks = new ArrayList<Eventlink>();
+  private List<Eventlink> externalLinks = null;
 
   @JsonProperty("offers")
-  private List<Offer> offers = new ArrayList<Offer>();
+  private List<Offer> offers = null;
 
   @JsonProperty("sub_events")
-  private List<String> subEvents = new ArrayList<String>();
+  private List<String> subEvents = null;
 
   @JsonProperty("custom_data")
   private String customData = null;
@@ -78,13 +78,13 @@ public class Event {
   private EventName name = null;
 
   @JsonProperty("images")
-  private List<Image> images = new ArrayList<Image>();
+  private List<Image> images = null;
 
   @JsonProperty("created_time")
-  private OffsetDateTime createdTime = null;
+  private java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private OffsetDateTime lastModifiedTime = null;
+  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("info_url")
   private EventInfoUrl infoUrl = null;
@@ -102,7 +102,7 @@ public class Event {
   private String type = null;
 
   @JsonProperty("date_published")
-  private OffsetDateTime datePublished = null;
+  private java.time.temporal.TemporalAccessor datePublished = null;
 
   @JsonProperty("provider")
   private Object provider = null;
@@ -111,13 +111,13 @@ public class Event {
   private Object locationExtraInfo = null;
 
   @JsonProperty("start_time")
-  private OffsetDateTime startTime = null;
+  private java.time.temporal.TemporalAccessor startTime = null;
 
   @JsonProperty("end_time")
-  private OffsetDateTime endTime = null;
+  private java.time.temporal.TemporalAccessor endTime = null;
 
   @JsonProperty("audience")
-  private List<Keyword> audience = new ArrayList<Keyword>();
+  private List<Keyword> audience = null;
 
   @JsonProperty("data_source")
   private String dataSource = null;
@@ -140,7 +140,7 @@ public class Event {
    * consists of source prefix and source specific identifier. These should be URIs uniquely identifying the event, and preferably also well formed http-URLs pointing to more information about the event.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "consists of source prefix and source specific identifier. These should be URIs uniquely identifying the event, and preferably also well formed http-URLs pointing to more information about the event.")
+  @ApiModelProperty(value = "consists of source prefix and source specific identifier. These should be URIs uniquely identifying the event, and preferably also well formed http-URLs pointing to more information about the event.")
   public String getId() {
     return id;
   }
@@ -158,7 +158,7 @@ public class Event {
    * Get location
    * @return location
   **/
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   public IdRef getLocation() {
     return location;
   }
@@ -181,7 +181,7 @@ public class Event {
    * array of keyword uri references
    * @return keywords
   **/
-  @ApiModelProperty(example = "null", required = true, value = "array of keyword uri references")
+  @ApiModelProperty(required = true, value = "array of keyword uri references")
   public List<IdRef> getKeywords() {
     return keywords;
   }
@@ -196,6 +196,9 @@ public class Event {
   }
 
   public Event addInLanguageItem(Language inLanguageItem) {
+    if (this.inLanguage == null) {
+      this.inLanguage = new ArrayList<Language>();
+    }
     this.inLanguage.add(inLanguageItem);
     return this;
   }
@@ -204,7 +207,7 @@ public class Event {
    * the languages spoken or supported at the event
    * @return inLanguage
   **/
-  @ApiModelProperty(example = "null", value = "the languages spoken or supported at the event")
+  @ApiModelProperty(value = "the languages spoken or supported at the event")
   public List<Language> getInLanguage() {
     return inLanguage;
   }
@@ -222,7 +225,7 @@ public class Event {
    * references the aggregate event containing this event
    * @return superEvent
   **/
-  @ApiModelProperty(example = "null", value = "references the aggregate event containing this event")
+  @ApiModelProperty(value = "references the aggregate event containing this event")
   public String getSuperEvent() {
     return superEvent;
   }
@@ -237,10 +240,10 @@ public class Event {
   }
 
    /**
-   * If the event has sub_events, describes the type of the event. Current options are 'null' and 'recurring', which means a repeating event.
+   * If the event has sub_events, describes the type of the event. Current options are &#39;null&#39; and &#39;recurring&#39;, which means a repeating event.
    * @return superEventType
   **/
-  @ApiModelProperty(example = "null", value = "If the event has sub_events, describes the type of the event. Current options are 'null' and 'recurring', which means a repeating event.")
+  @ApiModelProperty(value = "If the event has sub_events, describes the type of the event. Current options are 'null' and 'recurring', which means a repeating event.")
   public String getSuperEventType() {
     return superEventType;
   }
@@ -258,7 +261,7 @@ public class Event {
    * As defined in schema.org/Event. Postponed events do not have a date set, rescheduled events have been moved to different date.
    * @return eventStatus
   **/
-  @ApiModelProperty(example = "null", value = "As defined in schema.org/Event. Postponed events do not have a date set, rescheduled events have been moved to different date.")
+  @ApiModelProperty(value = "As defined in schema.org/Event. Postponed events do not have a date set, rescheduled events have been moved to different date.")
   public String getEventStatus() {
     return eventStatus;
   }
@@ -273,10 +276,10 @@ public class Event {
   }
 
    /**
-   * Only available in POST/PUT. Specifies whether the event should be published in the API ('public') or not ('draft').
+   * Only available in POST/PUT. Specifies whether the event should be published in the API (&#39;public&#39;) or not (&#39;draft&#39;).
    * @return publicationStatus
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Only available in POST/PUT. Specifies whether the event should be published in the API ('public') or not ('draft').")
+  @ApiModelProperty(required = true, value = "Only available in POST/PUT. Specifies whether the event should be published in the API ('public') or not ('draft').")
   public String getPublicationStatus() {
     return publicationStatus;
   }
@@ -291,6 +294,9 @@ public class Event {
   }
 
   public Event addExternalLinksItem(Eventlink externalLinksItem) {
+    if (this.externalLinks == null) {
+      this.externalLinks = new ArrayList<Eventlink>();
+    }
     this.externalLinks.add(externalLinksItem);
     return this;
   }
@@ -299,7 +305,7 @@ public class Event {
    * See external link definition
    * @return externalLinks
   **/
-  @ApiModelProperty(example = "null", value = "See external link definition")
+  @ApiModelProperty(value = "See external link definition")
   public List<Eventlink> getExternalLinks() {
     return externalLinks;
   }
@@ -314,6 +320,9 @@ public class Event {
   }
 
   public Event addOffersItem(Offer offersItem) {
+    if (this.offers == null) {
+      this.offers = new ArrayList<Offer>();
+    }
     this.offers.add(offersItem);
     return this;
   }
@@ -322,7 +331,7 @@ public class Event {
    * See offer definition
    * @return offers
   **/
-  @ApiModelProperty(example = "null", value = "See offer definition")
+  @ApiModelProperty(value = "See offer definition")
   public List<Offer> getOffers() {
     return offers;
   }
@@ -337,15 +346,18 @@ public class Event {
   }
 
   public Event addSubEventsItem(String subEventsItem) {
+    if (this.subEvents == null) {
+      this.subEvents = new ArrayList<String>();
+    }
     this.subEvents.add(subEventsItem);
     return this;
   }
 
    /**
-   * for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.
+   * for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field &#39;super_event_type&#39; tells the type of the aggregate event.
    * @return subEvents
   **/
-  @ApiModelProperty(example = "null", value = "for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.")
+  @ApiModelProperty(value = "for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.")
   public List<String> getSubEvents() {
     return subEvents;
   }
@@ -363,7 +375,7 @@ public class Event {
    * Key value field for custom data. FIXME: is there 6Aika-wide use case for this?
    * @return customData
   **/
-  @ApiModelProperty(example = "null", value = "Key value field for custom data. FIXME: is there 6Aika-wide use case for this?")
+  @ApiModelProperty(value = "Key value field for custom data. FIXME: is there 6Aika-wide use case for this?")
   public String getCustomData() {
     return customData;
   }
@@ -381,7 +393,7 @@ public class Event {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public EventName getName() {
     return name;
   }
@@ -396,6 +408,9 @@ public class Event {
   }
 
   public Event addImagesItem(Image imagesItem) {
+    if (this.images == null) {
+      this.images = new ArrayList<Image>();
+    }
     this.images.add(imagesItem);
     return this;
   }
@@ -404,7 +419,7 @@ public class Event {
    * Get images
    * @return images
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Image> getImages() {
     return images;
   }
@@ -413,7 +428,7 @@ public class Event {
     this.images = images;
   }
 
-  public Event createdTime(OffsetDateTime createdTime) {
+  public Event createdTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -422,16 +437,16 @@ public class Event {
    * Creation time for the event entry.
    * @return createdTime
   **/
-  @ApiModelProperty(example = "null", value = "Creation time for the event entry.")
-  public OffsetDateTime getCreatedTime() {
+  @ApiModelProperty(value = "Creation time for the event entry.")
+  public java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(OffsetDateTime createdTime) {
+  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public Event lastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public Event lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -440,12 +455,12 @@ public class Event {
    * Time this event was modified in the datastore behind the API (not necessarily in the originating system)
    * @return lastModifiedTime
   **/
-  @ApiModelProperty(example = "null", value = "Time this event was modified in the datastore behind the API (not necessarily in the originating system)")
-  public OffsetDateTime getLastModifiedTime() {
+  @ApiModelProperty(value = "Time this event was modified in the datastore behind the API (not necessarily in the originating system)")
+  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
@@ -458,7 +473,7 @@ public class Event {
    * Get infoUrl
    * @return infoUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public EventInfoUrl getInfoUrl() {
     return infoUrl;
   }
@@ -476,7 +491,7 @@ public class Event {
    * Description for the event, several chapters(FIXME, verify)
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "Description for the event, several chapters(FIXME, verify)")
+  @ApiModelProperty(value = "Description for the event, several chapters(FIXME, verify)")
   public Object getDescription() {
     return description;
   }
@@ -494,7 +509,7 @@ public class Event {
    * Short description for the event, recommended limit 140 characters
    * @return shortDescription
   **/
-  @ApiModelProperty(example = "null", value = "Short description for the event, recommended limit 140 characters")
+  @ApiModelProperty(value = "Short description for the event, recommended limit 140 characters")
   public Object getShortDescription() {
     return shortDescription;
   }
@@ -512,7 +527,7 @@ public class Event {
    * Get context
    * @return context
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getContext() {
     return context;
   }
@@ -530,7 +545,7 @@ public class Event {
    * Get type
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getType() {
     return type;
   }
@@ -539,7 +554,7 @@ public class Event {
     this.type = type;
   }
 
-  public Event datePublished(OffsetDateTime datePublished) {
+  public Event datePublished(java.time.temporal.TemporalAccessor datePublished) {
     this.datePublished = datePublished;
     return this;
   }
@@ -548,12 +563,12 @@ public class Event {
    * Date this event is free to be published
    * @return datePublished
   **/
-  @ApiModelProperty(example = "null", value = "Date this event is free to be published")
-  public OffsetDateTime getDatePublished() {
+  @ApiModelProperty(value = "Date this event is free to be published")
+  public java.time.temporal.TemporalAccessor getDatePublished() {
     return datePublished;
   }
 
-  public void setDatePublished(OffsetDateTime datePublished) {
+  public void setDatePublished(java.time.temporal.TemporalAccessor datePublished) {
     this.datePublished = datePublished;
   }
 
@@ -566,7 +581,7 @@ public class Event {
    * organization responsible for the practical implementation of the event
    * @return provider
   **/
-  @ApiModelProperty(example = "null", value = "organization responsible for the practical implementation of the event")
+  @ApiModelProperty(value = "organization responsible for the practical implementation of the event")
   public Object getProvider() {
     return provider;
   }
@@ -581,10 +596,10 @@ public class Event {
   }
 
    /**
-   * Unstructured extra info about location (like \"eastern door of railway station\")
+   * Unstructured extra info about location (like \&quot;eastern door of railway station\&quot;)
    * @return locationExtraInfo
   **/
-  @ApiModelProperty(example = "null", value = "Unstructured extra info about location (like \"eastern door of railway station\")")
+  @ApiModelProperty(value = "Unstructured extra info about location (like \"eastern door of railway station\")")
   public Object getLocationExtraInfo() {
     return locationExtraInfo;
   }
@@ -593,7 +608,7 @@ public class Event {
     this.locationExtraInfo = locationExtraInfo;
   }
 
-  public Event startTime(OffsetDateTime startTime) {
+  public Event startTime(java.time.temporal.TemporalAccessor startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -602,16 +617,16 @@ public class Event {
    * Time the event will start
    * @return startTime
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Time the event will start")
-  public OffsetDateTime getStartTime() {
+  @ApiModelProperty(required = true, value = "Time the event will start")
+  public java.time.temporal.TemporalAccessor getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(OffsetDateTime startTime) {
+  public void setStartTime(java.time.temporal.TemporalAccessor startTime) {
     this.startTime = startTime;
   }
 
-  public Event endTime(OffsetDateTime endTime) {
+  public Event endTime(java.time.temporal.TemporalAccessor endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -620,12 +635,12 @@ public class Event {
    * Time the event will end
    * @return endTime
   **/
-  @ApiModelProperty(example = "null", value = "Time the event will end")
-  public OffsetDateTime getEndTime() {
+  @ApiModelProperty(value = "Time the event will end")
+  public java.time.temporal.TemporalAccessor getEndTime() {
     return endTime;
   }
 
-  public void setEndTime(OffsetDateTime endTime) {
+  public void setEndTime(java.time.temporal.TemporalAccessor endTime) {
     this.endTime = endTime;
   }
 
@@ -635,6 +650,9 @@ public class Event {
   }
 
   public Event addAudienceItem(Keyword audienceItem) {
+    if (this.audience == null) {
+      this.audience = new ArrayList<Keyword>();
+    }
     this.audience.add(audienceItem);
     return this;
   }
@@ -643,7 +661,7 @@ public class Event {
    * Get audience
    * @return audience
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Keyword> getAudience() {
     return audience;
   }
@@ -661,7 +679,7 @@ public class Event {
    * Unique identifier (URI)for the system from which this event came from, preferably URL with more information about the system and its policies
    * @return dataSource
   **/
-  @ApiModelProperty(example = "null", value = "Unique identifier (URI)for the system from which this event came from, preferably URL with more information about the system and its policies")
+  @ApiModelProperty(value = "Unique identifier (URI)for the system from which this event came from, preferably URL with more information about the system and its policies")
   public String getDataSource() {
     return dataSource;
   }
@@ -679,7 +697,7 @@ public class Event {
    * FIXME(verify) Which API user created this keyword
    * @return createdBy
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) Which API user created this keyword")
+  @ApiModelProperty(value = "FIXME(verify) Which API user created this keyword")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -697,7 +715,7 @@ public class Event {
    * FIXME(verify) Which API user most recently edited this keyword
    * @return lastModifiedBy
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) Which API user most recently edited this keyword")
+  @ApiModelProperty(value = "FIXME(verify) Which API user most recently edited this keyword")
   public String getLastModifiedBy() {
     return lastModifiedBy;
   }
@@ -715,7 +733,7 @@ public class Event {
    * Organization responsible for this event record.
    * @return publisher
   **/
-  @ApiModelProperty(example = "null", value = "Organization responsible for this event record.")
+  @ApiModelProperty(value = "Organization responsible for this event record.")
   public String getPublisher() {
     return publisher;
   }

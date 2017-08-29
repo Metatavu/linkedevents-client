@@ -16,9 +16,9 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
@@ -26,7 +26,7 @@ import java.time.OffsetDateTime;
  * Images are used as pictures for events, places and organizers.
  */
 @ApiModel(description = "Images are used as pictures for events, places and organizers.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Image {
   @JsonProperty("id")
   private Long id = null;
@@ -38,10 +38,10 @@ public class Image {
   private String publisher = null;
 
   @JsonProperty("created_time")
-  private OffsetDateTime createdTime = null;
+  private java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private OffsetDateTime lastModifiedTime = null;
+  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("created_by")
   private String createdBy = null;
@@ -67,7 +67,7 @@ public class Image {
    * image id
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "image id")
+  @ApiModelProperty(value = "image id")
   public Long getId() {
     return id;
   }
@@ -85,7 +85,7 @@ public class Image {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -103,7 +103,7 @@ public class Image {
    * The organization responsible for the image.
    * @return publisher
   **/
-  @ApiModelProperty(example = "null", value = "The organization responsible for the image.")
+  @ApiModelProperty(value = "The organization responsible for the image.")
   public String getPublisher() {
     return publisher;
   }
@@ -112,7 +112,7 @@ public class Image {
     this.publisher = publisher;
   }
 
-  public Image createdTime(OffsetDateTime createdTime) {
+  public Image createdTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -121,16 +121,16 @@ public class Image {
    * Creation time for the image.
    * @return createdTime
   **/
-  @ApiModelProperty(example = "null", value = "Creation time for the image.")
-  public OffsetDateTime getCreatedTime() {
+  @ApiModelProperty(value = "Creation time for the image.")
+  public java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(OffsetDateTime createdTime) {
+  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public Image lastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public Image lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -139,12 +139,12 @@ public class Image {
    * Time this image was modified in the datastore behind the API (not necessarily in the originating system)
    * @return lastModifiedTime
   **/
-  @ApiModelProperty(example = "null", value = "Time this image was modified in the datastore behind the API (not necessarily in the originating system)")
-  public OffsetDateTime getLastModifiedTime() {
+  @ApiModelProperty(value = "Time this image was modified in the datastore behind the API (not necessarily in the originating system)")
+  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
@@ -157,7 +157,7 @@ public class Image {
    * URL reference to the user that created this record (user endpoint)
    * @return createdBy
   **/
-  @ApiModelProperty(example = "null", value = "URL reference to the user that created this record (user endpoint)")
+  @ApiModelProperty(value = "URL reference to the user that created this record (user endpoint)")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -175,7 +175,7 @@ public class Image {
    * URL reference to the user that last modfied this record (user endpoint)
    * @return lastModifiedBy
   **/
-  @ApiModelProperty(example = "null", value = "URL reference to the user that last modfied this record (user endpoint)")
+  @ApiModelProperty(value = "URL reference to the user that last modfied this record (user endpoint)")
   public String getLastModifiedBy() {
     return lastModifiedBy;
   }
@@ -193,7 +193,7 @@ public class Image {
    * The image file URL.
    * @return url
   **/
-  @ApiModelProperty(example = "null", required = true, value = "The image file URL.")
+  @ApiModelProperty(required = true, value = "The image file URL.")
   public String getUrl() {
     return url;
   }
@@ -211,7 +211,7 @@ public class Image {
    * Cropping data for the image.
    * @return cropping
   **/
-  @ApiModelProperty(example = "null", value = "Cropping data for the image.")
+  @ApiModelProperty(value = "Cropping data for the image.")
   public String getCropping() {
     return cropping;
   }
@@ -226,10 +226,10 @@ public class Image {
   }
 
    /**
-   * License data for the image. May be \"cc_by\" (default) or \"event_only\". The latter license restricts use of the image and is specified on the API front page.
+   * License data for the image. May be \&quot;cc_by\&quot; (default) or \&quot;event_only\&quot;. The latter license restricts use of the image and is specified on the API front page.
    * @return license
   **/
-  @ApiModelProperty(example = "null", value = "License data for the image. May be \"cc_by\" (default) or \"event_only\". The latter license restricts use of the image and is specified on the API front page.")
+  @ApiModelProperty(value = "License data for the image. May be \"cc_by\" (default) or \"event_only\". The latter license restricts use of the image and is specified on the API front page.")
   public String getLicense() {
     return license;
   }

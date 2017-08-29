@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -28,10 +29,10 @@ import java.util.List;
  * geographic position of the place specified using subset of GeoJSON
  */
 @ApiModel(description = "geographic position of the place specified using subset of GeoJSON")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class PlacePosition {
   @JsonProperty("coordinates")
-  private List<BigDecimal> coordinates = new ArrayList<BigDecimal>();
+  private List<BigDecimal> coordinates = null;
 
   /**
    * interpretation of the coordinates property. Only point is supported in this version
@@ -43,6 +44,11 @@ public class PlacePosition {
 
     TypeEnum(String value) {
       this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
     }
 
     @Override
@@ -70,6 +76,9 @@ public class PlacePosition {
   }
 
   public PlacePosition addCoordinatesItem(BigDecimal coordinatesItem) {
+    if (this.coordinates == null) {
+      this.coordinates = new ArrayList<BigDecimal>();
+    }
     this.coordinates.add(coordinatesItem);
     return this;
   }
@@ -78,7 +87,7 @@ public class PlacePosition {
    * coordinates in format specified by type property
    * @return coordinates
   **/
-  @ApiModelProperty(example = "null", value = "coordinates in format specified by type property")
+  @ApiModelProperty(value = "coordinates in format specified by type property")
   public List<BigDecimal> getCoordinates() {
     return coordinates;
   }
@@ -96,7 +105,7 @@ public class PlacePosition {
    * interpretation of the coordinates property. Only point is supported in this version
    * @return type
   **/
-  @ApiModelProperty(example = "null", value = "interpretation of the coordinates property. Only point is supported in this version")
+  @ApiModelProperty(value = "interpretation of the coordinates property. Only point is supported in this version")
   public TypeEnum getType() {
     return type;
   }

@@ -16,11 +16,11 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.Image;
 import fi.metatavu.linkedevents.client.model.KeywordName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +30,7 @@ import java.util.List;
  * Keywords are used to describe events. Linked events uses namespaced keywords in order to support having events from different sources. Namespaces are needed because keywords are defined by the organization sourcing the events and can therefore overlap in meaning. Conversely the meaning of same keyword can vary between organizations. Organization sourcing the keyword can be identified by data_source field. Data_source field will later specify standardized namespaces as well.
  */
 @ApiModel(description = "Keywords are used to describe events. Linked events uses namespaced keywords in order to support having events from different sources. Namespaces are needed because keywords are defined by the organization sourcing the events and can therefore overlap in meaning. Conversely the meaning of same keyword can vary between organizations. Organization sourcing the keyword can be identified by data_source field. Data_source field will later specify standardized namespaces as well.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Keyword {
   @JsonProperty("id")
   private String id = null;
@@ -39,16 +39,16 @@ public class Keyword {
   private KeywordName name = null;
 
   @JsonProperty("images")
-  private List<Image> images = new ArrayList<Image>();
+  private List<Image> images = null;
 
   @JsonProperty("origin_id")
   private String originId = null;
 
   @JsonProperty("created_time")
-  private OffsetDateTime createdTime = null;
+  private java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private OffsetDateTime lastModifiedTime = null;
+  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("aggregate")
   private Boolean aggregate = null;
@@ -63,7 +63,7 @@ public class Keyword {
   private String lastModifiedBy = null;
 
   @JsonProperty("alt_labels")
-  private List<String> altLabels = new ArrayList<String>();
+  private List<String> altLabels = null;
 
   public Keyword id(String id) {
     this.id = id;
@@ -74,7 +74,7 @@ public class Keyword {
    * Consists of source prefix and source specific identifier. These should be URIs uniquely identifying the keyword, and preferably also well formed http-URLs pointing to more information about the keyword.
    * @return id
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Consists of source prefix and source specific identifier. These should be URIs uniquely identifying the keyword, and preferably also well formed http-URLs pointing to more information about the keyword.")
+  @ApiModelProperty(required = true, value = "Consists of source prefix and source specific identifier. These should be URIs uniquely identifying the keyword, and preferably also well formed http-URLs pointing to more information about the keyword.")
   public String getId() {
     return id;
   }
@@ -92,7 +92,7 @@ public class Keyword {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public KeywordName getName() {
     return name;
   }
@@ -107,6 +107,9 @@ public class Keyword {
   }
 
   public Keyword addImagesItem(Image imagesItem) {
+    if (this.images == null) {
+      this.images = new ArrayList<Image>();
+    }
     this.images.add(imagesItem);
     return this;
   }
@@ -115,7 +118,7 @@ public class Keyword {
    * Get images
    * @return images
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Image> getImages() {
     return images;
   }
@@ -133,7 +136,7 @@ public class Keyword {
    * Identifier for the keyword in the organization using this keyword. For standardized namespaces this will be a shared identifier.
    * @return originId
   **/
-  @ApiModelProperty(example = "null", value = "Identifier for the keyword in the organization using this keyword. For standardized namespaces this will be a shared identifier.")
+  @ApiModelProperty(value = "Identifier for the keyword in the organization using this keyword. For standardized namespaces this will be a shared identifier.")
   public String getOriginId() {
     return originId;
   }
@@ -142,7 +145,7 @@ public class Keyword {
     this.originId = originId;
   }
 
-  public Keyword createdTime(OffsetDateTime createdTime) {
+  public Keyword createdTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -151,16 +154,16 @@ public class Keyword {
    * Creation time for the keyword entry.
    * @return createdTime
   **/
-  @ApiModelProperty(example = "null", value = "Creation time for the keyword entry.")
-  public OffsetDateTime getCreatedTime() {
+  @ApiModelProperty(value = "Creation time for the keyword entry.")
+  public java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(OffsetDateTime createdTime) {
+  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public Keyword lastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public Keyword lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -169,12 +172,12 @@ public class Keyword {
    * Time this place was modified in the datastore behind the API (not necessarily in the originating system)
    * @return lastModifiedTime
   **/
-  @ApiModelProperty(example = "null", value = "Time this place was modified in the datastore behind the API (not necessarily in the originating system)")
-  public OffsetDateTime getLastModifiedTime() {
+  @ApiModelProperty(value = "Time this place was modified in the datastore behind the API (not necessarily in the originating system)")
+  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
@@ -187,7 +190,7 @@ public class Keyword {
    * FIXME(verify) This keyword is an combination of several keywords at source
    * @return aggregate
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) This keyword is an combination of several keywords at source")
+  @ApiModelProperty(value = "FIXME(verify) This keyword is an combination of several keywords at source")
   public Boolean getAggregate() {
     return aggregate;
   }
@@ -205,7 +208,7 @@ public class Keyword {
    * Source of the keyword, typically API provider specific identifier. Will also be used to specify standardized namespaces as they are brought into use.
    * @return dataSource
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Source of the keyword, typically API provider specific identifier. Will also be used to specify standardized namespaces as they are brought into use.")
+  @ApiModelProperty(required = true, value = "Source of the keyword, typically API provider specific identifier. Will also be used to specify standardized namespaces as they are brought into use.")
   public String getDataSource() {
     return dataSource;
   }
@@ -223,7 +226,7 @@ public class Keyword {
    * FIXME(verify) URL reference to the user that created this record (user endpoint)
    * @return createdBy
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) URL reference to the user that created this record (user endpoint)")
+  @ApiModelProperty(value = "FIXME(verify) URL reference to the user that created this record (user endpoint)")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -241,7 +244,7 @@ public class Keyword {
    * FIXME(verify) URL reference to the user that last modfied this record (user endpoint)
    * @return lastModifiedBy
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) URL reference to the user that last modfied this record (user endpoint)")
+  @ApiModelProperty(value = "FIXME(verify) URL reference to the user that last modfied this record (user endpoint)")
   public String getLastModifiedBy() {
     return lastModifiedBy;
   }
@@ -256,6 +259,9 @@ public class Keyword {
   }
 
   public Keyword addAltLabelsItem(String altLabelsItem) {
+    if (this.altLabels == null) {
+      this.altLabels = new ArrayList<String>();
+    }
     this.altLabels.add(altLabelsItem);
     return this;
   }
@@ -264,7 +270,7 @@ public class Keyword {
    * FIXME(verify) alternative labels for this keyword, no language specified. Use case?
    * @return altLabels
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) alternative labels for this keyword, no language specified. Use case?")
+  @ApiModelProperty(value = "FIXME(verify) alternative labels for this keyword, no language specified. Use case?")
   public List<String> getAltLabels() {
     return altLabels;
   }

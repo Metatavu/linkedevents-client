@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.OfferDescription;
 import fi.metatavu.linkedevents.client.model.OfferInfoUrl;
 import fi.metatavu.linkedevents.client.model.OfferPrice;
@@ -28,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * information record for this event. The prices are not in a structured format and the format depends on information source. An exception to this is the case of free event. These are indicated using is_free flag, which is searchable.
  */
 @ApiModel(description = "information record for this event. The prices are not in a structured format and the format depends on information source. An exception to this is the case of free event. These are indicated using is_free flag, which is searchable.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Offer {
   @JsonProperty("price")
   private OfferPrice price = null;
@@ -51,7 +52,7 @@ public class Offer {
    * Get price
    * @return price
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OfferPrice getPrice() {
     return price;
   }
@@ -69,7 +70,7 @@ public class Offer {
    * Get infoUrl
    * @return infoUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OfferInfoUrl getInfoUrl() {
     return infoUrl;
   }
@@ -87,7 +88,7 @@ public class Offer {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public OfferDescription getDescription() {
     return description;
   }
@@ -105,7 +106,7 @@ public class Offer {
    * Whether the event is of free admission
    * @return isFree
   **/
-  @ApiModelProperty(example = "null", value = "Whether the event is of free admission")
+  @ApiModelProperty(value = "Whether the event is of free admission")
   public Boolean getIsFree() {
     return isFree;
   }

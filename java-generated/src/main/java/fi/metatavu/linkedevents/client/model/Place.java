@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.Image;
 import fi.metatavu.linkedevents.client.model.PlaceAddressLocality;
 import fi.metatavu.linkedevents.client.model.PlaceCustomData;
@@ -27,7 +28,6 @@ import fi.metatavu.linkedevents.client.model.PlaceStreetAddress;
 import fi.metatavu.linkedevents.client.model.PlaceTelephone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,28 +37,28 @@ import java.util.List;
  * Places describe physical locations for events and means for contacting people responsible for these locations. Place definitions come from organizations publishing events (field \&quot;publisher\&quot;) and can thus have slightly different semantics between places sourced from different organizations.
  */
 @ApiModel(description = "Places describe physical locations for events and means for contacting people responsible for these locations. Place definitions come from organizations publishing events (field \"publisher\") and can thus have slightly different semantics between places sourced from different organizations.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Place {
   @JsonProperty("id")
   private String id = null;
 
   @JsonProperty("custom_data")
-  private List<PlaceCustomData> customData = new ArrayList<PlaceCustomData>();
+  private List<PlaceCustomData> customData = null;
 
   @JsonProperty("name")
   private PlaceName name = null;
 
   @JsonProperty("images")
-  private List<Image> images = new ArrayList<Image>();
+  private List<Image> images = null;
 
   @JsonProperty("origin_id")
   private String originId = null;
 
   @JsonProperty("created_time")
-  private OffsetDateTime createdTime = null;
+  private java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private OffsetDateTime lastModifiedTime = null;
+  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("info_url")
   private PlaceInfoUrl infoUrl = null;
@@ -114,7 +114,7 @@ public class Place {
    * Consists of source prefix and source specific identifier. These should be URIs uniquely identifying the place, and preferably also well formed http-URLs pointing to more information about the place.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "Consists of source prefix and source specific identifier. These should be URIs uniquely identifying the place, and preferably also well formed http-URLs pointing to more information about the place.")
+  @ApiModelProperty(value = "Consists of source prefix and source specific identifier. These should be URIs uniquely identifying the place, and preferably also well formed http-URLs pointing to more information about the place.")
   public String getId() {
     return id;
   }
@@ -129,6 +129,9 @@ public class Place {
   }
 
   public Place addCustomDataItem(PlaceCustomData customDataItem) {
+    if (this.customData == null) {
+      this.customData = new ArrayList<PlaceCustomData>();
+    }
     this.customData.add(customDataItem);
     return this;
   }
@@ -137,7 +140,7 @@ public class Place {
    * Key value field for custom data. FIXME: is there 6Aika-wide use case for this?
    * @return customData
   **/
-  @ApiModelProperty(example = "null", value = "Key value field for custom data. FIXME: is there 6Aika-wide use case for this?")
+  @ApiModelProperty(value = "Key value field for custom data. FIXME: is there 6Aika-wide use case for this?")
   public List<PlaceCustomData> getCustomData() {
     return customData;
   }
@@ -155,7 +158,7 @@ public class Place {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlaceName getName() {
     return name;
   }
@@ -170,6 +173,9 @@ public class Place {
   }
 
   public Place addImagesItem(Image imagesItem) {
+    if (this.images == null) {
+      this.images = new ArrayList<Image>();
+    }
     this.images.add(imagesItem);
     return this;
   }
@@ -178,7 +184,7 @@ public class Place {
    * Get images
    * @return images
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Image> getImages() {
     return images;
   }
@@ -196,7 +202,7 @@ public class Place {
    * Place identifier in the originating system, these should be in same format as id but variations are more likely than with id.
    * @return originId
   **/
-  @ApiModelProperty(example = "null", value = "Place identifier in the originating system, these should be in same format as id but variations are more likely than with id.")
+  @ApiModelProperty(value = "Place identifier in the originating system, these should be in same format as id but variations are more likely than with id.")
   public String getOriginId() {
     return originId;
   }
@@ -205,7 +211,7 @@ public class Place {
     this.originId = originId;
   }
 
-  public Place createdTime(OffsetDateTime createdTime) {
+  public Place createdTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -214,16 +220,16 @@ public class Place {
    * Creation time for the place entry.
    * @return createdTime
   **/
-  @ApiModelProperty(example = "null", value = "Creation time for the place entry.")
-  public OffsetDateTime getCreatedTime() {
+  @ApiModelProperty(value = "Creation time for the place entry.")
+  public java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(OffsetDateTime createdTime) {
+  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public Place lastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public Place lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -232,12 +238,12 @@ public class Place {
    * Time this place was modified in the datastore behind the API (not necessarily in the originating system)
    * @return lastModifiedTime
   **/
-  @ApiModelProperty(example = "null", value = "Time this place was modified in the datastore behind the API (not necessarily in the originating system)")
-  public OffsetDateTime getLastModifiedTime() {
+  @ApiModelProperty(value = "Time this place was modified in the datastore behind the API (not necessarily in the originating system)")
+  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
@@ -250,7 +256,7 @@ public class Place {
    * Get infoUrl
    * @return infoUrl
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlaceInfoUrl getInfoUrl() {
     return infoUrl;
   }
@@ -268,7 +274,7 @@ public class Place {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlaceDescription getDescription() {
     return description;
   }
@@ -286,7 +292,7 @@ public class Place {
    * Get position
    * @return position
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlacePosition getPosition() {
     return position;
   }
@@ -304,7 +310,7 @@ public class Place {
    * Contact email for the place, note that this is NOT multilingual
    * @return email
   **/
-  @ApiModelProperty(example = "null", value = "Contact email for the place, note that this is NOT multilingual")
+  @ApiModelProperty(value = "Contact email for the place, note that this is NOT multilingual")
   public String getEmail() {
     return email;
   }
@@ -322,7 +328,7 @@ public class Place {
    * Get telephone
    * @return telephone
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlaceTelephone getTelephone() {
     return telephone;
   }
@@ -340,7 +346,7 @@ public class Place {
    * FIXME: this seems unused in Helsinki data. Does any 6Aika city have use for describing contact type?
    * @return contactType
   **/
-  @ApiModelProperty(example = "null", value = "FIXME: this seems unused in Helsinki data. Does any 6Aika city have use for describing contact type?")
+  @ApiModelProperty(value = "FIXME: this seems unused in Helsinki data. Does any 6Aika city have use for describing contact type?")
   public String getContactType() {
     return contactType;
   }
@@ -358,7 +364,7 @@ public class Place {
    * Get streetAddress
    * @return streetAddress
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlaceStreetAddress getStreetAddress() {
     return streetAddress;
   }
@@ -376,7 +382,7 @@ public class Place {
    * Get addressLocality
    * @return addressLocality
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public PlaceAddressLocality getAddressLocality() {
     return addressLocality;
   }
@@ -394,7 +400,7 @@ public class Place {
    * Larger region for address (like states), not typically used in Finland
    * @return addressRegion
   **/
-  @ApiModelProperty(example = "null", value = "Larger region for address (like states), not typically used in Finland")
+  @ApiModelProperty(value = "Larger region for address (like states), not typically used in Finland")
   public String getAddressRegion() {
     return addressRegion;
   }
@@ -412,7 +418,7 @@ public class Place {
    * Postal code of the location (as used by traditional mail)
    * @return postalCode
   **/
-  @ApiModelProperty(example = "null", value = "Postal code of the location (as used by traditional mail)")
+  @ApiModelProperty(value = "Postal code of the location (as used by traditional mail)")
   public String getPostalCode() {
     return postalCode;
   }
@@ -430,7 +436,7 @@ public class Place {
    * PO box for traditional mail, in case mail is not delivered to the building
    * @return postOfficeBoxNum
   **/
-  @ApiModelProperty(example = "null", value = "PO box for traditional mail, in case mail is not delivered to the building")
+  @ApiModelProperty(value = "PO box for traditional mail, in case mail is not delivered to the building")
   public String getPostOfficeBoxNum() {
     return postOfficeBoxNum;
   }
@@ -448,7 +454,7 @@ public class Place {
    * Country for the place, NOT multilingual
    * @return addressCountry
   **/
-  @ApiModelProperty(example = "null", value = "Country for the place, NOT multilingual")
+  @ApiModelProperty(value = "Country for the place, NOT multilingual")
   public String getAddressCountry() {
     return addressCountry;
   }
@@ -466,7 +472,7 @@ public class Place {
    * This place entry is not used anymore, but old events still reference it. This might be because of duplicate removal.
    * @return deleted
   **/
-  @ApiModelProperty(example = "null", value = "This place entry is not used anymore, but old events still reference it. This might be because of duplicate removal.")
+  @ApiModelProperty(value = "This place entry is not used anymore, but old events still reference it. This might be because of duplicate removal.")
   public Boolean getDeleted() {
     return deleted;
   }
@@ -484,7 +490,7 @@ public class Place {
    * Identifies the source for data, this is specific to API provider. This is useful for API users, as any data quality issues are likely to be specific to data source and workarounds can be applied as such.
    * @return dataSource
   **/
-  @ApiModelProperty(example = "null", value = "Identifies the source for data, this is specific to API provider. This is useful for API users, as any data quality issues are likely to be specific to data source and workarounds can be applied as such.")
+  @ApiModelProperty(value = "Identifies the source for data, this is specific to API provider. This is useful for API users, as any data quality issues are likely to be specific to data source and workarounds can be applied as such.")
   public String getDataSource() {
     return dataSource;
   }
@@ -502,7 +508,7 @@ public class Place {
    * Organization that provided the event that this place is associated with
    * @return publisher
   **/
-  @ApiModelProperty(example = "null", value = "Organization that provided the event that this place is associated with")
+  @ApiModelProperty(value = "Organization that provided the event that this place is associated with")
   public String getPublisher() {
     return publisher;
   }

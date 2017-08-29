@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Meta record for result pagination. All results from API are paginated, ie. delivered in chunks of X results. This records describes how many results there are in total, and how to access previous and next pages.
  */
 @ApiModel(description = "Meta record for result pagination. All results from API are paginated, ie. delivered in chunks of X results. This records describes how many results there are in total, and how to access previous and next pages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class MetaDefinition {
   @JsonProperty("count")
   private Integer count = null;
@@ -45,7 +46,7 @@ public class MetaDefinition {
    * Total amount of items found
    * @return count
   **/
-  @ApiModelProperty(example = "null", value = "Total amount of items found")
+  @ApiModelProperty(value = "Total amount of items found")
   public Integer getCount() {
     return count;
   }
@@ -63,7 +64,7 @@ public class MetaDefinition {
    * URL for the next page of items
    * @return next
   **/
-  @ApiModelProperty(example = "null", value = "URL for the next page of items")
+  @ApiModelProperty(value = "URL for the next page of items")
   public String getNext() {
     return next;
   }
@@ -81,7 +82,7 @@ public class MetaDefinition {
    * URL for the previous page of items
    * @return previous
   **/
-  @ApiModelProperty(example = "null", value = "URL for the previous page of items")
+  @ApiModelProperty(value = "URL for the previous page of items")
   public String getPrevious() {
     return previous;
   }

@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.LanguageName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Primary purpose of this endpoint is to allow users to identify which languages are supported for multilingual fields. It also has translations for the names of the languages.
  */
 @ApiModel(description = "Primary purpose of this endpoint is to allow users to identify which languages are supported for multilingual fields. It also has translations for the names of the languages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Language {
   @JsonProperty("id")
   private String id = null;
@@ -43,7 +44,7 @@ public class Language {
    * Identifier for the language (typically ISO639-1)
    * @return id
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Identifier for the language (typically ISO639-1)")
+  @ApiModelProperty(required = true, value = "Identifier for the language (typically ISO639-1)")
   public String getId() {
     return id;
   }
@@ -61,7 +62,7 @@ public class Language {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public LanguageName getName() {
     return name;
   }

@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Name of the place, multilingual
  */
 @ApiModel(description = "Name of the place, multilingual")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class PlaceName {
   @JsonProperty("fi")
   private String fi = null;
@@ -45,7 +46,7 @@ public class PlaceName {
    * place name in Finnish
    * @return fi
   **/
-  @ApiModelProperty(example = "null", value = "place name in Finnish")
+  @ApiModelProperty(value = "place name in Finnish")
   public String getFi() {
     return fi;
   }
@@ -63,7 +64,7 @@ public class PlaceName {
    * place name in Swedish
    * @return sv
   **/
-  @ApiModelProperty(example = "null", value = "place name in Swedish")
+  @ApiModelProperty(value = "place name in Swedish")
   public String getSv() {
     return sv;
   }
@@ -81,7 +82,7 @@ public class PlaceName {
    * place name in English
    * @return en
   **/
-  @ApiModelProperty(example = "null", value = "place name in English")
+  @ApiModelProperty(value = "place name in English")
   public String getEn() {
     return en;
   }

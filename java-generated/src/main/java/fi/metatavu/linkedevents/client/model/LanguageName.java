@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Translation for the language name. Properties shown here are examples, it is suggested that every language supported has its name translated to every other language. Users of the API cannot rely on any translations being present.
  */
 @ApiModel(description = "Translation for the language name. Properties shown here are examples, it is suggested that every language supported has its name translated to every other language. Users of the API cannot rely on any translations being present.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class LanguageName {
   @JsonProperty("fi")
   private String fi = null;
@@ -45,7 +46,7 @@ public class LanguageName {
    * Name of the language in Finnish
    * @return fi
   **/
-  @ApiModelProperty(example = "null", value = "Name of the language in Finnish")
+  @ApiModelProperty(value = "Name of the language in Finnish")
   public String getFi() {
     return fi;
   }
@@ -63,7 +64,7 @@ public class LanguageName {
    * Name of the language in Swedish
    * @return sv
   **/
-  @ApiModelProperty(example = "null", value = "Name of the language in Swedish")
+  @ApiModelProperty(value = "Name of the language in Swedish")
   public String getSv() {
     return sv;
   }
@@ -81,7 +82,7 @@ public class LanguageName {
    * Name of the language in English
    * @return en
   **/
-  @ApiModelProperty(example = "null", value = "Name of the language in English")
+  @ApiModelProperty(value = "Name of the language in English")
   public String getEn() {
     return en;
   }

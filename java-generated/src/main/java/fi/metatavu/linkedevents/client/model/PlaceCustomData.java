@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -24,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * PlaceCustomData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class PlaceCustomData {
   @JsonProperty("key")
   private String key = null;
@@ -41,7 +42,7 @@ public class PlaceCustomData {
    * Get key
    * @return key
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getKey() {
     return key;
   }
@@ -59,7 +60,7 @@ public class PlaceCustomData {
    * Get value
    * @return value
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public String getValue() {
     return value;
   }

@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.Event;
 import fi.metatavu.linkedevents.client.model.MetaDefinition;
 import io.swagger.annotations.ApiModel;
@@ -28,13 +29,13 @@ import java.util.List;
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class InlineResponse200 {
   @JsonProperty("meta")
   private MetaDefinition meta = null;
 
   @JsonProperty("data")
-  private List<Event> data = new ArrayList<Event>();
+  private List<Event> data = null;
 
   public InlineResponse200 meta(MetaDefinition meta) {
     this.meta = meta;
@@ -45,7 +46,7 @@ public class InlineResponse200 {
    * Get meta
    * @return meta
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public MetaDefinition getMeta() {
     return meta;
   }
@@ -60,6 +61,9 @@ public class InlineResponse200 {
   }
 
   public InlineResponse200 addDataItem(Event dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<Event>();
+    }
     this.data.add(dataItem);
     return this;
   }
@@ -68,7 +72,7 @@ public class InlineResponse200 {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<Event> getData() {
     return data;
   }

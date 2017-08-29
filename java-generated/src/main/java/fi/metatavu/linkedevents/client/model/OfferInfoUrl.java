@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Link (URL) to a page with more information about offer
  */
 @ApiModel(description = "Link (URL) to a page with more information about offer")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class OfferInfoUrl {
   @JsonProperty("fi")
   private String fi = null;
@@ -45,7 +46,7 @@ public class OfferInfoUrl {
    * Link to Finnish page
    * @return fi
   **/
-  @ApiModelProperty(example = "null", value = "Link to Finnish page")
+  @ApiModelProperty(value = "Link to Finnish page")
   public String getFi() {
     return fi;
   }
@@ -63,7 +64,7 @@ public class OfferInfoUrl {
    * Link to Swedish page
    * @return sv
   **/
-  @ApiModelProperty(example = "null", value = "Link to Swedish page")
+  @ApiModelProperty(value = "Link to Swedish page")
   public String getSv() {
     return sv;
   }
@@ -81,7 +82,7 @@ public class OfferInfoUrl {
    * Link to English page
    * @return en
   **/
-  @ApiModelProperty(example = "null", value = "Link to English page")
+  @ApiModelProperty(value = "Link to English page")
   public String getEn() {
     return en;
   }

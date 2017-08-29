@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Links to entities that the event publisher considers related to this event. Eg. links to catering service available during theatrical production. The links will most likely point to unstructured content, ie. web pages suitable for human viewing.
  */
 @ApiModel(description = "Links to entities that the event publisher considers related to this event. Eg. links to catering service available during theatrical production. The links will most likely point to unstructured content, ie. web pages suitable for human viewing.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class Eventlink {
   @JsonProperty("name")
   private String name = null;
@@ -45,7 +46,7 @@ public class Eventlink {
    * Name describing contents of the link
    * @return name
   **/
-  @ApiModelProperty(example = "null", value = "Name describing contents of the link")
+  @ApiModelProperty(value = "Name describing contents of the link")
   public String getName() {
     return name;
   }
@@ -63,7 +64,7 @@ public class Eventlink {
    * link to an external related entity
    * @return link
   **/
-  @ApiModelProperty(example = "null", value = "link to an external related entity")
+  @ApiModelProperty(value = "link to an external related entity")
   public String getLink() {
     return link;
   }
@@ -81,7 +82,7 @@ public class Eventlink {
    * language of the content behind the link
    * @return language
   **/
-  @ApiModelProperty(example = "null", value = "language of the content behind the link")
+  @ApiModelProperty(value = "language of the content behind the link")
   public String getLanguage() {
     return language;
   }

@@ -16,14 +16,13 @@ import fi.metatavu.linkedevents.client.model.*;
 
 import fi.metatavu.linkedevents.client.model.Event;
 import fi.metatavu.linkedevents.client.model.InlineResponse200;
-import java.time.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class EventApi {
 
   private ApiClient client;
@@ -86,7 +85,7 @@ public class EventApi {
    * @param page request particular page in paginated results (optional)
    * @param pageSize request that server delivers page_size results in response (optional)
    */
-  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, OffsetDateTime start, OffsetDateTime end, List<String> bbox, String dataSource, List<Integer> location, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize) {
+  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, java.time.temporal.TemporalAccessor start, java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (include != null)

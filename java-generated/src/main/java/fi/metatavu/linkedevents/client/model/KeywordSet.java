@@ -16,10 +16,10 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.Keyword;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +29,7 @@ import java.util.List;
  * Keyword sets are used to group keywords together into classification groups. For example, one set of keywords might describe themes used by an event provider and another could be used to describe audience groups.
  */
 @ApiModel(description = "Keyword sets are used to group keywords together into classification groups. For example, one set of keywords might describe themes used by an event provider and another could be used to describe audience groups.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class KeywordSet {
   @JsonProperty("id")
   private String id = null;
@@ -41,10 +41,10 @@ public class KeywordSet {
   private String originId = null;
 
   @JsonProperty("created_time")
-  private OffsetDateTime createdTime = null;
+  private java.time.temporal.TemporalAccessor createdTime = null;
 
   @JsonProperty("last_modified_time")
-  private OffsetDateTime lastModifiedTime = null;
+  private java.time.temporal.TemporalAccessor lastModifiedTime = null;
 
   @JsonProperty("data_source")
   private String dataSource = null;
@@ -66,6 +66,11 @@ public class KeywordSet {
 
     UsageEnum(String value) {
       this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
     }
 
     @Override
@@ -102,7 +107,7 @@ public class KeywordSet {
    * Unique identifier for this keyword_set. These should be URIs identifying the source and the keyword_set itself, and preferably also well formed http-URLs pointing to more information about the keyword.
    * @return id
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Unique identifier for this keyword_set. These should be URIs identifying the source and the keyword_set itself, and preferably also well formed http-URLs pointing to more information about the keyword.")
+  @ApiModelProperty(required = true, value = "Unique identifier for this keyword_set. These should be URIs identifying the source and the keyword_set itself, and preferably also well formed http-URLs pointing to more information about the keyword.")
   public String getId() {
     return id;
   }
@@ -120,7 +125,7 @@ public class KeywordSet {
    * Name for this keyword_set. This should be human readable, such that it could be shown as label in UI
    * @return name
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Name for this keyword_set. This should be human readable, such that it could be shown as label in UI")
+  @ApiModelProperty(required = true, value = "Name for this keyword_set. This should be human readable, such that it could be shown as label in UI")
   public String getName() {
     return name;
   }
@@ -138,7 +143,7 @@ public class KeywordSet {
    * Set identifier in the originating system, if any
    * @return originId
   **/
-  @ApiModelProperty(example = "null", value = "Set identifier in the originating system, if any")
+  @ApiModelProperty(value = "Set identifier in the originating system, if any")
   public String getOriginId() {
     return originId;
   }
@@ -147,7 +152,7 @@ public class KeywordSet {
     this.originId = originId;
   }
 
-  public KeywordSet createdTime(OffsetDateTime createdTime) {
+  public KeywordSet createdTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
     return this;
   }
@@ -156,16 +161,16 @@ public class KeywordSet {
    * Time when this keyword_set was created (ISO 8601)
    * @return createdTime
   **/
-  @ApiModelProperty(example = "null", value = "Time when this keyword_set was created (ISO 8601)")
-  public OffsetDateTime getCreatedTime() {
+  @ApiModelProperty(value = "Time when this keyword_set was created (ISO 8601)")
+  public java.time.temporal.TemporalAccessor getCreatedTime() {
     return createdTime;
   }
 
-  public void setCreatedTime(OffsetDateTime createdTime) {
+  public void setCreatedTime(java.time.temporal.TemporalAccessor createdTime) {
     this.createdTime = createdTime;
   }
 
-  public KeywordSet lastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public KeywordSet lastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
     return this;
   }
@@ -174,12 +179,12 @@ public class KeywordSet {
    * Time when this keyword_set was last modified (ISO 8601)
    * @return lastModifiedTime
   **/
-  @ApiModelProperty(example = "null", value = "Time when this keyword_set was last modified (ISO 8601)")
-  public OffsetDateTime getLastModifiedTime() {
+  @ApiModelProperty(value = "Time when this keyword_set was last modified (ISO 8601)")
+  public java.time.temporal.TemporalAccessor getLastModifiedTime() {
     return lastModifiedTime;
   }
 
-  public void setLastModifiedTime(OffsetDateTime lastModifiedTime) {
+  public void setLastModifiedTime(java.time.temporal.TemporalAccessor lastModifiedTime) {
     this.lastModifiedTime = lastModifiedTime;
   }
 
@@ -192,7 +197,7 @@ public class KeywordSet {
    * Unique identifier (URI)for the system where this keyword_set originated, if any
    * @return dataSource
   **/
-  @ApiModelProperty(example = "null", value = "Unique identifier (URI)for the system where this keyword_set originated, if any")
+  @ApiModelProperty(value = "Unique identifier (URI)for the system where this keyword_set originated, if any")
   public String getDataSource() {
     return dataSource;
   }
@@ -210,7 +215,7 @@ public class KeywordSet {
    * FIXME(verify) Which API user most recently edited this keyword
    * @return lastModifiedBy
   **/
-  @ApiModelProperty(example = "null", value = "FIXME(verify) Which API user most recently edited this keyword")
+  @ApiModelProperty(value = "FIXME(verify) Which API user most recently edited this keyword")
   public String getLastModifiedBy() {
     return lastModifiedBy;
   }
@@ -228,7 +233,7 @@ public class KeywordSet {
    * Usage type for this keyword_set. These are allow UIs to show the set in appropriate place. FIXME: set of types is not finalized by any stretch
    * @return usage
   **/
-  @ApiModelProperty(example = "null", value = "Usage type for this keyword_set. These are allow UIs to show the set in appropriate place. FIXME: set of types is not finalized by any stretch")
+  @ApiModelProperty(value = "Usage type for this keyword_set. These are allow UIs to show the set in appropriate place. FIXME: set of types is not finalized by any stretch")
   public UsageEnum getUsage() {
     return usage;
   }
@@ -246,7 +251,7 @@ public class KeywordSet {
    * Organization that has defined this keyword_set
    * @return organization
   **/
-  @ApiModelProperty(example = "null", value = "Organization that has defined this keyword_set")
+  @ApiModelProperty(value = "Organization that has defined this keyword_set")
   public String getOrganization() {
     return organization;
   }
@@ -269,7 +274,7 @@ public class KeywordSet {
    * Keywords that belong to this keyword_set
    * @return keywords
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Keywords that belong to this keyword_set")
+  @ApiModelProperty(required = true, value = "Keywords that belong to this keyword_set")
   public List<Keyword> getKeywords() {
     return keywords;
   }

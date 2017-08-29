@@ -16,6 +16,7 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.linkedevents.client.model.Keyword;
 import fi.metatavu.linkedevents.client.model.KeywordSet;
 import io.swagger.annotations.ApiModel;
@@ -28,13 +29,13 @@ import java.util.List;
 /**
  * InlineResponse2003
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class InlineResponse2003 {
   @JsonProperty("meta")
   private Keyword meta = null;
 
   @JsonProperty("data")
-  private List<KeywordSet> data = new ArrayList<KeywordSet>();
+  private List<KeywordSet> data = null;
 
   public InlineResponse2003 meta(Keyword meta) {
     this.meta = meta;
@@ -45,7 +46,7 @@ public class InlineResponse2003 {
    * Get meta
    * @return meta
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public Keyword getMeta() {
     return meta;
   }
@@ -60,6 +61,9 @@ public class InlineResponse2003 {
   }
 
   public InlineResponse2003 addDataItem(KeywordSet dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<KeywordSet>();
+    }
     this.data.add(dataItem);
     return this;
   }
@@ -68,7 +72,7 @@ public class InlineResponse2003 {
    * Get data
    * @return data
   **/
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(value = "")
   public List<KeywordSet> getData() {
     return data;
   }

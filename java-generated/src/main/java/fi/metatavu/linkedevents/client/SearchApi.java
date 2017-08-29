@@ -15,14 +15,13 @@ package fi.metatavu.linkedevents.client;
 import fi.metatavu.linkedevents.client.model.*;
 
 import fi.metatavu.linkedevents.client.model.InlineResponse200;
-import java.time.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T10:50:40.740+03:00")
 public class SearchApi {
 
   private ApiClient client;
@@ -44,7 +43,7 @@ public class SearchApi {
    * @param start Search for events beginning or ending after this time. Dates can be specified using ISO 8601 (\&quot;2016-01-12\&quot;) and additionally \&quot;today\&quot;. (optional)
    * @param end Search for events beginning or ending before this time. Dates can be specified using ISO 8601 (\&quot;2016-01-12\&quot;) and additionally \&quot;today\&quot;. (optional)
    */
-  public ApiResponse<InlineResponse200> eventSearch(Integer page, Integer pageSize, String type, String q, String input, OffsetDateTime start, OffsetDateTime end) {
+  public ApiResponse<InlineResponse200> eventSearch(Integer page, Integer pageSize, String type, String q, String input, java.time.temporal.TemporalAccessor start, java.time.temporal.TemporalAccessor end) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (page != null)
