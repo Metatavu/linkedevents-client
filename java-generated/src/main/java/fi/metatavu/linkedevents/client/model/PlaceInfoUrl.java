@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Link (URL) to a page with more information about place
  */
 @ApiModel(description = "Link (URL) to a page with more information about place")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
 public class PlaceInfoUrl {
   @JsonProperty("fi")
   private String fi = null;

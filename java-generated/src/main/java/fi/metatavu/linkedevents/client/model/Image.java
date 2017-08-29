@@ -16,7 +16,6 @@ package fi.metatavu.linkedevents.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import fi.metatavu.linkedevents.client.model.ImageName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -27,13 +26,13 @@ import java.time.OffsetDateTime;
  * Images are used as pictures for events, places and organizers.
  */
 @ApiModel(description = "Images are used as pictures for events, places and organizers.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T06:25:17.847+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T07:57:49.748+03:00")
 public class Image {
   @JsonProperty("id")
   private Long id = null;
 
   @JsonProperty("name")
-  private ImageName name = null;
+  private String name = null;
 
   @JsonProperty("publisher")
   private String publisher = null;
@@ -77,7 +76,7 @@ public class Image {
     this.id = id;
   }
 
-  public Image name(ImageName name) {
+  public Image name(String name) {
     this.name = name;
     return this;
   }
@@ -87,11 +86,11 @@ public class Image {
    * @return name
   **/
   @ApiModelProperty(example = "null", value = "")
-  public ImageName getName() {
+  public String getName() {
     return name;
   }
 
-  public void setName(ImageName name) {
+  public void setName(String name) {
     this.name = name;
   }
 
