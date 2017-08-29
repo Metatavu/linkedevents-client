@@ -349,17 +349,7 @@ definitions:
         format: int64
         description: image id
       name:
-        type: object
-        properties:
-          fi:
-            type: string
-            description: Image description in Finnish
-          sv:
-            type: string
-            description: Image description in Swedish
-          en:
-            type: string
-            description: Image description in English
+        type: string
       publisher:
         type: string
         description: The organization responsible for the image.
