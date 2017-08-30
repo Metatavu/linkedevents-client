@@ -114,7 +114,7 @@ module.exports = function(grunt) {
         }
       },
       'javascript-push': {
-        command : 'git add . && git commit -m "Generated javascript source" && git push',
+        command : 'git add . && git commit -m "Generated javascript source" ; git push',
         options: {
           execOptions: {
             cwd: 'javascript-generated'
