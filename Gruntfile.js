@@ -1,12 +1,18 @@
 /*global module:false*/
 
-var fs = require('fs');
+const fs = require('fs');
 
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   
+  const SWAGGER_VERSION = "2.2.3";
   const PHP_CLIENT_VERSION = '0.0.1';
   
+  grunt.registerMultiTask('javascript-package-update', 'Updates package.json -file', function () {
+    const packageJson = JSON.parse(fs.readFileSync('javascript-generated/package.json'));
+    fs.writeFileSync('javascript-generated/package.json', JSON.stringify(Object.assign(packageJson, this.data.fields), null, 2));
+  });
+
   grunt.initConfig({
     'clean': {
       'java-cruft': [
@@ -39,7 +45,7 @@ module.exports = function(grunt) {
     },
     'curl': {
       'swagger-codegen':  {
-        src: 'http://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.2.2/swagger-codegen-cli-2.2.2.jar',
+        src: `http://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/${SWAGGER_VERSION}/swagger-codegen-cli-${SWAGGER_VERSION}.jar`,
         dest: 'swagger-codegen-cli.jar'
       }
     },
@@ -56,7 +62,8 @@ module.exports = function(grunt) {
           '--artifact-version `cat java-generated/pom.xml.before|grep version -m 1|sed -e \'s/.*<version>//\'|sed -e \'s/<.*//\'` ' +
           '--template-dir java-templates ' +
           '--library jersey2 ' +
-          '--additional-properties dateLibrary=java8 ' +
+          '--additional-properties dateLibrary=special ' +
+          '--type-mappings DateTime="@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor" ' +
           '-o java-generated/'
       },
       'java-install': {
@@ -90,14 +97,59 @@ module.exports = function(grunt) {
             cwd: 'php-generated/linkedevents-client-php'
           }
         }
+      },
+      'javascript-generate': {
+        command : 'java -jar swagger-codegen-cli.jar generate ' +
+          '-i ./linked-events.swagger.yaml ' +
+          '-l javascript ' +
+          '-o javascript-generated/ ' +
+          '--additional-properties usePromises=true,projectName=linkedevents-client,projectVersion=' + require('./javascript-generated/package.json').version
+      },
+      'javascript-bump-version': {
+        command: 'npm version patch',
+        options: {
+          execOptions: {
+            cwd: 'javascript-generated'
+          }
+        }
+      },
+      'javascript-push': {
+        command : 'git add . && git commit -m "Generated javascript source" && git push',
+        options: {
+          execOptions: {
+            cwd: 'javascript-generated'
+          }
+        }
+      },
+      'javascript-publish': {
+        command : 'npm publish',
+        options: {
+          execOptions: {
+            cwd: 'javascript-generated'
+          }
+        }
+      }
+    },
+    'javascript-package-update': {
+      'javascript-package': {
+        'fields': {
+          "author": "Metatavu Oy",
+          "license": "AGPL-3.0",
+          "repository": {
+            "type": "git",
+            "url": "git://github.com/Metatavu/linkedevents-client.git"
+          }
+        }
       }
     }
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
-  grunt.registerTask('java', [ 'clean:java-sources', 'shell:java-generate-client', 'clean:java-cruft', 'copy:java-extras', 'shell:java-install', 'shell:java-release' ]);
+  grunt.registerTask('javagen', [ 'clean:java-sources', 'shell:java-generate-client', 'clean:java-cruft', 'copy:java-extras', 'shell:java-install']);
+  grunt.registerTask('java', [ 'javagen', 'shell:java-release' ]);
   grunt.registerTask('php', [ 'shell:php-generate-client', 'shell:php-client-publish' ]);
-  
+  // grunt.registerTask('javascript', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package', 'shell:javascript-push', 'javascript:publish']);
+  grunt.registerTask('javascript', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package' ]);
   
   grunt.registerTask('default', ['download-dependencies', 'java', 'php']);
   
