@@ -1,0 +1,21 @@
+{
+  "name": "linkedevents-client",
+  "version": "0.0.1",
+  "description": "Linked_Events_provides_categorized_data_on_events_and_places_using_JSON_LD_format_Events_can_be_searched_by_date_and_location__Location_can_be_exact_address_or_largerarea_such_as_neighbourhood_or_boroughJSON_LD_format_is_streamlined_using_include_mechanism__API_users_can_request_that_certainfields_are_included_directly_into_the_result_instead_of_being_hyperlinks_to_objects_Several_fields_are_multilingual__These_are_implemented_as_object_with_each_language_variantas_property__In_this_specification_each_multilingual_field_has__fisven_property_triplet_asexample_",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "superagent": "3.5.2"
+  },
+  "devDependencies": {
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
+  }
+}
