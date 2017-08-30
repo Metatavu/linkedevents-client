@@ -148,8 +148,7 @@ module.exports = function(grunt) {
   grunt.registerTask('javagen', [ 'clean:java-sources', 'shell:java-generate-client', 'clean:java-cruft', 'copy:java-extras', 'shell:java-install']);
   grunt.registerTask('java', [ 'javagen', 'shell:java-release' ]);
   grunt.registerTask('php', [ 'shell:php-generate-client', 'shell:php-client-publish' ]);
-  // grunt.registerTask('javascript', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package', 'shell:javascript-push', 'javascript:publish']);
-  grunt.registerTask('javascript', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package' ]);
+  grunt.registerTask('javascript', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package', 'shell:javascript-push', 'javascript:publish']);
   
   grunt.registerTask('default', ['download-dependencies', 'java', 'php']);
   
