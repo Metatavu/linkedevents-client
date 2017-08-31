@@ -393,10 +393,20 @@
     } else if (!request.header['Content-Type']) {
       request.type('application/json');
     }
+    
+    var multipart = contentType == 'multipart/form-data' && formParams;
+    if (multipart) {
+      multipart = false;
+      Object.keys(formParams).forEach(function (key) {
+        if (formParams[key]) {
+          multipart = true;
+        }
+      });
+    }
 
     if (contentType === 'application/x-www-form-urlencoded') {
       request.send(querystring.stringify(this.normalizeParams(formParams)));
-    } else if (contentType == 'multipart/form-data' && formParams) {
+    } else if (multipart) {
       var _formParams = this.normalizeParams(formParams);
       for (var key in _formParams) {
         if (_formParams.hasOwnProperty(key)) {
