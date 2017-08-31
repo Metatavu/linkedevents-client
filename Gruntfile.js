@@ -41,6 +41,12 @@ module.exports = function(grunt) {
         dest: 'java-generated',
         cwd: 'java-extras',
         expand: true
+      },
+      'javascript-extras': {
+        src: '**',
+        dest: 'javascript-generated',
+        cwd: 'javascript-extras',
+        expand: true
       }
     },
     'curl': {
@@ -103,7 +109,7 @@ module.exports = function(grunt) {
           '-i ./linked-events.swagger.yaml ' +
           '-l javascript ' +
           '-o javascript-generated/ ' +
-          '--additional-properties usePromises=true,projectName=linkedevents-client,projectVersion=' + require('./javascript-generated/package.json').version
+          '--additional-properties usePromises=true,useES6=true,projectName=linkedevents-client,projectVersion='  + require('./javascript-generated/package.json').version
       },
       'javascript-bump-version': {
         command: 'npm version patch',
@@ -148,7 +154,8 @@ module.exports = function(grunt) {
   grunt.registerTask('javagen', [ 'clean:java-sources', 'shell:java-generate-client', 'clean:java-cruft', 'copy:java-extras', 'shell:java-install']);
   grunt.registerTask('java', [ 'javagen', 'shell:java-release' ]);
   grunt.registerTask('php', [ 'shell:php-generate-client', 'shell:php-client-publish' ]);
-  grunt.registerTask('javascript', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package', 'shell:javascript-push', 'shell:javascript-publish']);
+  grunt.registerTask('javascriptgen', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package', 'copy:javascript-extras']);
+  grunt.registerTask('javascript', [ 'shell:javascript-bump-version', 'javascriptgen', 'shell:javascript-push', 'shell:javascript-publish']);
   
   grunt.registerTask('default', ['download-dependencies', 'java', 'php']);
   
