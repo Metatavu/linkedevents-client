@@ -18,12 +18,12 @@ The returned list describes languages used for describing events in this Linked 
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.LanguageApi();
-apiInstance.languageList().then(function(data) {
+let apiInstance = new LinkedeventsClient.LanguageApi();
+apiInstance.languageList().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -55,15 +55,15 @@ Can be used to retrieve translations for a single language
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.LanguageApi();
+let apiInstance = new LinkedeventsClient.LanguageApi();
 
-var id = "id_example"; // String | 
+let id = "id_example"; // String | 
 
-apiInstance.languageRetrieve(id).then(function(data) {
+apiInstance.languageRetrieve(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 

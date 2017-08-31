@@ -19,16 +19,16 @@ Create a new event
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.EventApi();
+let apiInstance = new LinkedeventsClient.EventApi();
 
-var opts = { 
+let opts = { 
   'eventObject': new LinkedeventsClient.Event() // Event | 
 };
-apiInstance.eventCreate(opts).then(function(data) {
+apiInstance.eventCreate(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -63,15 +63,15 @@ Deletes an event
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.EventApi();
+let apiInstance = new LinkedeventsClient.EventApi();
 
-var id = "id_example"; // String | Identifier for the event to be deleted
+let id = "id_example"; // String | Identifier for the event to be deleted
 
-apiInstance.eventDelete(id).then(function() {
+apiInstance.eventDelete(id).then(() => {
   console.log('API called successfully.');
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -106,11 +106,11 @@ Return a list of events
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.EventApi();
+let apiInstance = new LinkedeventsClient.EventApi();
 
-var opts = { 
+let opts = { 
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
   'text': "text_example", // String | Search (case insensitive) through all multilingual text fields (name, description, short_description, info_url) of an event (every language). Multilingual fields contain the text that users are expected to care about, thus multilinguality is useful discriminator.
   'lastModifiedSince': "lastModifiedSince_example", // String | Search for events that have been modified since or at this time.
@@ -129,9 +129,9 @@ var opts = {
   'page': 56, // Number | request particular page in paginated results
   'pageSize': 56 // Number | request that server delivers page_size results in response
 };
-apiInstance.eventList(opts).then(function(data) {
+apiInstance.eventList(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -180,15 +180,15 @@ Retrieve single event by id
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.EventApi();
+let apiInstance = new LinkedeventsClient.EventApi();
 
-var id = "id_example"; // String | Event identifier as defined in event schema
+let id = "id_example"; // String | Event identifier as defined in event schema
 
-apiInstance.eventRetrieve(id).then(function(data) {
+apiInstance.eventRetrieve(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -223,18 +223,18 @@ Events can be updated if the user has appropriate access permissions. The origin
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.EventApi();
+let apiInstance = new LinkedeventsClient.EventApi();
 
-var id = "id_example"; // String | Identifier for the event to be updated
+let id = "id_example"; // String | Identifier for the event to be updated
 
-var opts = { 
+let opts = { 
   'eventObject': new LinkedeventsClient.Event() // Event | Event object that should replace the existing event, note that some implementations may retain unspecified fields at their original values.
 };
-apiInstance.eventUpdate(id, opts).then(function(data) {
+apiInstance.eventUpdate(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 

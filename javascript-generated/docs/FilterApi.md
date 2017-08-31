@@ -28,16 +28,16 @@ Endpoint for creating new keywords
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var opts = { 
+let opts = { 
   'keywordObject': new LinkedeventsClient.Keyword() // Keyword | 
 };
-apiInstance.keywordCreate(opts).then(function(data) {
+apiInstance.keywordCreate(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -72,15 +72,15 @@ Deletes a keyword
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Identifier for the keyword to be deleted
+let id = "id_example"; // String | Identifier for the keyword to be deleted
 
-apiInstance.keywordDelete(id).then(function() {
+apiInstance.keywordDelete(id).then(() => {
   console.log('API called successfully.');
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -115,11 +115,11 @@ Returns a list of keywords used for describing events
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var opts = { 
+let opts = { 
   'page': 56, // Number | request particular page in paginated results
   'pageSize': 56 // Number | request that server delivers page_size results in response
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
@@ -128,9 +128,9 @@ var opts = {
   'text': "text_example", // String | Search for keywords (**note**: NOT events) that contain the given string. This applies even when show_all_keywords is specified.
   'sort': "sort_example" // String | Sort the returned keywords in the given order. Possible sorting criteria are 'n_events', 'id', 'name', 'data_source'. The default ordering is '-data_source', '-n_events'.
 };
-apiInstance.keywordList(opts).then(function(data) {
+apiInstance.keywordList(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -169,15 +169,15 @@ Return information for single keyword
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Same as id in keyword schema
+let id = "id_example"; // String | Same as id in keyword schema
 
-apiInstance.keywordRetrieve(id).then(function(data) {
+apiInstance.keywordRetrieve(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -212,18 +212,18 @@ Unlike other endpoints, keyword_sets do not support filtering. It is expected th
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var opts = { 
+let opts = { 
   'page': 56, // Number | request particular page in paginated results
   'pageSize': 56 // Number | request that server delivers page_size results in response
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
 };
-apiInstance.keywordSetList(opts).then(function(data) {
+apiInstance.keywordSetList(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -258,15 +258,15 @@ Return information about single keyword_set
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Same as id in keyword_set schema
+let id = "id_example"; // String | Same as id in keyword_set schema
 
-apiInstance.keywordSetRetrieve(id).then(function(data) {
+apiInstance.keywordSetRetrieve(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -301,18 +301,18 @@ Keywords can be updated if the user has appropriate access permissions.
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Identifier for the keyword to be updated
+let id = "id_example"; // String | Identifier for the keyword to be updated
 
-var opts = { 
+let opts = { 
   'keywordObject': new LinkedeventsClient.Keyword() // Keyword | Keyword object that should replace the existing keyword
 };
-apiInstance.keywordUpdate(id, opts).then(function(data) {
+apiInstance.keywordUpdate(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -348,16 +348,16 @@ Endpoint for creating new places
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var opts = { 
+let opts = { 
   'placeObject': new LinkedeventsClient.Place() // Place | 
 };
-apiInstance.placeCreate(opts).then(function(data) {
+apiInstance.placeCreate(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -392,15 +392,15 @@ Deletes a place
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Identifier for the place to be deleted
+let id = "id_example"; // String | Identifier for the place to be deleted
 
-apiInstance.placeDelete(id).then(function() {
+apiInstance.placeDelete(id).then(() => {
   console.log('API called successfully.');
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -435,11 +435,11 @@ Returns list of places used for describing events
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var opts = { 
+let opts = { 
   'page': 56, // Number | request particular page in paginated results
   'pageSize': 56 // Number | request that server delivers page_size results in response
   'showAllPlaces': true, // Boolean | Show all places, including those that are not hosting any events. Otherwise such places are hidden. When show_all_places is specified, no other filter is applied.
@@ -448,9 +448,9 @@ var opts = {
   'text': "text_example", // String | 
   'sort': "sort_example" // String | Sort the returned places in the given order. Possible sorting criteria are 'n_events', 'id', 'name', 'street_address' and 'postal_code'. The default ordering is '-n_events'.
 };
-apiInstance.placeList(opts).then(function(data) {
+apiInstance.placeList(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -489,15 +489,15 @@ Return information for single place
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Id as defined in place model
+let id = "id_example"; // String | Id as defined in place model
 
-apiInstance.placeRetrieve(id).then(function(data) {
+apiInstance.placeRetrieve(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -532,18 +532,18 @@ Place can be updated if the user has appropriate access permissions.
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.FilterApi();
+let apiInstance = new LinkedeventsClient.FilterApi();
 
-var id = "id_example"; // String | Identifier for the place to be updated
+let id = "id_example"; // String | Identifier for the place to be updated
 
-var opts = { 
+let opts = { 
   'placeObject': new LinkedeventsClient.Place() // Place | Place object that should replace the existing place.
 };
-apiInstance.placeUpdate(id, opts).then(function(data) {
+apiInstance.placeUpdate(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 

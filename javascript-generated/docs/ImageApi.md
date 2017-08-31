@@ -20,17 +20,17 @@ There are two ways to create an image object. The image file can be posted as a 
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.ImageApi();
+let apiInstance = new LinkedeventsClient.ImageApi();
 
-var opts = { 
+let opts = { 
   'imageFile': "/path/to/file.txt", // File | 
   'imageObject': new LinkedeventsClient.ImageUrl() // ImageUrl | 
 };
-apiInstance.imageCreate(opts).then(function(data) {
+apiInstance.imageCreate(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -66,19 +66,19 @@ Image endpoint returns images that are used for events, places or organizers.
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.ImageApi();
+let apiInstance = new LinkedeventsClient.ImageApi();
 
-var opts = { 
+let opts = { 
   'page': 56, // Number | request particular page in paginated results
   'pageSize': 56 // Number | request that server delivers page_size results in response
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
   'sort': "sort_example" // String | return the results in ascending or descending order by the named field. sorting is only supported for some string, integer and datetime fields.
 };
-apiInstance.imageList(opts).then(function(data) {
+apiInstance.imageList(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -114,15 +114,15 @@ Return information for single image
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.ImageApi();
+let apiInstance = new LinkedeventsClient.ImageApi();
 
-var id = "id_example"; // String | The id for the image
+let id = "id_example"; // String | The id for the image
 
-apiInstance.imageRetrieve(id).then(function(data) {
+apiInstance.imageRetrieve(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
@@ -157,18 +157,18 @@ Images can be updated if the user has appropriate access permissions. The origin
 
 ### Example
 ```javascript
-var LinkedeventsClient = require('linkedevents-client');
+import LinkedeventsClient from 'linkedevents-client';
 
-var apiInstance = new LinkedeventsClient.ImageApi();
+let apiInstance = new LinkedeventsClient.ImageApi();
 
-var id = "id_example"; // String | Identifier for the image to be updated
+let id = "id_example"; // String | Identifier for the image to be updated
 
-var opts = { 
+let opts = { 
   'imageObject': new LinkedeventsClient.Image() // Image | Image object that should replace the existing image, note that some implementations may retain unspecified fields at their original values.
 };
-apiInstance.imageUpdate(id, opts).then(function(data) {
+apiInstance.imageUpdate(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
+}, (error) => {
   console.error(error);
 });
 
