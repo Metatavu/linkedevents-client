@@ -17,11 +17,11 @@ Search through events and places
 
 ### Example
 ```javascript
-import LinkedeventsClient from 'linkedevents-client';
+var LinkedeventsClient = require('linkedevents-client');
 
-let apiInstance = new LinkedeventsClient.SearchApi();
+var apiInstance = new LinkedeventsClient.SearchApi();
 
-let opts = { 
+var opts = { 
   'page': 56, // Number | request particular page in paginated results
   'pageSize': 56 // Number | request that server delivers page_size results in response
   'type': "type_example", // String | Comma-delimited list of resource types to search for. Currently allowed values are `event` and `place`. `type=event` must be specified for event date filtering and relevancy sorting.
@@ -30,9 +30,9 @@ let opts = {
   'start': new Date("2013-10-20T19:20:30+01:00"), // Date | Search for events beginning or ending after this time. Dates can be specified using ISO 8601 (\"2016-01-12\") and additionally \"today\".
   'end': new Date("2013-10-20T19:20:30+01:00"), // Date | Search for events beginning or ending before this time. Dates can be specified using ISO 8601 (\"2016-01-12\") and additionally \"today\".
 };
-apiInstance.eventSearch(opts).then((data) => {
+apiInstance.eventSearch(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 

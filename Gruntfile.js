@@ -109,7 +109,7 @@ module.exports = function(grunt) {
           '-i ./linked-events.swagger.yaml ' +
           '-l javascript ' +
           '-o javascript-generated/ ' +
-          '--additional-properties usePromises=true,useES6=true,projectName=linkedevents-client,projectVersion='  + require('./javascript-generated/package.json').version
+          '--additional-properties usePromises=true,projectName=linkedevents-client,projectVersion='  + require('./javascript-generated/package.json').version
       },
       'javascript-bump-version': {
         command: 'npm version patch',
