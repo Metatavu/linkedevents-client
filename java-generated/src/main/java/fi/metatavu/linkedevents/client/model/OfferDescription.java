@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Further description of the pricing
  */
 @ApiModel(description = "Further description of the pricing")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T18:52:34.396+03:00")
 public class OfferDescription {
   @JsonProperty("fi")
   private String fi = null;

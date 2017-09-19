@@ -37,7 +37,7 @@ import java.util.List;
  * Places describe physical locations for events and means for contacting people responsible for these locations. Place definitions come from organizations publishing events (field \&quot;publisher\&quot;) and can thus have slightly different semantics between places sourced from different organizations.
  */
 @ApiModel(description = "Places describe physical locations for events and means for contacting people responsible for these locations. Place definitions come from organizations publishing events (field \"publisher\") and can thus have slightly different semantics between places sourced from different organizations.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T18:52:34.396+03:00")
 public class Place {
   @JsonProperty("id")
   private String id = null;

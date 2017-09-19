@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T18:52:34.396+03:00")
 public class FilterApi {
 
   private ApiClient client;
@@ -42,14 +42,14 @@ public class FilterApi {
    * Endpoint for creating new keywords
    * @param keywordObject  (optional)
    */
-  public ApiResponse<Place> keywordCreate(Keyword keywordObject) {
+  public ApiResponse<Keyword> keywordCreate(Keyword keywordObject) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
         
         
     String requestPath = String.format("%s/keyword/", baseUrl);
       
-    ResultType<Place> resultType = new ResultType<Place>() {};
+    ResultType<Keyword> resultType = new ResultType<Keyword>() {};
     return client.doPOSTRequest(requestPath, resultType, queryParams, formParams);
   }
   /**

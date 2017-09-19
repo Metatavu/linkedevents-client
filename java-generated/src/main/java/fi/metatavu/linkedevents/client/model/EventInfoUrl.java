@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Link (URL) to a page with more information about event
  */
 @ApiModel(description = "Link (URL) to a page with more information about event")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-29T14:33:12.803+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T18:52:34.396+03:00")
 public class EventInfoUrl {
   @JsonProperty("fi")
   private String fi = null;
