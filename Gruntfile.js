@@ -5,14 +5,21 @@ const fs = require('fs');
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   
-  const SWAGGER_VERSION = "2.2.3";
-  const PHP_CLIENT_VERSION = '0.0.1';
+  function bumpVersion(version) {
+    const parts = version.split('.');
+    parts[2] = parseInt(parts[2]) + 1;
+    return parts.join('.');
+  }
   
-  grunt.registerMultiTask('javascript-package-update', 'Updates package.json -file', function () {
-    const packageJson = JSON.parse(fs.readFileSync('javascript-generated/package.json'));
-    fs.writeFileSync('javascript-generated/package.json', JSON.stringify(Object.assign(packageJson, this.data.fields), null, 2));
+  const SWAGGER_VERSION = "2.2.3";
+  const PHP_CLIENT_VERSION = require('php-generated/linkedevents-client-php/composer.json').version;
+  const NEXT_PHP_CLIENT_VERSION = bumpVersion(PHP_CLIENT_VERSION);
+  
+  grunt.registerMultiTask('json-update', 'Updates JSON -file', function () {
+    const json = JSON.parse(fs.readFileSync(this.data.file));
+    fs.writeFileSync(this.data.file, JSON.stringify(Object.assign(json, this.data.fields), null, 2));
   });
-
+  
   grunt.initConfig({
     'clean': {
       'java-cruft': [
@@ -94,7 +101,7 @@ module.exports = function(grunt) {
           '-l php ' +
           '--template-dir php-templates ' +
           '-o php-generated ' +
-          '--additional-properties packagePath=linkedevents-client-php,composerVendorName=metatavu,composerProjectName=linkedevents-php-client,variableNamingConvention=camelCase,invokerPackage=Metatavu\\\\LinkedEvents,apiPackage=Client,modelPackage=Model,artifactVersion=' + PHP_CLIENT_VERSION
+          '--additional-properties packagePath=linkedevents-client-php,composerVendorName=metatavu,composerProjectName=linkedevents-php-client,variableNamingConvention=camelCase,invokerPackage=Metatavu\\\\LinkedEvents,apiPackage=Client,modelPackage=Model,artifactVersion=' + NEXT_PHP_CLIENT_VERSION
       },
       'php-client-publish': {
         command : 'sh git_push.sh',
@@ -136,8 +143,13 @@ module.exports = function(grunt) {
         }
       }
     },
-    'javascript-package-update': {
+    'json-update': {
+      'php-composer': {
+        'file': 'php-generated/linkedevents-client-php/composer.json',
+        'license': 'LGPLv3'
+      },
       'javascript-package': {
+        'file': 'javascript-generated/package.json',
         'fields': {
           "author": "Metatavu Oy",
           "license": "AGPL-3.0",
@@ -153,8 +165,8 @@ module.exports = function(grunt) {
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
   grunt.registerTask('javagen', [ 'clean:java-sources', 'shell:java-generate-client', 'clean:java-cruft', 'copy:java-extras', 'shell:java-install']);
   grunt.registerTask('java', [ 'javagen', 'shell:java-release' ]);
-  grunt.registerTask('php', [ 'shell:php-generate-client', 'shell:php-client-publish' ]);
-  grunt.registerTask('javascriptgen', [ 'shell:javascript-generate', 'javascript-package-update:javascript-package', 'copy:javascript-extras']);
+  grunt.registerTask('php', [ 'shell:php-generate-client', 'json-update:php-composer', 'shell:php-client-publish' ]);
+  grunt.registerTask('javascriptgen', [ 'shell:javascript-generate', 'json-update:javascript-package', 'copy:javascript-extras']);
   grunt.registerTask('javascript', [ 'javascriptgen', 'shell:javascript-bump-version', 'shell:javascript-push', 'shell:javascript-publish']);
   
   grunt.registerTask('default', ['download-dependencies', 'java', 'php']);
