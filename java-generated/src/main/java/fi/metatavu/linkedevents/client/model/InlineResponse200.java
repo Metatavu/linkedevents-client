@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T18:52:34.396+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T22:12:28.338+03:00")
 public class InlineResponse200 {
   @JsonProperty("meta")
   private MetaDefinition meta = null;
