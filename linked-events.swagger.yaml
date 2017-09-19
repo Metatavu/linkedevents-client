@@ -993,7 +993,7 @@ paths:
         201:
           description: Object has been succesfully created.
           schema:
-            $ref: '#/definitions/place'
+            $ref: '#/definitions/keyword'
         400:
           description: Input format was not correct, eg. mandatory field was missing or JSON was malformed
         401:
