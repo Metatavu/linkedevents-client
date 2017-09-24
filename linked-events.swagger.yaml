@@ -550,7 +550,7 @@ definitions:
           "$ref": '#/definitions/language'
       super_event:
         description: references the aggregate event containing this event
-        type: string
+        "$ref": '#/definitions/id_ref'
       super_event_type:
         description: If the event has sub_events, describes the type of the event. Current options are 'null' and 'recurring', which means a repeating event.
         type: string
@@ -573,7 +573,7 @@ definitions:
       sub_events:
         type: array
         items:
-          type: string
+          "$ref": '#/definitions/id_ref'
         description: for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.
       custom_data:
         type: string
