@@ -675,6 +675,10 @@ definitions:
         type: string
         format: date-time
         description: Time the event will end
+      has_start_time:
+        type: boolean
+      has_end_time:
+        type: boolean
       audience:
         type: array
         items:

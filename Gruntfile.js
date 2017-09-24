@@ -12,7 +12,7 @@ module.exports = function(grunt) {
   }
   
   const SWAGGER_VERSION = "2.2.3";
-  const PHP_CLIENT_VERSION = require('php-generated/linkedevents-client-php/composer.json').version;
+  const PHP_CLIENT_VERSION = require(__dirname + '/php-generated/linkedevents-client-php/composer.json').version;
   const NEXT_PHP_CLIENT_VERSION = bumpVersion(PHP_CLIENT_VERSION);
   
   grunt.registerMultiTask('json-update', 'Updates JSON -file', function () {
@@ -169,6 +169,6 @@ module.exports = function(grunt) {
   grunt.registerTask('javascriptgen', [ 'shell:javascript-generate', 'json-update:javascript-package', 'copy:javascript-extras']);
   grunt.registerTask('javascript', [ 'javascriptgen', 'shell:javascript-bump-version', 'shell:javascript-push', 'shell:javascript-publish']);
   
-  grunt.registerTask('default', ['download-dependencies', 'java', 'php']);
+  grunt.registerTask('default', ['download-dependencies', 'java', 'php', 'javascript']);
   
 };
