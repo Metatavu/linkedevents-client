@@ -36,7 +36,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.4
+   * @version 0.0.5
    */
 
   /**
@@ -77,6 +77,8 @@
 
 
     _this['start_time'] = startTime;
+
+
 
 
 
@@ -173,6 +175,12 @@
       }
       if (data.hasOwnProperty('end_time')) {
         obj['end_time'] = ApiClient.convertToType(data['end_time'], 'Date');
+      }
+      if (data.hasOwnProperty('has_start_time')) {
+        obj['has_start_time'] = ApiClient.convertToType(data['has_start_time'], 'Boolean');
+      }
+      if (data.hasOwnProperty('has_end_time')) {
+        obj['has_end_time'] = ApiClient.convertToType(data['has_end_time'], 'Boolean');
       }
       if (data.hasOwnProperty('audience')) {
         obj['audience'] = ApiClient.convertToType(data['audience'], [Keyword]);
@@ -317,6 +325,14 @@
    * @member {Date} end_time
    */
   exports.prototype['end_time'] = undefined;
+  /**
+   * @member {Boolean} has_start_time
+   */
+  exports.prototype['has_start_time'] = undefined;
+  /**
+   * @member {Boolean} has_end_time
+   */
+  exports.prototype['has_end_time'] = undefined;
   /**
    * @member {Array.<module:model/Keyword>} audience
    */

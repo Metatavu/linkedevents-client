@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **locationExtraInfo** | **Object** | Unstructured extra info about location (like \&quot;eastern door of railway station\&quot;) | [optional] 
 **startTime** | **Date** | Time the event will start | 
 **endTime** | **Date** | Time the event will end | [optional] 
+**hasStartTime** | **Boolean** |  | [optional] 
+**hasEndTime** | **Boolean** |  | [optional] 
 **audience** | [**[Keyword]**](Keyword.md) |  | [optional] 
 **dataSource** | **String** | Unique identifier (URI)for the system from which this event came from, preferably URL with more information about the system and its policies | [optional] 
 **createdBy** | **String** | FIXME(verify) Which API user created this keyword | [optional] 
