@@ -36,7 +36,7 @@ import java.util.List;
  * Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \&quot;super events\&quot;. Super events are normal event objects, that reference contained events in \&quot;sub_events\&quot; property. Currently there are two major use cases: events such as \&quot;Helsinki Festival\&quot;, which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.
  */
 @ApiModel(description = "Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \"super events\". Super events are normal event objects, that reference contained events in \"sub_events\" property. Currently there are two major use cases: events such as \"Helsinki Festival\", which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-19T22:12:28.338+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T10:41:37.725+03:00")
 public class Event {
   @JsonProperty("id")
   private String id = null;
@@ -51,7 +51,7 @@ public class Event {
   private List<Language> inLanguage = null;
 
   @JsonProperty("super_event")
-  private String superEvent = null;
+  private IdRef superEvent = null;
 
   @JsonProperty("super_event_type")
   private String superEventType = null;
@@ -69,7 +69,7 @@ public class Event {
   private List<Offer> offers = null;
 
   @JsonProperty("sub_events")
-  private List<String> subEvents = null;
+  private List<IdRef> subEvents = null;
 
   @JsonProperty("custom_data")
   private String customData = null;
@@ -216,7 +216,7 @@ public class Event {
     this.inLanguage = inLanguage;
   }
 
-  public Event superEvent(String superEvent) {
+  public Event superEvent(IdRef superEvent) {
     this.superEvent = superEvent;
     return this;
   }
@@ -226,11 +226,11 @@ public class Event {
    * @return superEvent
   **/
   @ApiModelProperty(value = "references the aggregate event containing this event")
-  public String getSuperEvent() {
+  public IdRef getSuperEvent() {
     return superEvent;
   }
 
-  public void setSuperEvent(String superEvent) {
+  public void setSuperEvent(IdRef superEvent) {
     this.superEvent = superEvent;
   }
 
@@ -340,14 +340,14 @@ public class Event {
     this.offers = offers;
   }
 
-  public Event subEvents(List<String> subEvents) {
+  public Event subEvents(List<IdRef> subEvents) {
     this.subEvents = subEvents;
     return this;
   }
 
-  public Event addSubEventsItem(String subEventsItem) {
+  public Event addSubEventsItem(IdRef subEventsItem) {
     if (this.subEvents == null) {
-      this.subEvents = new ArrayList<String>();
+      this.subEvents = new ArrayList<IdRef>();
     }
     this.subEvents.add(subEventsItem);
     return this;
@@ -358,11 +358,11 @@ public class Event {
    * @return subEvents
   **/
   @ApiModelProperty(value = "for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.")
-  public List<String> getSubEvents() {
+  public List<IdRef> getSubEvents() {
     return subEvents;
   }
 
-  public void setSubEvents(List<String> subEvents) {
+  public void setSubEvents(List<IdRef> subEvents) {
     this.subEvents = subEvents;
   }
 
