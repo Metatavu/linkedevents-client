@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 <a name="keywordCreate"></a>
 # **keywordCreate**
-> Place keywordCreate(opts)
+> Keyword keywordCreate(opts)
 
 Creates new keyword
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Place**](Place.md)
+[**Keyword**](Keyword.md)
 
 ### Authorization
 

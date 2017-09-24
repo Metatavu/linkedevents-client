@@ -33,7 +33,7 @@
   /**
    * Filter service.
    * @module api/FilterApi
-   * @version 0.0.3
+   * @version 0.0.4
    */
 
   /**
@@ -53,7 +53,7 @@
      * Endpoint for creating new keywords
      * @param {Object} opts Optional parameters
      * @param {module:model/Keyword} opts.keywordObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Place} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Keyword} and HTTP response
      */
     this.keywordCreateWithHttpInfo = function(opts) {
       opts = opts || {};
@@ -72,7 +72,7 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Place;
+      var returnType = Keyword;
 
       return this.apiClient.callApi(
         '/keyword/', 'POST',
@@ -86,7 +86,7 @@
      * Endpoint for creating new keywords
      * @param {Object} opts Optional parameters
      * @param {module:model/Keyword} opts.keywordObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Place}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Keyword}
      */
     this.keywordCreate = function(opts) {
       return this.keywordCreateWithHttpInfo(opts)

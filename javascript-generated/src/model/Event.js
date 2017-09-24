@@ -36,7 +36,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.3
+   * @version 0.0.4
    */
 
   /**
@@ -109,7 +109,7 @@
         obj['in_language'] = ApiClient.convertToType(data['in_language'], [Language]);
       }
       if (data.hasOwnProperty('super_event')) {
-        obj['super_event'] = ApiClient.convertToType(data['super_event'], 'String');
+        obj['super_event'] = IdRef.constructFromObject(data['super_event']);
       }
       if (data.hasOwnProperty('super_event_type')) {
         obj['super_event_type'] = ApiClient.convertToType(data['super_event_type'], 'String');
@@ -127,7 +127,7 @@
         obj['offers'] = ApiClient.convertToType(data['offers'], [Offer]);
       }
       if (data.hasOwnProperty('sub_events')) {
-        obj['sub_events'] = ApiClient.convertToType(data['sub_events'], ['String']);
+        obj['sub_events'] = ApiClient.convertToType(data['sub_events'], [IdRef]);
       }
       if (data.hasOwnProperty('custom_data')) {
         obj['custom_data'] = ApiClient.convertToType(data['custom_data'], 'String');
@@ -214,7 +214,7 @@
   exports.prototype['in_language'] = undefined;
   /**
    * references the aggregate event containing this event
-   * @member {String} super_event
+   * @member {module:model/IdRef} super_event
    */
   exports.prototype['super_event'] = undefined;
   /**
@@ -244,7 +244,7 @@
   exports.prototype['offers'] = undefined;
   /**
    * for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.
-   * @member {Array.<String>} sub_events
+   * @member {Array.<module:model/IdRef>} sub_events
    */
   exports.prototype['sub_events'] = undefined;
   /**

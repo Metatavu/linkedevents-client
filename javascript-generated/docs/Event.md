@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **location** | [**IdRef**](IdRef.md) |  | 
 **keywords** | [**[IdRef]**](IdRef.md) | array of keyword uri references | 
 **inLanguage** | [**[Language]**](Language.md) | the languages spoken or supported at the event | [optional] 
-**superEvent** | **String** | references the aggregate event containing this event | [optional] 
+**superEvent** | [**IdRef**](IdRef.md) | references the aggregate event containing this event | [optional] 
 **superEventType** | **String** | If the event has sub_events, describes the type of the event. Current options are &#39;null&#39; and &#39;recurring&#39;, which means a repeating event. | [optional] 
 **eventStatus** | **String** | As defined in schema.org/Event. Postponed events do not have a date set, rescheduled events have been moved to different date. | [optional] 
 **publicationStatus** | **String** | Only available in POST/PUT. Specifies whether the event should be published in the API (&#39;public&#39;) or not (&#39;draft&#39;). | 
 **externalLinks** | [**[Eventlink]**](Eventlink.md) | See external link definition | [optional] 
 **offers** | [**[Offer]**](Offer.md) | See offer definition | [optional] 
-**subEvents** | **[String]** | for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field &#39;super_event_type&#39; tells the type of the aggregate event. | [optional] 
+**subEvents** | [**[IdRef]**](IdRef.md) | for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field &#39;super_event_type&#39; tells the type of the aggregate event. | [optional] 
 **customData** | **String** | Key value field for custom data. FIXME: is there 6Aika-wide use case for this? | [optional] 
 **name** | [**EventName**](EventName.md) |  | [optional] 
 **images** | [**[Image]**](Image.md) |  | [optional] 
