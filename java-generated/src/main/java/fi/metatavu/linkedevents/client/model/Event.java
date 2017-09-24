@@ -36,7 +36,7 @@ import java.util.List;
  * Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \&quot;super events\&quot;. Super events are normal event objects, that reference contained events in \&quot;sub_events\&quot; property. Currently there are two major use cases: events such as \&quot;Helsinki Festival\&quot;, which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.
  */
 @ApiModel(description = "Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \"super events\". Super events are normal event objects, that reference contained events in \"sub_events\" property. Currently there are two major use cases: events such as \"Helsinki Festival\", which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T10:41:37.725+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T16:38:38.731+03:00")
 public class Event {
   @JsonProperty("id")
   private String id = null;
@@ -115,6 +115,12 @@ public class Event {
 
   @JsonProperty("end_time")
   private @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor endTime = null;
+
+  @JsonProperty("has_start_time")
+  private Boolean hasStartTime = null;
+
+  @JsonProperty("has_end_time")
+  private Boolean hasEndTime = null;
 
   @JsonProperty("audience")
   private List<Keyword> audience = null;
@@ -644,6 +650,42 @@ public class Event {
     this.endTime = endTime;
   }
 
+  public Event hasStartTime(Boolean hasStartTime) {
+    this.hasStartTime = hasStartTime;
+    return this;
+  }
+
+   /**
+   * Get hasStartTime
+   * @return hasStartTime
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getHasStartTime() {
+    return hasStartTime;
+  }
+
+  public void setHasStartTime(Boolean hasStartTime) {
+    this.hasStartTime = hasStartTime;
+  }
+
+  public Event hasEndTime(Boolean hasEndTime) {
+    this.hasEndTime = hasEndTime;
+    return this;
+  }
+
+   /**
+   * Get hasEndTime
+   * @return hasEndTime
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getHasEndTime() {
+    return hasEndTime;
+  }
+
+  public void setHasEndTime(Boolean hasEndTime) {
+    this.hasEndTime = hasEndTime;
+  }
+
   public Event audience(List<Keyword> audience) {
     this.audience = audience;
     return this;
@@ -778,6 +820,8 @@ public class Event {
         Objects.equals(this.locationExtraInfo, event.locationExtraInfo) &&
         Objects.equals(this.startTime, event.startTime) &&
         Objects.equals(this.endTime, event.endTime) &&
+        Objects.equals(this.hasStartTime, event.hasStartTime) &&
+        Objects.equals(this.hasEndTime, event.hasEndTime) &&
         Objects.equals(this.audience, event.audience) &&
         Objects.equals(this.dataSource, event.dataSource) &&
         Objects.equals(this.createdBy, event.createdBy) &&
@@ -787,7 +831,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, location, keywords, inLanguage, superEvent, superEventType, eventStatus, publicationStatus, externalLinks, offers, subEvents, customData, name, images, createdTime, lastModifiedTime, infoUrl, description, shortDescription, context, type, datePublished, provider, locationExtraInfo, startTime, endTime, audience, dataSource, createdBy, lastModifiedBy, publisher);
+    return Objects.hash(id, location, keywords, inLanguage, superEvent, superEventType, eventStatus, publicationStatus, externalLinks, offers, subEvents, customData, name, images, createdTime, lastModifiedTime, infoUrl, description, shortDescription, context, type, datePublished, provider, locationExtraInfo, startTime, endTime, hasStartTime, hasEndTime, audience, dataSource, createdBy, lastModifiedBy, publisher);
   }
 
 
@@ -822,6 +866,8 @@ public class Event {
     sb.append("    locationExtraInfo: ").append(toIndentedString(locationExtraInfo)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    hasStartTime: ").append(toIndentedString(hasStartTime)).append("\n");
+    sb.append("    hasEndTime: ").append(toIndentedString(hasEndTime)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");

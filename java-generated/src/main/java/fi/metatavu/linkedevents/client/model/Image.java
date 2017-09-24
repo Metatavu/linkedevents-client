@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Images are used as pictures for events, places and organizers.
  */
 @ApiModel(description = "Images are used as pictures for events, places and organizers.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T10:41:37.725+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T16:38:38.731+03:00")
 public class Image {
   @JsonProperty("id")
   private Long id = null;

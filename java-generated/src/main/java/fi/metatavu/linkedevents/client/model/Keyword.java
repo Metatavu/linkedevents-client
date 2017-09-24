@@ -30,7 +30,7 @@ import java.util.List;
  * Keywords are used to describe events. Linked events uses namespaced keywords in order to support having events from different sources. Namespaces are needed because keywords are defined by the organization sourcing the events and can therefore overlap in meaning. Conversely the meaning of same keyword can vary between organizations. Organization sourcing the keyword can be identified by data_source field. Data_source field will later specify standardized namespaces as well.
  */
 @ApiModel(description = "Keywords are used to describe events. Linked events uses namespaced keywords in order to support having events from different sources. Namespaces are needed because keywords are defined by the organization sourcing the events and can therefore overlap in meaning. Conversely the meaning of same keyword can vary between organizations. Organization sourcing the keyword can be identified by data_source field. Data_source field will later specify standardized namespaces as well.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T10:41:37.725+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T16:38:38.731+03:00")
 public class Keyword {
   @JsonProperty("id")
   private String id = null;

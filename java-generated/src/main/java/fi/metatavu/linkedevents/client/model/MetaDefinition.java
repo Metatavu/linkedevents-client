@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Meta record for result pagination. All results from API are paginated, ie. delivered in chunks of X results. This records describes how many results there are in total, and how to access previous and next pages.
  */
 @ApiModel(description = "Meta record for result pagination. All results from API are paginated, ie. delivered in chunks of X results. This records describes how many results there are in total, and how to access previous and next pages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T10:41:37.725+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-24T16:38:38.731+03:00")
 public class MetaDefinition {
   @JsonProperty("count")
   private Integer count = null;
