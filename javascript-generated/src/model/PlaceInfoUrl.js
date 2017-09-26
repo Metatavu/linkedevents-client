@@ -36,7 +36,7 @@
   /**
    * The PlaceInfoUrl model module.
    * @module model/PlaceInfoUrl
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
