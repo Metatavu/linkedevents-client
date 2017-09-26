@@ -261,7 +261,7 @@ class ObjectSerializer
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
             if (!empty($data)) {
-                return new \DateTimeExt($data);
+                return new DateTimeExt($data);
             } else {
                 return null;
             }
