@@ -29,7 +29,7 @@ import java.util.List;
  * geographic position of the place specified using subset of GeoJSON
  */
 @ApiModel(description = "geographic position of the place specified using subset of GeoJSON")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-26T16:31:14.818+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-27T18:21:34.101+03:00")
 public class PlacePosition {
   @JsonProperty("coordinates")
   private List<BigDecimal> coordinates = null;
