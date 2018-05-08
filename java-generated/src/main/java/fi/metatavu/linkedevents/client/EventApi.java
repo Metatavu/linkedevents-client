@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-27T18:21:34.101+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T15:59:23.925+03:00")
 public class EventApi {
 
   private ApiClient client;
@@ -75,7 +75,6 @@ public class EventApi {
    * @param bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator. (optional)
    * @param dataSource Search for events that come from the specified source system (optional)
    * @param location Search for events in given locations as specified by id. Multiple ids are separated by comma (optional)
-   * @param showAll Show all events (optional)
    * @param division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type. (optional)
    * @param keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma (optional)
    * @param recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring. (optional)
@@ -85,8 +84,11 @@ public class EventApi {
    * @param sort Sort the returned events in the given order. Possible sorting criteria are &#39;start_time&#39;, &#39;end_time&#39;, &#39;days_left&#39; and &#39;last_modified_time&#39;. The default ordering is &#39;-last_modified_time&#39;. (optional)
    * @param page request particular page in paginated results (optional)
    * @param pageSize request that server delivers page_size results in response (optional)
+   * @param addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma (optional)
+   * @param addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma (optional)
+   * @param addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma (optional)
    */
-  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor start, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, Boolean showAll, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize) {
+  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor start, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize, String addressLocalityFi, String addressLocalitySv, String addressLocalityEn) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (include != null)
@@ -105,8 +107,6 @@ if (dataSource != null)
     queryParams.put("data_source", dataSource);
 if (location != null)
     queryParams.put("location", location);
-if (showAll != null)
-    queryParams.put("show_all", showAll);
 if (division != null)
     queryParams.put("division", division);
 if (keyword != null)
@@ -125,6 +125,12 @@ if (page != null)
     queryParams.put("page", page);
 if (pageSize != null)
     queryParams.put("page_size", pageSize);
+if (addressLocalityFi != null)
+    queryParams.put("address_locality_fi", addressLocalityFi);
+if (addressLocalitySv != null)
+    queryParams.put("address_locality_sv", addressLocalitySv);
+if (addressLocalityEn != null)
+    queryParams.put("address_locality_en", addressLocalityEn);
     
         
     String requestPath = String.format("%s/event/", baseUrl);
