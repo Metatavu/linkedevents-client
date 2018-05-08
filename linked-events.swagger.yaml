@@ -157,6 +157,22 @@ parameters:
     in: query
     type: string
     description: Search for events published by the given organization
+  event_address_locality_fi:
+    name: address_locality_fi
+    in: query
+    type: string
+    description: Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
+  event_address_locality_sv:
+    name: address_locality_sv
+    in: query
+    type: string
+    description: Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
+  event_address_locality_en:
+    name: address_locality_en
+    in: query
+    type: string
+    description: Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
+    
 
 definitions:
 
@@ -1439,6 +1455,9 @@ paths:
       - $ref: '#/parameters/event_sort_param'
       - $ref: '#/parameters/page_param'
       - $ref: '#/parameters/pagesize_param'
+      - $ref: '#/parameters/event_address_locality_fi'
+      - $ref: '#/parameters/event_address_locality_sv'
+      - $ref: '#/parameters/event_address_locality_en'
     post:
       summary: Create a new event
       operationId: event_create
