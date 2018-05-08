@@ -72,7 +72,7 @@ var apiInstance = new LinkedeventsClient.ImageApi();
 
 var opts = { 
   'page': 56, // Number | request particular page in paginated results
-  'pageSize': 56 // Number | request that server delivers page_size results in response
+  'pageSize': 56, // Number | request that server delivers page_size results in response
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
   'sort': "sort_example" // String | return the results in ascending or descending order by the named field. sorting is only supported for some string, integer and datetime fields.
 };

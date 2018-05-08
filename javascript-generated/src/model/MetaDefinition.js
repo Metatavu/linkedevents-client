@@ -36,7 +36,7 @@
   /**
    * The MetaDefinition model module.
    * @module model/MetaDefinition
-   * @version 0.0.7
+   * @version 0.0.8
    */
 
   /**

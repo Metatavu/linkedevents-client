@@ -121,7 +121,7 @@ var apiInstance = new LinkedeventsClient.FilterApi();
 
 var opts = { 
   'page': 56, // Number | request particular page in paginated results
-  'pageSize': 56 // Number | request that server delivers page_size results in response
+  'pageSize': 56, // Number | request that server delivers page_size results in response
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
   'showAllKeywords': true, // Boolean | Show all keywords, including those that are not associated with any events. Otherwise such keywords are hidden. When show_all_keywords is specified, no other filter is applied, **except** \"filter\" (match for keywords beginning with string)
   'dataSource': "dataSource_example", // String | Search for keywords (**note**: NOT events) that come from the specified data source (see data source in keyword definition).
@@ -218,7 +218,7 @@ var apiInstance = new LinkedeventsClient.FilterApi();
 
 var opts = { 
   'page': 56, // Number | request particular page in paginated results
-  'pageSize': 56 // Number | request that server delivers page_size results in response
+  'pageSize': 56, // Number | request that server delivers page_size results in response
   'include': ["include_example"], // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
 };
 apiInstance.keywordSetList(opts).then(function(data) {
@@ -441,7 +441,7 @@ var apiInstance = new LinkedeventsClient.FilterApi();
 
 var opts = { 
   'page': 56, // Number | request particular page in paginated results
-  'pageSize': 56 // Number | request that server delivers page_size results in response
+  'pageSize': 56, // Number | request that server delivers page_size results in response
   'showAllPlaces': true, // Boolean | Show all places, including those that are not hosting any events. Otherwise such places are hidden. When show_all_places is specified, no other filter is applied.
   'division': "division_example", // String | You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
   'dataSource': "dataSource_example", // String | Search for places that come from specified data source

@@ -119,7 +119,6 @@ var opts = {
   'bbox': ["bbox_example"], // [String] | Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator.
   'dataSource': "dataSource_example", // String | Search for events that come from the specified source system
   'location': [3.4], // [Number] | Search for events in given locations as specified by id. Multiple ids are separated by comma
-  'showAll': true, // Boolean | Show all events
   'division': "division_example", // String | You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
   'keyword': "keyword_example", // String | Search for events with given keywords as specified by id. Multiple ids are separated by comma
   'recurring': "recurring_example", // String | Search for events based on whether they are part of recurring event set. 'super' specifies recurring, while 'sub' is non-recurring.
@@ -128,7 +127,10 @@ var opts = {
   'publisher': "publisher_example", // String | Search for events published by the given organization
   'sort': "sort_example", // String | Sort the returned events in the given order. Possible sorting criteria are 'start_time', 'end_time', 'days_left' and 'last_modified_time'. The default ordering is '-last_modified_time'.
   'page': 56, // Number | request particular page in paginated results
-  'pageSize': 56 // Number | request that server delivers page_size results in response
+  'pageSize': 56, // Number | request that server delivers page_size results in response
+  'addressLocalityFi': "addressLocalityFi_example", // String | Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
+  'addressLocalitySv': "addressLocalitySv_example", // String | Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
+  'addressLocalityEn': "addressLocalityEn_example" // String | Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
 };
 apiInstance.eventList(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -150,7 +152,6 @@ Name | Type | Description  | Notes
  **bbox** | [**[String]**](String.md)| Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator. | [optional] 
  **dataSource** | **String**| Search for events that come from the specified source system | [optional] 
  **location** | [**[Number]**](Number.md)| Search for events in given locations as specified by id. Multiple ids are separated by comma | [optional] 
- **showAll** | **Boolean**| Show all events | [optional] 
  **division** | **String**| You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type. | [optional] 
  **keyword** | **String**| Search for events with given keywords as specified by id. Multiple ids are separated by comma | [optional] 
  **recurring** | **String**| Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring. | [optional] 
@@ -160,6 +161,9 @@ Name | Type | Description  | Notes
  **sort** | **String**| Sort the returned events in the given order. Possible sorting criteria are &#39;start_time&#39;, &#39;end_time&#39;, &#39;days_left&#39; and &#39;last_modified_time&#39;. The default ordering is &#39;-last_modified_time&#39;. | [optional] 
  **page** | **Number**| request particular page in paginated results | [optional] 
  **pageSize** | **Number**| request that server delivers page_size results in response | [optional] 
+ **addressLocalityFi** | **String**| Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma | [optional] 
+ **addressLocalitySv** | **String**| Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma | [optional] 
+ **addressLocalityEn** | **String**| Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma | [optional] 
 
 ### Return type
 

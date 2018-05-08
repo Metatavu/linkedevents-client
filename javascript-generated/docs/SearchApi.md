@@ -23,7 +23,7 @@ var apiInstance = new LinkedeventsClient.SearchApi();
 
 var opts = { 
   'page': 56, // Number | request particular page in paginated results
-  'pageSize': 56 // Number | request that server delivers page_size results in response
+  'pageSize': 56, // Number | request that server delivers page_size results in response
   'type': "type_example", // String | Comma-delimited list of resource types to search for. Currently allowed values are `event` and `place`. `type=event` must be specified for event date filtering and relevancy sorting.
   'q': "q_example", // String | Search for events and places matching this string. Mutually exclusive with `input` typeahead search.
   'input': "input_example", // String | Return autocompletition suggestions for this string. Mutually exclusive with `q` full-text search.

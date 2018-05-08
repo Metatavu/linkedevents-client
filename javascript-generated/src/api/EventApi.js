@@ -33,7 +33,7 @@
   /**
    * Event service.
    * @module api/EventApi
-   * @version 0.0.7
+   * @version 0.0.8
    */
 
   /**
@@ -157,7 +157,6 @@
      * @param {Array.<String>} opts.bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator.
      * @param {String} opts.dataSource Search for events that come from the specified source system
      * @param {Array.<Number>} opts.location Search for events in given locations as specified by id. Multiple ids are separated by comma
-     * @param {Boolean} opts.showAll Show all events
      * @param {String} opts.division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
      * @param {String} opts.keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma
      * @param {module:model/String} opts.recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring.
@@ -167,6 +166,9 @@
      * @param {String} opts.sort Sort the returned events in the given order. Possible sorting criteria are &#39;start_time&#39;, &#39;end_time&#39;, &#39;days_left&#39; and &#39;last_modified_time&#39;. The default ordering is &#39;-last_modified_time&#39;.
      * @param {Number} opts.page request particular page in paginated results
      * @param {Number} opts.pageSize request that server delivers page_size results in response
+     * @param {String} opts.addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
+     * @param {String} opts.addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
+     * @param {String} opts.addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
     this.eventListWithHttpInfo = function(opts) {
@@ -185,7 +187,6 @@
         'bbox': this.apiClient.buildCollectionParam(opts['bbox'], 'csv'),
         'data_source': opts['dataSource'],
         'location': this.apiClient.buildCollectionParam(opts['location'], 'csv'),
-        'show_all': opts['showAll'],
         'division': opts['division'],
         'keyword': opts['keyword'],
         'recurring': opts['recurring'],
@@ -194,7 +195,10 @@
         'publisher': opts['publisher'],
         'sort': opts['sort'],
         'page': opts['page'],
-        'page_size': opts['pageSize']
+        'page_size': opts['pageSize'],
+        'address_locality_fi': opts['addressLocalityFi'],
+        'address_locality_sv': opts['addressLocalitySv'],
+        'address_locality_en': opts['addressLocalityEn']
       };
       var headerParams = {
       };
@@ -225,7 +229,6 @@
      * @param {Array.<String>} opts.bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator.
      * @param {String} opts.dataSource Search for events that come from the specified source system
      * @param {Array.<Number>} opts.location Search for events in given locations as specified by id. Multiple ids are separated by comma
-     * @param {Boolean} opts.showAll Show all events
      * @param {String} opts.division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
      * @param {String} opts.keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma
      * @param {module:model/String} opts.recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring.
@@ -235,6 +238,9 @@
      * @param {String} opts.sort Sort the returned events in the given order. Possible sorting criteria are &#39;start_time&#39;, &#39;end_time&#39;, &#39;days_left&#39; and &#39;last_modified_time&#39;. The default ordering is &#39;-last_modified_time&#39;.
      * @param {Number} opts.page request particular page in paginated results
      * @param {Number} opts.pageSize request that server delivers page_size results in response
+     * @param {String} opts.addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
+     * @param {String} opts.addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
+     * @param {String} opts.addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
      */
     this.eventList = function(opts) {

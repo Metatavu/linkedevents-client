@@ -36,7 +36,7 @@
   /**
    * The LanguageName model module.
    * @module model/LanguageName
-   * @version 0.0.7
+   * @version 0.0.8
    */
 
   /**
