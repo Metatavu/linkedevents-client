@@ -129,6 +129,11 @@ parameters:
     items:
       type: integer
     description: Search for events in given locations as specified by id. Multiple ids are separated by comma
+  event_showall_param:
+    name: showAll
+    in: query
+    type: boolean
+    description: Show all events (optional)
   event_keyword_param:
     name: keyword
     in: query
@@ -1447,6 +1452,7 @@ paths:
       - $ref: '#/parameters/event_bbox_param'
       - $ref: '#/parameters/event_data_source_param'
       - $ref: '#/parameters/event_location_param'
+      - $ref: '#/parameters/event_showall_param'
       - name: division
         in: query
         type: string
