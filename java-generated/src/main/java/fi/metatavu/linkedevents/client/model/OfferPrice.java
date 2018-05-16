@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Price of the event. These are not bare numbers but instead descriptions of the pricing scheme.
  */
 @ApiModel(description = "Price of the event. These are not bare numbers but instead descriptions of the pricing scheme.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T15:59:23.925+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T12:41:25.889+03:00")
 public class OfferPrice {
   @JsonProperty("fi")
   private String fi = null;

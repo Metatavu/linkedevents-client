@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T15:59:23.925+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T12:41:25.889+03:00")
 public class EventApi {
 
   private ApiClient client;
@@ -87,8 +87,9 @@ public class EventApi {
    * @param addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma (optional)
    * @param addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma (optional)
    * @param addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma (optional)
+   * @param publicationStatus Filter events by publication status (either draft or public) (optional)
    */
-  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor start, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize, String addressLocalityFi, String addressLocalitySv, String addressLocalityEn) {
+  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor start, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize, String addressLocalityFi, String addressLocalitySv, String addressLocalityEn, String publicationStatus) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (include != null)
@@ -131,6 +132,8 @@ if (addressLocalitySv != null)
     queryParams.put("address_locality_sv", addressLocalitySv);
 if (addressLocalityEn != null)
     queryParams.put("address_locality_en", addressLocalityEn);
+if (publicationStatus != null)
+    queryParams.put("publication_status", publicationStatus);
     
         
     String requestPath = String.format("%s/event/", baseUrl);

@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Primary purpose of this endpoint is to allow users to identify which languages are supported for multilingual fields. It also has translations for the names of the languages.
  */
 @ApiModel(description = "Primary purpose of this endpoint is to allow users to identify which languages are supported for multilingual fields. It also has translations for the names of the languages.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T15:59:23.925+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T12:41:25.889+03:00")
 public class Language {
   @JsonProperty("id")
   private String id = null;
