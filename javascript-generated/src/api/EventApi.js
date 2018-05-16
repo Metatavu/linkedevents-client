@@ -33,7 +33,7 @@
   /**
    * Event service.
    * @module api/EventApi
-   * @version 0.0.10
+   * @version 0.0.11
    */
 
   /**
@@ -189,7 +189,7 @@
         'bbox': this.apiClient.buildCollectionParam(opts['bbox'], 'csv'),
         'data_source': opts['dataSource'],
         'location': this.apiClient.buildCollectionParam(opts['location'], 'csv'),
-        'showAll': opts['showAll'],
+        'show_all': opts['showAll'],
         'division': opts['division'],
         'keyword': opts['keyword'],
         'recurring': opts['recurring'],

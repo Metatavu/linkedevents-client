@@ -36,7 +36,7 @@
   /**
    * The EventInfoUrl model module.
    * @module model/EventInfoUrl
-   * @version 0.0.10
+   * @version 0.0.11
    */
 
   /**

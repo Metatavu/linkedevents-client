@@ -33,7 +33,7 @@
   /**
    * Language service.
    * @module api/LanguageApi
-   * @version 0.0.10
+   * @version 0.0.11
    */
 
   /**
