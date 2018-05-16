@@ -119,6 +119,7 @@ var opts = {
   'bbox': ["bbox_example"], // [String] | Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator.
   'dataSource': "dataSource_example", // String | Search for events that come from the specified source system
   'location': [3.4], // [Number] | Search for events in given locations as specified by id. Multiple ids are separated by comma
+  'showAll': true, // Boolean | Show all events (optional)
   'division': "division_example", // String | You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
   'keyword': "keyword_example", // String | Search for events with given keywords as specified by id. Multiple ids are separated by comma
   'recurring': "recurring_example", // String | Search for events based on whether they are part of recurring event set. 'super' specifies recurring, while 'sub' is non-recurring.
@@ -153,6 +154,7 @@ Name | Type | Description  | Notes
  **bbox** | [**[String]**](String.md)| Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator. | [optional] 
  **dataSource** | **String**| Search for events that come from the specified source system | [optional] 
  **location** | [**[Number]**](Number.md)| Search for events in given locations as specified by id. Multiple ids are separated by comma | [optional] 
+ **showAll** | **Boolean**| Show all events (optional) | [optional] 
  **division** | **String**| You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type. | [optional] 
  **keyword** | **String**| Search for events with given keywords as specified by id. Multiple ids are separated by comma | [optional] 
  **recurring** | **String**| Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring. | [optional] 

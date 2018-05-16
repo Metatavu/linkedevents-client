@@ -33,7 +33,7 @@
   /**
    * Filter service.
    * @module api/FilterApi
-   * @version 0.0.9
+   * @version 0.0.10
    */
 
   /**

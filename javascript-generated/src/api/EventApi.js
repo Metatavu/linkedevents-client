@@ -33,7 +33,7 @@
   /**
    * Event service.
    * @module api/EventApi
-   * @version 0.0.9
+   * @version 0.0.10
    */
 
   /**
@@ -157,6 +157,7 @@
      * @param {Array.<String>} opts.bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator.
      * @param {String} opts.dataSource Search for events that come from the specified source system
      * @param {Array.<Number>} opts.location Search for events in given locations as specified by id. Multiple ids are separated by comma
+     * @param {Boolean} opts.showAll Show all events (optional)
      * @param {String} opts.division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
      * @param {String} opts.keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma
      * @param {module:model/String} opts.recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring.
@@ -188,6 +189,7 @@
         'bbox': this.apiClient.buildCollectionParam(opts['bbox'], 'csv'),
         'data_source': opts['dataSource'],
         'location': this.apiClient.buildCollectionParam(opts['location'], 'csv'),
+        'showAll': opts['showAll'],
         'division': opts['division'],
         'keyword': opts['keyword'],
         'recurring': opts['recurring'],
@@ -231,6 +233,7 @@
      * @param {Array.<String>} opts.bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator.
      * @param {String} opts.dataSource Search for events that come from the specified source system
      * @param {Array.<Number>} opts.location Search for events in given locations as specified by id. Multiple ids are separated by comma
+     * @param {Boolean} opts.showAll Show all events (optional)
      * @param {String} opts.division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type.
      * @param {String} opts.keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma
      * @param {module:model/String} opts.recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring.
