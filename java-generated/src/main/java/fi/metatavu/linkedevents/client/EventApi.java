@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T12:41:25.889+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T13:22:44.171+03:00")
 public class EventApi {
 
   private ApiClient client;
@@ -75,6 +75,7 @@ public class EventApi {
    * @param bbox Search for events that are within this bounding box. Decimal coordinates are given in order west, south, east, north. Period is used as decimal separator. (optional)
    * @param dataSource Search for events that come from the specified source system (optional)
    * @param location Search for events in given locations as specified by id. Multiple ids are separated by comma (optional)
+   * @param showAll Show all events (optional) (optional)
    * @param division You may filter places by specific OCD division id, or by division name. The latter query checks all divisions with the name, regardless of division type. (optional)
    * @param keyword Search for events with given keywords as specified by id. Multiple ids are separated by comma (optional)
    * @param recurring Search for events based on whether they are part of recurring event set. &#39;super&#39; specifies recurring, while &#39;sub&#39; is non-recurring. (optional)
@@ -89,7 +90,7 @@ public class EventApi {
    * @param addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma (optional)
    * @param publicationStatus Filter events by publication status (either draft or public) (optional)
    */
-  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor start, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize, String addressLocalityFi, String addressLocalitySv, String addressLocalityEn, String publicationStatus) {
+  public ApiResponse<InlineResponse200> eventList(List<String> include, String text, String lastModifiedSince, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor start, @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = fi.metatavu.linkedevents.client.TemporalAccessorSerializer.class) @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = fi.metatavu.linkedevents.client.TemporalAccessorDeserializer.class) java.time.temporal.TemporalAccessor end, List<String> bbox, String dataSource, List<Integer> location, Boolean showAll, String division, String keyword, String recurring, Integer minDuration, Integer maxDuration, String publisher, String sort, Integer page, Integer pageSize, String addressLocalityFi, String addressLocalitySv, String addressLocalityEn, String publicationStatus) {
     Map<String, Object> queryParams = new HashMap<>();
     Map<String, Object> formParams = new HashMap<>();
     if (include != null)
@@ -108,6 +109,8 @@ if (dataSource != null)
     queryParams.put("data_source", dataSource);
 if (location != null)
     queryParams.put("location", location);
+if (showAll != null)
+    queryParams.put("showAll", showAll);
 if (division != null)
     queryParams.put("division", division);
 if (keyword != null)

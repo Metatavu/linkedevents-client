@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Short (? FIXME: perhaps specify recommendation) description of the place, multilingual.
  */
 @ApiModel(description = "Short (? FIXME: perhaps specify recommendation) description of the place, multilingual.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T12:41:25.889+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T13:22:44.171+03:00")
 public class PlaceDescription {
   @JsonProperty("fi")
   private String fi = null;
