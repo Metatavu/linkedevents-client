@@ -33,7 +33,7 @@
   /**
    * Image service.
    * @module api/ImageApi
-   * @version 0.0.8
+   * @version 0.0.9
    */
 
   /**

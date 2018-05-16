@@ -36,7 +36,7 @@
   /**
    * The OfferDescription model module.
    * @module model/OfferDescription
-   * @version 0.0.8
+   * @version 0.0.9
    */
 
   /**

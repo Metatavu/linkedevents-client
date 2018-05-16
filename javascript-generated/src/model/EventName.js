@@ -36,7 +36,7 @@
   /**
    * The EventName model module.
    * @module model/EventName
-   * @version 0.0.8
+   * @version 0.0.9
    */
 
   /**

@@ -130,7 +130,8 @@ var opts = {
   'pageSize': 56, // Number | request that server delivers page_size results in response
   'addressLocalityFi': "addressLocalityFi_example", // String | Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
   'addressLocalitySv': "addressLocalitySv_example", // String | Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
-  'addressLocalityEn': "addressLocalityEn_example" // String | Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
+  'addressLocalityEn': "addressLocalityEn_example", // String | Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
+  'publicationStatus': "publicationStatus_example" // String | Filter events by publication status (either draft or public)
 };
 apiInstance.eventList(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -164,6 +165,7 @@ Name | Type | Description  | Notes
  **addressLocalityFi** | **String**| Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma | [optional] 
  **addressLocalitySv** | **String**| Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma | [optional] 
  **addressLocalityEn** | **String**| Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma | [optional] 
+ **publicationStatus** | **String**| Filter events by publication status (either draft or public) | [optional] 
 
 ### Return type
 
