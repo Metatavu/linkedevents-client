@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * PlaceCustomData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T13:22:44.171+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T13:52:49.349+03:00")
 public class PlaceCustomData {
   @JsonProperty("key")
   private String key = null;

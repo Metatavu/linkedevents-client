@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T13:22:44.171+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T13:52:49.349+03:00")
 public class EventApi {
 
   private ApiClient client;
@@ -110,7 +110,7 @@ if (dataSource != null)
 if (location != null)
     queryParams.put("location", location);
 if (showAll != null)
-    queryParams.put("showAll", showAll);
+    queryParams.put("show_all", showAll);
 if (division != null)
     queryParams.put("division", division);
 if (keyword != null)
