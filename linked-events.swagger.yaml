@@ -130,7 +130,7 @@ parameters:
       type: integer
     description: Search for events in given locations as specified by id. Multiple ids are separated by comma
   event_showall_param:
-    name: showAll
+    name: show_all
     in: query
     type: boolean
     description: Show all events (optional)
