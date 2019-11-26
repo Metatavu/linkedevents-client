@@ -36,7 +36,7 @@
   /**
    * The KeywordSet model module.
    * @module model/KeywordSet
-   * @version 0.0.12
+   * @version 0.0.13
    */
 
   /**

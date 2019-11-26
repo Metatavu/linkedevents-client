@@ -36,7 +36,7 @@
   /**
    * The PlaceDescription model module.
    * @module model/PlaceDescription
-   * @version 0.0.12
+   * @version 0.0.13
    */
 
   /**

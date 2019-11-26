@@ -36,7 +36,7 @@
   /**
    * The PlaceTelephone model module.
    * @module model/PlaceTelephone
-   * @version 0.0.12
+   * @version 0.0.13
    */
 
   /**
