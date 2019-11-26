@@ -36,7 +36,7 @@
   /**
    * The Place model module.
    * @module model/Place
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**
