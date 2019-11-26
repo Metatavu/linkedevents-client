@@ -36,7 +36,7 @@
   /**
    * The PlaceCustomData model module.
    * @module model/PlaceCustomData
-   * @version 0.0.11
+   * @version 0.0.12
    */
 
   /**

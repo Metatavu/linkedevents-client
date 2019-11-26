@@ -36,7 +36,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.11
+   * @version 0.0.12
    */
 
   /**
@@ -132,7 +132,7 @@
         obj['sub_events'] = ApiClient.convertToType(data['sub_events'], [IdRef]);
       }
       if (data.hasOwnProperty('custom_data')) {
-        obj['custom_data'] = ApiClient.convertToType(data['custom_data'], 'String');
+        obj['custom_data'] = ApiClient.convertToType(data['custom_data'], Object);
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = EventName.constructFromObject(data['name']);
@@ -257,7 +257,7 @@
   exports.prototype['sub_events'] = undefined;
   /**
    * Key value field for custom data. FIXME: is there 6Aika-wide use case for this?
-   * @member {String} custom_data
+   * @member {Object} custom_data
    */
   exports.prototype['custom_data'] = undefined;
   /**
