@@ -36,7 +36,7 @@
   /**
    * The OfferPrice model module.
    * @module model/OfferPrice
-   * @version 0.0.14
+   * @version 0.0.15
    */
 
   /**

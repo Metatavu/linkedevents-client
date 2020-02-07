@@ -36,7 +36,7 @@
   /**
    * The Eventlink model module.
    * @module model/Eventlink
-   * @version 0.0.14
+   * @version 0.0.15
    */
 
   /**

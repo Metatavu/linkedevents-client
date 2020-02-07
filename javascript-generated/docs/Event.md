@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | consists of source prefix and source specific identifier. These should be URIs uniquely identifying the event, and preferably also well formed http-URLs pointing to more information about the event. | [optional] 
-**location** | [**IdRef**](IdRef.md) |  | 
+**location** | [**Place**](Place.md) |  | 
 **keywords** | [**[IdRef]**](IdRef.md) | array of keyword uri references | 
 **inLanguage** | [**[Language]**](Language.md) | the languages spoken or supported at the event | [optional] 
 **superEvent** | [**IdRef**](IdRef.md) | references the aggregate event containing this event | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **externalLinks** | [**[Eventlink]**](Eventlink.md) | See external link definition | [optional] 
 **offers** | [**[Offer]**](Offer.md) | See offer definition | [optional] 
 **subEvents** | [**[IdRef]**](IdRef.md) | for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field &#39;super_event_type&#39; tells the type of the aggregate event. | [optional] 
-**customData** | **Object** | Key value field for custom data. FIXME: is there 6Aika-wide use case for this? | [optional] 
+**customData** | **String** | Key value field for custom data. FIXME: is there 6Aika-wide use case for this? | [optional] 
 **name** | [**EventName**](EventName.md) |  | [optional] 
 **images** | [**[Image]**](Image.md) |  | [optional] 
 **createdTime** | **Date** | Creation time for the event entry. | [optional] 

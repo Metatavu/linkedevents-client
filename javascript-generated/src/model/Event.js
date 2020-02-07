@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/EventInfoUrl', 'model/EventName', 'model/Eventlink', 'model/IdRef', 'model/Image', 'model/Keyword', 'model/Language', 'model/Offer'], factory);
+    define(['ApiClient', 'model/EventInfoUrl', 'model/EventName', 'model/Eventlink', 'model/IdRef', 'model/Image', 'model/Keyword', 'model/Language', 'model/Offer', 'model/Place'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./EventInfoUrl'), require('./EventName'), require('./Eventlink'), require('./IdRef'), require('./Image'), require('./Keyword'), require('./Language'), require('./Offer'));
+    module.exports = factory(require('../ApiClient'), require('./EventInfoUrl'), require('./EventName'), require('./Eventlink'), require('./IdRef'), require('./Image'), require('./Keyword'), require('./Language'), require('./Offer'), require('./Place'));
   } else {
     // Browser globals (root is window)
     if (!root.LinkedeventsClient) {
       root.LinkedeventsClient = {};
     }
-    root.LinkedeventsClient.Event = factory(root.LinkedeventsClient.ApiClient, root.LinkedeventsClient.EventInfoUrl, root.LinkedeventsClient.EventName, root.LinkedeventsClient.Eventlink, root.LinkedeventsClient.IdRef, root.LinkedeventsClient.Image, root.LinkedeventsClient.Keyword, root.LinkedeventsClient.Language, root.LinkedeventsClient.Offer);
+    root.LinkedeventsClient.Event = factory(root.LinkedeventsClient.ApiClient, root.LinkedeventsClient.EventInfoUrl, root.LinkedeventsClient.EventName, root.LinkedeventsClient.Eventlink, root.LinkedeventsClient.IdRef, root.LinkedeventsClient.Image, root.LinkedeventsClient.Keyword, root.LinkedeventsClient.Language, root.LinkedeventsClient.Offer, root.LinkedeventsClient.Place);
   }
-}(this, function(ApiClient, EventInfoUrl, EventName, Eventlink, IdRef, Image, Keyword, Language, Offer) {
+}(this, function(ApiClient, EventInfoUrl, EventName, Eventlink, IdRef, Image, Keyword, Language, Offer, Place) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.14
+   * @version 0.0.15
    */
 
   /**
@@ -44,7 +44,7 @@
    * Describes the actual events. Linked events API supports organizing events into hierarchies. This is implemented with collection events called \&quot;super events\&quot;. Super events are normal event objects, that reference contained events in \&quot;sub_events\&quot; property. Currently there are two major use cases: events such as \&quot;Helsinki Festival\&quot;, which consist of unique events over a span of time and recurring events such as theatrical productions with multiple showings. It is implementation dependent how the grouping of events is done. It should be noted that grouping might be automatic based on eg. event name and thus group unrelated events together and miss related events. Users of data are advised to prepare for this.
    * @alias module:model/Event
    * @class
-   * @param location {module:model/IdRef} 
+   * @param location {module:model/Place} 
    * @param keywords {Array.<module:model/IdRef>} array of keyword uri references
    * @param publicationStatus {String} Only available in POST/PUT. Specifies whether the event should be published in the API ('public') or not ('draft').
    * @param startTime {Date} Time the event will start
@@ -102,7 +102,7 @@
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('location')) {
-        obj['location'] = IdRef.constructFromObject(data['location']);
+        obj['location'] = Place.constructFromObject(data['location']);
       }
       if (data.hasOwnProperty('keywords')) {
         obj['keywords'] = ApiClient.convertToType(data['keywords'], [IdRef]);
@@ -132,7 +132,7 @@
         obj['sub_events'] = ApiClient.convertToType(data['sub_events'], [IdRef]);
       }
       if (data.hasOwnProperty('custom_data')) {
-        obj['custom_data'] = ApiClient.convertToType(data['custom_data'], Object);
+        obj['custom_data'] = ApiClient.convertToType(data['custom_data'], 'String');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = EventName.constructFromObject(data['name']);
@@ -207,7 +207,7 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {module:model/IdRef} location
+   * @member {module:model/Place} location
    */
   exports.prototype['location'] = undefined;
   /**
@@ -257,7 +257,7 @@
   exports.prototype['sub_events'] = undefined;
   /**
    * Key value field for custom data. FIXME: is there 6Aika-wide use case for this?
-   * @member {Object} custom_data
+   * @member {String} custom_data
    */
   exports.prototype['custom_data'] = undefined;
   /**
