@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **externalLinks** | [**[Eventlink]**](Eventlink.md) | See external link definition | [optional] 
 **offers** | [**[Offer]**](Offer.md) | See offer definition | [optional] 
 **subEvents** | [**[IdRef]**](IdRef.md) | for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field &#39;super_event_type&#39; tells the type of the aggregate event. | [optional] 
-**customData** | **String** | Key value field for custom data. FIXME: is there 6Aika-wide use case for this? | [optional] 
+**customData** | **Object** | Key value field for custom data. FIXME: is there 6Aika-wide use case for this? | [optional] 
 **name** | [**EventName**](EventName.md) |  | [optional] 
 **images** | [**[Image]**](Image.md) |  | [optional] 
 **createdTime** | **Date** | Creation time for the event entry. | [optional] 
