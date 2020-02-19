@@ -602,7 +602,7 @@ definitions:
           "$ref": "#/definitions/id_ref"
         description: for aggregate events this contains references to all sub events. Usually this means that the sub events are part of series. The field 'super_event_type' tells the type of the aggregate event.
       custom_data:
-        type: string
+        type: object
         description: "Key value field for custom data. FIXME: is there 6Aika-wide use case for this?"
       name:
         type: object
