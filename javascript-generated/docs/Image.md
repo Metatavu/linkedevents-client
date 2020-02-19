@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **url** | **String** | The image file URL. | 
 **cropping** | **String** | Cropping data for the image. | [optional] 
 **license** | **String** | License data for the image. May be \&quot;cc_by\&quot; (default) or \&quot;event_only\&quot;. The latter license restricts use of the image and is specified on the API front page. | [optional] 
+**id** | **String** |  | [optional] 
 
 

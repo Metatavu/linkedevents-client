@@ -36,7 +36,7 @@
   /**
    * The Image model module.
    * @module model/Image
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**
@@ -57,6 +57,7 @@
 
 
     _this['url'] = url;
+
 
 
   };
@@ -101,6 +102,9 @@
       }
       if (data.hasOwnProperty('license')) {
         obj['license'] = ApiClient.convertToType(data['license'], 'String');
+      }
+      if (data.hasOwnProperty('@id')) {
+        obj['@id'] = ApiClient.convertToType(data['@id'], 'String');
       }
     }
     return obj;
@@ -155,6 +159,10 @@
    * @member {String} license
    */
   exports.prototype['license'] = undefined;
+  /**
+   * @member {String} @id
+   */
+  exports.prototype['@id'] = undefined;
 
 
 

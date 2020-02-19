@@ -36,7 +36,7 @@
   /**
    * The PlaceName model module.
    * @module model/PlaceName
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**
