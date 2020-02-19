@@ -400,7 +400,9 @@ definitions:
       license:
         type: string
         description: License data for the image. May be "cc_by" (default) or "event_only". The latter license restricts use of the image and is specified on the API front page.
-
+      "@id":
+        type: string
+        
   image_url:
     title: Image URL
     description: Images URL
