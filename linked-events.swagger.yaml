@@ -1508,6 +1508,12 @@ paths:
           type: string
           description: Event identifier as defined in event schema
           required: true
+        - name: include
+          in: query
+          type: array
+          items:
+            type: string
+          description: Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
     put:
       summary: Update an event
       description: Events can be updated if the user has appropriate access permissions. The original implementation behaves like PATCH, ie. if some field is left out from the PUT call, its value is retained in database. In order to ensure consistent behaviour, users should always supply every field in PUT call.
