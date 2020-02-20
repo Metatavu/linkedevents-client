@@ -33,7 +33,7 @@
   /**
    * Event service.
    * @module api/EventApi
-   * @version 0.0.17
+   * @version 0.0.18
    */
 
   /**
@@ -260,9 +260,12 @@
     /**
      * Retrieve single event by id
      * @param {String} id Event identifier as defined in event schema
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.include Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Event} and HTTP response
      */
-    this.eventRetrieveWithHttpInfo = function(id) {
+    this.eventRetrieveWithHttpInfo = function(id, opts) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'id' is set
@@ -275,6 +278,7 @@
         'id': id
       };
       var queryParams = {
+        'include': this.apiClient.buildCollectionParam(opts['include'], 'csv')
       };
       var headerParams = {
       };
@@ -296,10 +300,12 @@
     /**
      * Retrieve single event by id
      * @param {String} id Event identifier as defined in event schema
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.include Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Event}
      */
-    this.eventRetrieve = function(id) {
-      return this.eventRetrieveWithHttpInfo(id)
+    this.eventRetrieve = function(id, opts) {
+      return this.eventRetrieveWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

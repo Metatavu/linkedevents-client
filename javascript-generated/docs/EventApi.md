@@ -184,7 +184,7 @@ No authorization required
 
 <a name="eventRetrieve"></a>
 # **eventRetrieve**
-> Event eventRetrieve(id)
+> Event eventRetrieve(id, opts)
 
 Retrieve single event by id
 
@@ -196,7 +196,10 @@ var apiInstance = new LinkedeventsClient.EventApi();
 
 var id = "id_example"; // String | Event identifier as defined in event schema
 
-apiInstance.eventRetrieve(id).then(function(data) {
+var opts = { 
+  'include': ["include_example"] // [String] | Embed given reference-type fields directly into the response, otherwise they are returned as URI references.
+};
+apiInstance.eventRetrieve(id, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -209,6 +212,7 @@ apiInstance.eventRetrieve(id).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Event identifier as defined in event schema | 
+ **include** | [**[String]**](String.md)| Embed given reference-type fields directly into the response, otherwise they are returned as URI references. | [optional] 
 
 ### Return type
 

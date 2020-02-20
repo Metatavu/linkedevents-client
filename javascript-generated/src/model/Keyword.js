@@ -36,7 +36,7 @@
   /**
    * The Keyword model module.
    * @module model/Keyword
-   * @version 0.0.17
+   * @version 0.0.18
    */
 
   /**

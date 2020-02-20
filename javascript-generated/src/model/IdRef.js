@@ -36,7 +36,7 @@
   /**
    * The IdRef model module.
    * @module model/IdRef
-   * @version 0.0.17
+   * @version 0.0.18
    */
 
   /**
