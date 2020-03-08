@@ -36,7 +36,7 @@
   /**
    * The Place model module.
    * @module model/Place
-   * @version 0.0.18
+   * @version 0.0.19
    */
 
   /**
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -148,6 +149,9 @@
       }
       if (data.hasOwnProperty('publisher')) {
         obj['publisher'] = ApiClient.convertToType(data['publisher'], 'String');
+      }
+      if (data.hasOwnProperty('@id')) {
+        obj['@id'] = ApiClient.convertToType(data['@id'], 'String');
       }
     }
     return obj;
@@ -255,6 +259,10 @@
    * @member {String} publisher
    */
   exports.prototype['publisher'] = undefined;
+  /**
+   * @member {String} @id
+   */
+  exports.prototype['@id'] = undefined;
 
 
 
