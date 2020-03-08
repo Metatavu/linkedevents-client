@@ -360,6 +360,8 @@ definitions:
       publisher:
         type: string
         description: Organization that provided the event that this place is associated with
+      "@id":
+        type: string
 
   image:
     title: Image
