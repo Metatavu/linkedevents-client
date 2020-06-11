@@ -486,8 +486,17 @@ definitions:
         type: string
         description: Unique identifier for this keyword_set. These should be URIs identifying the source and the keyword_set itself, and preferably also well formed http-URLs pointing to more information about the keyword.
       name:
-        type: string
-        description: Name for this keyword_set. This should be human readable, such that it could be shown as label in UI
+        type: object
+        properties:
+          fi:
+            type: string
+            description: Keyword in Finnish
+          sv:
+            type: string
+            description: Keyword in Swedish
+          en:
+            type: string
+            description: Keyword in English
       origin_id:
         type: string
         description: "Set identifier in the originating system, if any"
@@ -1118,7 +1127,7 @@ paths:
             type: object
             properties:
               meta:
-                $ref: "#/definitions/keyword"
+                $ref: "#/definitions/meta_definition"
               data:
                 type: array
                 items:
