@@ -732,6 +732,9 @@ definitions:
       publisher:
         type: string
         description: Organization responsible for this event record.
+      accessible:
+        type: boolean
+        description: Is event accessible for everyone
   offer:
     title: Price offers
     description: information record for this event. The prices are not in a structured format and the format depends on information source. An exception to this is the case of free event. These are indicated using is_free flag, which is searchable.
