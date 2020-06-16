@@ -490,13 +490,13 @@ definitions:
         properties:
           fi:
             type: string
-            description: Keyword in Finnish
+            description: Keyword set name in Finnish
           sv:
             type: string
-            description: Keyword in Swedish
+            description: Keyword set name in Swedish
           en:
             type: string
-            description: Keyword in English
+            description: Keyword set name in English
       origin_id:
         type: string
         description: "Set identifier in the originating system, if any"
