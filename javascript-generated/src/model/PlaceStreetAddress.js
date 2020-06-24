@@ -36,7 +36,7 @@
   /**
    * The PlaceStreetAddress model module.
    * @module model/PlaceStreetAddress
-   * @version 0.0.21
+   * @version 0.0.22
    */
 
   /**
