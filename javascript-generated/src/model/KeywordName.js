@@ -36,7 +36,7 @@
   /**
    * The KeywordName model module.
    * @module model/KeywordName
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**

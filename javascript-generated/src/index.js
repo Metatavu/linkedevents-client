@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Event', 'model/EventInfoUrl', 'model/EventName', 'model/Eventlink', 'model/IdRef', 'model/Image', 'model/ImageUrl', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/Keyword', 'model/KeywordName', 'model/KeywordSet', 'model/Language', 'model/LanguageName', 'model/MetaDefinition', 'model/Offer', 'model/OfferDescription', 'model/OfferInfoUrl', 'model/OfferPrice', 'model/Place', 'model/PlaceAddressLocality', 'model/PlaceCustomData', 'model/PlaceDescription', 'model/PlaceInfoUrl', 'model/PlaceName', 'model/PlacePosition', 'model/PlaceStreetAddress', 'model/PlaceTelephone', 'api/EventApi', 'api/FilterApi', 'api/ImageApi', 'api/LanguageApi', 'api/SearchApi'], factory);
+    define(['ApiClient', 'model/Event', 'model/EventInfoUrl', 'model/EventName', 'model/Eventlink', 'model/IdRef', 'model/Image', 'model/ImageUrl', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/Keyword', 'model/KeywordName', 'model/KeywordSet', 'model/KeywordSetName', 'model/Language', 'model/LanguageName', 'model/MetaDefinition', 'model/Offer', 'model/OfferDescription', 'model/OfferInfoUrl', 'model/OfferPrice', 'model/Place', 'model/PlaceAddressLocality', 'model/PlaceCustomData', 'model/PlaceDescription', 'model/PlaceInfoUrl', 'model/PlaceName', 'model/PlacePosition', 'model/PlaceStreetAddress', 'model/PlaceTelephone', 'api/EventApi', 'api/FilterApi', 'api/ImageApi', 'api/LanguageApi', 'api/SearchApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Event'), require('./model/EventInfoUrl'), require('./model/EventName'), require('./model/Eventlink'), require('./model/IdRef'), require('./model/Image'), require('./model/ImageUrl'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/Keyword'), require('./model/KeywordName'), require('./model/KeywordSet'), require('./model/Language'), require('./model/LanguageName'), require('./model/MetaDefinition'), require('./model/Offer'), require('./model/OfferDescription'), require('./model/OfferInfoUrl'), require('./model/OfferPrice'), require('./model/Place'), require('./model/PlaceAddressLocality'), require('./model/PlaceCustomData'), require('./model/PlaceDescription'), require('./model/PlaceInfoUrl'), require('./model/PlaceName'), require('./model/PlacePosition'), require('./model/PlaceStreetAddress'), require('./model/PlaceTelephone'), require('./api/EventApi'), require('./api/FilterApi'), require('./api/ImageApi'), require('./api/LanguageApi'), require('./api/SearchApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Event'), require('./model/EventInfoUrl'), require('./model/EventName'), require('./model/Eventlink'), require('./model/IdRef'), require('./model/Image'), require('./model/ImageUrl'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/Keyword'), require('./model/KeywordName'), require('./model/KeywordSet'), require('./model/KeywordSetName'), require('./model/Language'), require('./model/LanguageName'), require('./model/MetaDefinition'), require('./model/Offer'), require('./model/OfferDescription'), require('./model/OfferInfoUrl'), require('./model/OfferPrice'), require('./model/Place'), require('./model/PlaceAddressLocality'), require('./model/PlaceCustomData'), require('./model/PlaceDescription'), require('./model/PlaceInfoUrl'), require('./model/PlaceName'), require('./model/PlacePosition'), require('./model/PlaceStreetAddress'), require('./model/PlaceTelephone'), require('./api/EventApi'), require('./api/FilterApi'), require('./api/ImageApi'), require('./api/LanguageApi'), require('./api/SearchApi'));
   }
-}(function(ApiClient, Event, EventInfoUrl, EventName, Eventlink, IdRef, Image, ImageUrl, InlineResponse200, InlineResponse2001, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, Keyword, KeywordName, KeywordSet, Language, LanguageName, MetaDefinition, Offer, OfferDescription, OfferInfoUrl, OfferPrice, Place, PlaceAddressLocality, PlaceCustomData, PlaceDescription, PlaceInfoUrl, PlaceName, PlacePosition, PlaceStreetAddress, PlaceTelephone, EventApi, FilterApi, ImageApi, LanguageApi, SearchApi) {
+}(function(ApiClient, Event, EventInfoUrl, EventName, Eventlink, IdRef, Image, ImageUrl, InlineResponse200, InlineResponse2001, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, Keyword, KeywordName, KeywordSet, KeywordSetName, Language, LanguageName, MetaDefinition, Offer, OfferDescription, OfferInfoUrl, OfferPrice, Place, PlaceAddressLocality, PlaceCustomData, PlaceDescription, PlaceInfoUrl, PlaceName, PlacePosition, PlaceStreetAddress, PlaceTelephone, EventApi, FilterApi, ImageApi, LanguageApi, SearchApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.20
+   * @version 0.0.21
    */
   var exports = {
     /**
@@ -141,6 +141,11 @@
      * @property {module:model/KeywordSet}
      */
     KeywordSet: KeywordSet,
+    /**
+     * The KeywordSetName model constructor.
+     * @property {module:model/KeywordSetName}
+     */
+    KeywordSetName: KeywordSetName,
     /**
      * The Language model constructor.
      * @property {module:model/Language}

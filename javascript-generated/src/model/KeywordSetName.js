@@ -25,7 +25,7 @@
     if (!root.LinkedeventsClient) {
       root.LinkedeventsClient = {};
     }
-    root.LinkedeventsClient.PlaceName = factory(root.LinkedeventsClient.ApiClient);
+    root.LinkedeventsClient.KeywordSetName = factory(root.LinkedeventsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,14 @@
 
 
   /**
-   * The PlaceName model module.
-   * @module model/PlaceName
+   * The KeywordSetName model module.
+   * @module model/KeywordSetName
    * @version 0.0.21
    */
 
   /**
-   * Constructs a new <code>PlaceName</code>.
-   * Name of the place, multilingual
-   * @alias module:model/PlaceName
+   * Constructs a new <code>KeywordSetName</code>.
+   * @alias module:model/KeywordSetName
    * @class
    */
   var exports = function() {
@@ -54,11 +53,11 @@
   };
 
   /**
-   * Constructs a <code>PlaceName</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>KeywordSetName</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PlaceName} obj Optional instance to populate.
-   * @return {module:model/PlaceName} The populated <code>PlaceName</code> instance.
+   * @param {module:model/KeywordSetName} obj Optional instance to populate.
+   * @return {module:model/KeywordSetName} The populated <code>KeywordSetName</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -78,17 +77,17 @@
   }
 
   /**
-   * place name in Finnish
+   * Keyword set name in Finnish
    * @member {String} fi
    */
   exports.prototype['fi'] = undefined;
   /**
-   * place name in Swedish
+   * Keyword set name in Swedish
    * @member {String} sv
    */
   exports.prototype['sv'] = undefined;
   /**
-   * place name in English
+   * Keyword set name in English
    * @member {String} en
    */
   exports.prototype['en'] = undefined;

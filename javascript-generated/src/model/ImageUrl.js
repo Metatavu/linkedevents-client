@@ -36,7 +36,7 @@
   /**
    * The ImageUrl model module.
    * @module model/ImageUrl
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**

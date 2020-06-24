@@ -36,7 +36,7 @@
   /**
    * The OfferInfoUrl model module.
    * @module model/OfferInfoUrl
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**
