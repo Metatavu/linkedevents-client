@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Keyword', 'model/KeywordSet'], factory);
+    define(['ApiClient', 'model/KeywordSet', 'model/MetaDefinition'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Keyword'), require('./KeywordSet'));
+    module.exports = factory(require('../ApiClient'), require('./KeywordSet'), require('./MetaDefinition'));
   } else {
     // Browser globals (root is window)
     if (!root.LinkedeventsClient) {
       root.LinkedeventsClient = {};
     }
-    root.LinkedeventsClient.InlineResponse2003 = factory(root.LinkedeventsClient.ApiClient, root.LinkedeventsClient.Keyword, root.LinkedeventsClient.KeywordSet);
+    root.LinkedeventsClient.InlineResponse2003 = factory(root.LinkedeventsClient.ApiClient, root.LinkedeventsClient.KeywordSet, root.LinkedeventsClient.MetaDefinition);
   }
-}(this, function(ApiClient, Keyword, KeywordSet) {
+}(this, function(ApiClient, KeywordSet, MetaDefinition) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The InlineResponse2003 model module.
    * @module model/InlineResponse2003
-   * @version 0.0.19
+   * @version 0.0.22
    */
 
   /**
@@ -63,7 +63,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('meta')) {
-        obj['meta'] = Keyword.constructFromObject(data['meta']);
+        obj['meta'] = MetaDefinition.constructFromObject(data['meta']);
       }
       if (data.hasOwnProperty('data')) {
         obj['data'] = ApiClient.convertToType(data['data'], [KeywordSet]);
@@ -73,7 +73,7 @@
   }
 
   /**
-   * @member {module:model/Keyword} meta
+   * @member {module:model/MetaDefinition} meta
    */
   exports.prototype['meta'] = undefined;
   /**

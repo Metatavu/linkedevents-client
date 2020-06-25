@@ -36,7 +36,7 @@
   /**
    * The PlacePosition model module.
    * @module model/PlacePosition
-   * @version 0.0.19
+   * @version 0.0.22
    */
 
   /**

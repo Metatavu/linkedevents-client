@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Keyword'], factory);
+    define(['ApiClient', 'model/Keyword', 'model/KeywordSetName'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Keyword'));
+    module.exports = factory(require('../ApiClient'), require('./Keyword'), require('./KeywordSetName'));
   } else {
     // Browser globals (root is window)
     if (!root.LinkedeventsClient) {
       root.LinkedeventsClient = {};
     }
-    root.LinkedeventsClient.KeywordSet = factory(root.LinkedeventsClient.ApiClient, root.LinkedeventsClient.Keyword);
+    root.LinkedeventsClient.KeywordSet = factory(root.LinkedeventsClient.ApiClient, root.LinkedeventsClient.Keyword, root.LinkedeventsClient.KeywordSetName);
   }
-}(this, function(ApiClient, Keyword) {
+}(this, function(ApiClient, Keyword, KeywordSetName) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The KeywordSet model module.
    * @module model/KeywordSet
-   * @version 0.0.19
+   * @version 0.0.22
    */
 
   /**
@@ -45,14 +45,13 @@
    * @alias module:model/KeywordSet
    * @class
    * @param id {String} Unique identifier for this keyword_set. These should be URIs identifying the source and the keyword_set itself, and preferably also well formed http-URLs pointing to more information about the keyword.
-   * @param name {String} Name for this keyword_set. This should be human readable, such that it could be shown as label in UI
    * @param keywords {Array.<module:model/Keyword>} Keywords that belong to this keyword_set
    */
-  var exports = function(id, name, keywords) {
+  var exports = function(id, keywords) {
     var _this = this;
 
     _this['id'] = id;
-    _this['name'] = name;
+
 
 
 
@@ -78,7 +77,7 @@
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+        obj['name'] = KeywordSetName.constructFromObject(data['name']);
       }
       if (data.hasOwnProperty('origin_id')) {
         obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
@@ -114,8 +113,7 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * Name for this keyword_set. This should be human readable, such that it could be shown as label in UI
-   * @member {String} name
+   * @member {module:model/KeywordSetName} name
    */
   exports.prototype['name'] = undefined;
   /**
