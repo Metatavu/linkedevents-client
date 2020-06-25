@@ -177,6 +177,11 @@ parameters:
     in: query
     type: string
     description: Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
+  event_language:
+    name: language
+    in: query
+    type: string
+    description: Search for events in given language
   event_publication_status:
     name: publication_status
     in: query
@@ -1479,6 +1484,7 @@ paths:
         - $ref: "#/parameters/event_address_locality_fi"
         - $ref: "#/parameters/event_address_locality_sv"
         - $ref: "#/parameters/event_address_locality_en"
+        - $ref: "#/parameters/event_language"
         - $ref: "#/parameters/event_publication_status"
     post:
       summary: Create a new event
