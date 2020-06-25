@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**Keyword**](Keyword.md) |  | [optional] 
+**meta** | [**MetaDefinition**](MetaDefinition.md) |  | [optional] 
 **data** | [**[KeywordSet]**](KeywordSet.md) |  | [optional] 
 
 

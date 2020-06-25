@@ -25,7 +25,7 @@
     if (!root.LinkedeventsClient) {
       root.LinkedeventsClient = {};
     }
-    root.LinkedeventsClient.PlaceCustomData = factory(root.LinkedeventsClient.ApiClient);
+    root.LinkedeventsClient.KeywordSetName = factory(root.LinkedeventsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The PlaceCustomData model module.
-   * @module model/PlaceCustomData
+   * The KeywordSetName model module.
+   * @module model/KeywordSetName
    * @version 0.0.22
    */
 
   /**
-   * Constructs a new <code>PlaceCustomData</code>.
-   * @alias module:model/PlaceCustomData
+   * Constructs a new <code>KeywordSetName</code>.
+   * @alias module:model/KeywordSetName
    * @class
    */
   var exports = function() {
@@ -49,37 +49,48 @@
 
 
 
+
   };
 
   /**
-   * Constructs a <code>PlaceCustomData</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>KeywordSetName</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PlaceCustomData} obj Optional instance to populate.
-   * @return {module:model/PlaceCustomData} The populated <code>PlaceCustomData</code> instance.
+   * @param {module:model/KeywordSetName} obj Optional instance to populate.
+   * @return {module:model/KeywordSetName} The populated <code>KeywordSetName</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('key')) {
-        obj['key'] = ApiClient.convertToType(data['key'], 'String');
+      if (data.hasOwnProperty('fi')) {
+        obj['fi'] = ApiClient.convertToType(data['fi'], 'String');
       }
-      if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], 'String');
+      if (data.hasOwnProperty('sv')) {
+        obj['sv'] = ApiClient.convertToType(data['sv'], 'String');
+      }
+      if (data.hasOwnProperty('en')) {
+        obj['en'] = ApiClient.convertToType(data['en'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} key
+   * Keyword set name in Finnish
+   * @member {String} fi
    */
-  exports.prototype['key'] = undefined;
+  exports.prototype['fi'] = undefined;
   /**
-   * @member {String} value
+   * Keyword set name in Swedish
+   * @member {String} sv
    */
-  exports.prototype['value'] = undefined;
+  exports.prototype['sv'] = undefined;
+  /**
+   * Keyword set name in English
+   * @member {String} en
+   */
+  exports.prototype['en'] = undefined;
 
 
 

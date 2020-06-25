@@ -36,7 +36,7 @@
   /**
    * The PlaceAddressLocality model module.
    * @module model/PlaceAddressLocality
-   * @version 0.0.19
+   * @version 0.0.22
    */
 
   /**
