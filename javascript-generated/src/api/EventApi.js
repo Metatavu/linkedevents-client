@@ -33,7 +33,7 @@
   /**
    * Event service.
    * @module api/EventApi
-   * @version 0.0.22
+   * @version 0.0.23
    */
 
   /**
@@ -170,6 +170,7 @@
      * @param {String} opts.addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
      * @param {String} opts.addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
      * @param {String} opts.addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
+     * @param {String} opts.language Search for events in given language
      * @param {String} opts.publicationStatus Filter events by publication status (either draft or public)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
@@ -202,6 +203,7 @@
         'address_locality_fi': opts['addressLocalityFi'],
         'address_locality_sv': opts['addressLocalitySv'],
         'address_locality_en': opts['addressLocalityEn'],
+        'language': opts['language'],
         'publication_status': opts['publicationStatus']
       };
       var headerParams = {
@@ -246,6 +248,7 @@
      * @param {String} opts.addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma
      * @param {String} opts.addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma
      * @param {String} opts.addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma
+     * @param {String} opts.language Search for events in given language
      * @param {String} opts.publicationStatus Filter events by publication status (either draft or public)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
      */
